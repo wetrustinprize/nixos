@@ -13,17 +13,17 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      makeHome = {username, hostname}: home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = builtins.filter (x: x!= null) [
-          ./users/${username}/home.nix
-          (
-            if builtins.pathExists ./users/${username}/${hostname}.nix
-            then ./users/${username}/${hostname}.nix
-            else null
-          )
-        ];
-      };
+      makeHome = { username, hostname }:
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = builtins.filter (x: x != null) [
+            ./users/${username}/home.nix
+            (if builtins.pathExists ./users/${username}/${hostname}.nix then
+              ./users/${username}/${hostname}.nix
+            else
+              null)
+          ];
+        };
     in {
       nixosConfigurations = {
         dionysus = lib.nixosSystem {
@@ -32,7 +32,10 @@
         };
       };
       homeConfigurations = {
-        "wetrustinprize@dionysus" = makeHome { username = "wetrustinprize"; hostname = "dionysus"; };
+        "wetrustinprize@dionysus" = makeHome {
+          username = "wetrustinprize";
+          hostname = "dionysus";
+        };
       };
     };
 

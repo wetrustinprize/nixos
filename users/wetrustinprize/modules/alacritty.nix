@@ -1,11 +1,10 @@
 { ... }:
-  let
-    cursorColor = {
-      text = "#2e3440";
-      cursor = "#d8dee9";
-    };
-  in
-{
+let
+  cursorColor = {
+    text = "#2e3440";
+    cursor = "#d8dee9";
+  };
+in {
 
   programs.alacritty = {
     enable = true;
@@ -14,7 +13,7 @@
         family = "JetBrainsMono Nerd Font Mono";
         style = "Regular";
       };
-      
+
       env.TERM = "xterm-256color";
 
       colors = {

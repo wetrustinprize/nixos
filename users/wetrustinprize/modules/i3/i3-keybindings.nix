@@ -1,10 +1,9 @@
-mod:
-{
+mod: {
   # Spawn
   "${mod}+Return" = "exec alacritty";
   "${mod}+F2" = "exec vivaldi";
   "${mod}+F3" = "exec thunar";
- 
+
   # Kill 
   "${mod}+Shift+c" = "kill";
   "${mod}+Shift+x" = "--release exec --no-startup-id xkill";
@@ -14,7 +13,7 @@ mod:
   "${mod}+j" = "focus down";
   "${mod}+k" = "focus up";
   "${mod}+l" = "focus right";
-  
+
   # Layouts
   "${mod}+f" = "fullscreen toggle";
   "${mod}+s" = "layout stacking";
@@ -28,7 +27,7 @@ mod:
 
   # Container
   "${mod}+a" = "focus parent";
-  
+
   # Switch workspaces
   "${mod}+1" = "workspace 1";
   "${mod}+2" = "workspace 2";
@@ -65,7 +64,7 @@ mod:
   # Rofi
   "${mod}+p" = "exec --no-startup-id rofi -show drun";
   "${mod}+Shift+p" = "exec --no-startup-id rofi -show run";
-  
+
   # Print Screen
   "Print" = "--release exec --no-startup-id i3-scrot -sc";
   "Shift+Print" = "--release exec --no-startup-id i3-scrot -wc";
