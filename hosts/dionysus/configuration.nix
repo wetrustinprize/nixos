@@ -9,6 +9,7 @@
 
   time.timeZone = "America/SaoPaulo";
 
-  system.stateVersion = "23.11";
+  services.xserver.layout = "br";
+
 }
 
