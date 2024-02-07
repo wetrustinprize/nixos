@@ -6,6 +6,12 @@
 
   networking.networkmanager.enable = true;
 
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "no";
+    passwordAuthentication = false;
+  };
+
   nix.settings.trusted-users = [ "root" "@wheel" ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
