@@ -15,9 +15,14 @@ let
   };
   modules = import ./modules.nix colors;
 in {
-  home.file.".config/polybar/scripts" = {
-    source = ./scripts;
-    recursive = true;
+  home.file.".config/polybar/scripts/mute-dunst.sh" = {
+    source = ./scripts/mute-dunst.sh;
+    executable = true;
+  };
+
+  home.file.".config/polybar/scripts/mute-mic.sh" = {
+    source = ./scripts/mute-mic.sh;
+    executable = true;
   };
 
   services.polybar = {
