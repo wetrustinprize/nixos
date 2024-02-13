@@ -1,4 +1,9 @@
 { pkgs, ... }: {
+  imports = [
+    (fetchTarball
+      "https://github.com/nix-community/nixos-vscode-server/tarball/master")
+  ];
+
   security.polkit.enable = true;
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
@@ -26,7 +31,7 @@
     windowManager.i3 = { enable = true; };
   };
 
-  services.code-server.enable = true;
+  services.vscode-server.enable = true;
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
