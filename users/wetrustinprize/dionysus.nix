@@ -6,7 +6,6 @@
   services.barrier.client = {
     enable = true;
     name = "dionysus";
-    serverAddress = "192.168.18.2"
   };
 
   services.polybar.script = ''
