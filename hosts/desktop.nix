@@ -26,6 +26,8 @@
     windowManager.i3 = { enable = true; };
   };
 
+  services.code-server.enable = true;
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 }
