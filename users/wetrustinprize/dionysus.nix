@@ -1,12 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ unityhub gimp ];
-
-  services.barrier.client = {
-    enable = true;
-    name = "dionysus";
-  };
+  home.packages = with pkgs; [ unityhub gimp barrier ];
 
   services.polybar.script = ''
     killall -q polybar
