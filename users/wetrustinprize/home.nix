@@ -31,5 +31,7 @@
     xfce.thunar
   ];
 
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.file.".background-image" = { source = ./background.png; };
+
+  home.stateVersion = "23.11";
 }

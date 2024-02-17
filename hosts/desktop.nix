@@ -51,6 +51,10 @@
       };
       defaultSession = "none+i3";
     };
+    desktopManager.wallpaper = {
+      mode = "scale";
+      combineScreens = true;
+    };
     windowManager.i3 = { enable = true; };
   };
 
