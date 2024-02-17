@@ -1,14 +1,7 @@
 { config, ... }: {
   programs.rofi = {
     enable = true;
-    theme = let
-      # Use `mkLiteral` for string-like values that should show without
-      # quotes, e.g.:
-      # {
-      #   foo = "abc"; =&gt; foo: "abc";
-      #   bar = mkLiteral "abc"; =&gt; bar: abc;
-      # };
-      inherit (config.lib.formats.rasi) mkLiteral;
+    theme = let inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "configuration" = {
         "font" = "JetBrainsMonoNerdFont 12";
