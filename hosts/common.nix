@@ -17,7 +17,15 @@
   nix.settings.trusted-users = [ "root" "@wheel" ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.systemPackages = with pkgs; [ vim git wget neofetch killall nixfmt ];
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    wget
+    neofetch
+    killall
+    nixfmt
+    htop
+  ];
 
   system.stateVersion = "23.11";
 }
