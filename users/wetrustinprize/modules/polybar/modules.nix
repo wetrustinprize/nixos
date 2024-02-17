@@ -130,7 +130,7 @@ colors: {
     type = "internal/battery";
     full-at = 99;
     low-at = 5;
-    battery = "BAT0";
+    battery = "BAT1";
     adapter = "ADP1";
     poll-interval = 5;
     format-charging = "<label-charging>";
