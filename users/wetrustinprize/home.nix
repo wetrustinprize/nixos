@@ -16,8 +16,7 @@
   home.username = "wetrustinprize";
   home.homeDirectory = "/home/wetrustinprize";
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "vivaldi" "spotify" ];
+  nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
     nitrogen
