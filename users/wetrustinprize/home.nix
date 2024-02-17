@@ -2,12 +2,16 @@
 
 {
   imports = [
-    ./modules/i3/i3.nix
     ./modules/alacritty.nix
+    ./modules/dunst.nix
+    ./modules/rofi/rofi.nix
+    ./modules/i3/i3.nix
     ./modules/polybar/polybar.nix
   ];
 
   nixpkgs.config.allowUnfreePredicate = _: true;
+
+  programs.home-manager.enable = true;
 
   home.username = "wetrustinprize";
   home.homeDirectory = "/home/wetrustinprize";
@@ -18,7 +22,6 @@
     vivaldi
     networkmanagerapplet
     volumeicon
-    rofi
     spotify
     qbittorrent
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
@@ -27,8 +30,6 @@
 
     xfce.thunar
   ];
-
-  programs.home-manager.enable = true;
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 }
