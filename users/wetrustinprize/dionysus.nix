@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [ unityhub gimp barrier ];
+  home.packages = with pkgs; [ barrier ];
 
   xsession.windowManager.i3 = {
     config = {

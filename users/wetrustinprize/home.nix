@@ -9,8 +9,6 @@
     ./modules/polybar/polybar.nix
   ];
 
-  nixpkgs.config.allowUnfreePredicate = _: true;
-
   programs.home-manager.enable = true;
 
   home.username = "wetrustinprize";
