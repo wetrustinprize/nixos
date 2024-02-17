@@ -17,6 +17,8 @@ in {
 
       fonts = { names = [ "JetBrainsMono Nerd Font Mono" ]; };
 
+      workspaceAutoBackAndForth = true;
+
       window = {
         hideEdgeBorders = "none";
         border = 1;
