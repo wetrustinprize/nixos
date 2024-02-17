@@ -1,11 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [ unityhub gimp barrier ];
 
-  services.polybar.script = ''
-    killall -q polybar
-    while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-    polybar --reload primary &
-  '';
+  xsession.windowManager.i3 = {
+    config = {
+      startup = [{
+        command = "polybar --reload primary";
+        notification = false;
+      }];
+    };
+  };
+
+  services.dunst.settings.global.font = lib.mkForce "Jetbrain 14";
 }
