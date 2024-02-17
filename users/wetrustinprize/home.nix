@@ -4,7 +4,7 @@
   imports = [
     ./modules/alacritty.nix
     ./modules/dunst.nix
-    ./modules/rofi/rofi.nix
+    ./modules/rofi.nix
     ./modules/i3/i3.nix
     ./modules/polybar/polybar.nix
   ];
