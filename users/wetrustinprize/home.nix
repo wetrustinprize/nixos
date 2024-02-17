@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -13,6 +13,9 @@
 
   home.username = "wetrustinprize";
   home.homeDirectory = "/home/wetrustinprize";
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "vscode" ];
 
   home.packages = with pkgs; [
     nitrogen
