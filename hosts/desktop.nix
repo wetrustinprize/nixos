@@ -65,4 +65,10 @@
   };
 
   environment.systemPackages = with pkgs; [ pulseaudioFull ];
+
+  boot.plymouth = {
+    enable = true;
+    theme = "nixos-bgrt";
+    themePackages = [ pkgs.nixos-bgrt-plymouth ];
+  };
 }
