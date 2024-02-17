@@ -26,25 +26,25 @@
       };
 
       "*" = {
-        "nord0" = "#2e3440";
-        "nord1" = "#3b4252";
-        "nord2" = "#434c5e";
-        "nord3" = "#4c566a";
+        "nord0" = mkLiteral "#2e3440";
+        "nord1" = mkLiteral "#3b4252";
+        "nord2" = mkLiteral "#434c5e";
+        "nord3" = mkLiteral "#4c566a";
 
-        "nord4" = "#d8dee9";
-        "nord5" = "#e5e9f0";
-        "nord6" = "#eceff4";
+        "nord4" = mkLiteral "#d8dee9";
+        "nord5" = mkLiteral "#e5e9f0";
+        "nord6" = mkLiteral "#eceff4";
 
-        "nord7" = "#8fbcbb";
-        "nord8" = "#88c0d0";
-        "nord9" = "#81a1c1";
-        "nord10" = "#5e81ac";
-        "nord11" = "#bf616a";
+        "nord7" = mkLiteral "#8fbcbb";
+        "nord8" = mkLiteral "#88c0d0";
+        "nord9" = mkLiteral "#81a1c1";
+        "nord10" = mkLiteral "#5e81ac";
+        "nord11" = mkLiteral "#bf616a";
 
-        "nord12" = "#d08770";
-        "nord13" = "#ebcb8b";
-        "nord14" = "#a3be8c";
-        "nord15" = "#b48ead";
+        "nord12" = mkLiteral "#d08770";
+        "nord13" = mkLiteral "#ebcb8b";
+        "nord14" = mkLiteral "#a3be8c";
+        "nord15" = mkLiteral "#b48ead";
 
         "foreground" = mkLiteral "@nord9";
         "backlight" = "#ccffeedd";
@@ -95,7 +95,10 @@
         "text-color" = mkLiteral "inherit";
       };
 
-      "prompt" = { "margin" = mkLiteral "0px 0.3em 0em 0em"; };
+      "prompt" = {
+        "margin" = mkLiteral "0px 0.3em 0em 0em";
+        "color" = mkLiteral "@nord6";
+      };
 
       "listview" = {
         "padding" = mkLiteral "8px";
