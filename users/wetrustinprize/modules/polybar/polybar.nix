@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
   colors = {
     background = "#2E3440";
@@ -27,6 +27,10 @@ in {
 
   services.polybar = {
     enable = true;
+    package = (pkgs.polybar.override {
+      i3Support = true;
+      pulseSupport = true;
+    });
     script = "";
     settings = lib.mkMerge [
       modules
