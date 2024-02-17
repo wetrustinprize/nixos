@@ -1,8 +1,10 @@
 { pkgs, ... }: {
   users.users.wetrustinprize = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ];
   };
+
+  virtualisation.docker.enable = true;
 
   networking.networkmanager.enable = true;
 
