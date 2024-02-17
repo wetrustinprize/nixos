@@ -56,15 +56,14 @@ colors: {
     label-focused-background = "${colors.primary}";
     label-focused-foreground = "${colors.background}";
     label-visible = "%index%";
-    label-visible-padding = 2;
+    label-visible-padding = 1;
     label-visible-background = "${colors.background}";
     label-visible-foreground = "${colors.foreground}";
     label-visible-underline = "${colors.disabled}";
     label-unfocused = "%index%";
-    label-unfocused-padding = 2;
+    label-unfocused-padding = 1;
     label-unfocused-background = "${colors.background}";
     label-unfocused-foreground = "${colors.disabled}";
-    label-unfocused-underline = "${colors.disabled}";
     label-urgent = "%index%!";
     label-urgent-padding = 2;
     label-urgent-margin = 1;
