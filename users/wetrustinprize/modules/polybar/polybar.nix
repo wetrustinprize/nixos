@@ -27,6 +27,7 @@ in {
 
   services.polybar = {
     enable = true;
+    script = "";
     settings = lib.mkMerge [
       modules
       {
