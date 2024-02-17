@@ -7,6 +7,8 @@
     ./modules/rofi.nix
     ./modules/i3/i3.nix
     ./modules/polybar/polybar.nix
+    ./modules/developing.nix
+    ./modules/gamming.nix
   ];
 
   programs.home-manager.enable = true;
@@ -15,20 +17,18 @@
   home.homeDirectory = "/home/wetrustinprize";
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "vscode" "vivaldi" "spotify" ];
+    builtins.elem (lib.getName pkg) [ "vivaldi" "spotify" ];
 
   home.packages = with pkgs; [
     nitrogen
-    vscode
     vivaldi
     networkmanagerapplet
     volumeicon
     spotify
     qbittorrent
+    vesktop
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
-
     xorg.xkill
-
     xfce.thunar
   ];
 
