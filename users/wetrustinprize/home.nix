@@ -15,7 +15,7 @@
   home.homeDirectory = "/home/wetrustinprize";
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "vscode" ];
+    builtins.elem (lib.getName pkg) [ "vscode" "vivaldi" "spotify" ];
 
   home.packages = with pkgs; [
     nitrogen
