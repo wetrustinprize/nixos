@@ -80,7 +80,7 @@ in {
         "bar/primary" = {
           "inherit" = "section/base";
           bottom = false;
-          modules-left = "open distro close divider i3";
+          modules-left = "distro divider i3";
           modules-right =
             "pulseaudio divider mute-mic mute-dunst divider open date time close";
         };

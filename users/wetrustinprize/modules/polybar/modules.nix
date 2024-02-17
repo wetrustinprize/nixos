@@ -20,9 +20,9 @@ colors: {
   };
   "module/distro" = {
     type = "custom/text";
-    content-background = "${colors.module}";
-    content-foreground = "${colors.foreground}";
-    content = "%{T4} %{T-}";
+    content-foreground = "${colors.disabled}";
+    content-margin = 1;
+    content = "%{T4}󱄅%{T-}";
   };
   "module/time" = {
     type = "internal/date";
