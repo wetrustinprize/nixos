@@ -9,6 +9,8 @@
     ./modules/polybar/polybar.nix
     ./modules/developing.nix
     ./modules/gamming.nix
+    ./modules/shell/fish.nix
+    ./modules/shell/nushell.nix
   ];
 
   programs.home-manager.enable = true;
@@ -30,6 +32,23 @@
     xorg.xkill
     xfce.thunar
   ];
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Nordic";
+      package = pkgs.nordic;
+    };
+    iconTheme = {
+      name = "Nordzy-icon";
+      package = pkgs.nordzy-icon-theme;
+    };
+  };
+
+  home.pointerCursor = {
+    name = "Nordzy-cursors";
+    package = pkgs.nordzy-cursor-theme;
+  };
 
   home.file.".background-image" = { source = ./background.png; };
 
