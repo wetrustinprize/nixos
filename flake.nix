@@ -22,8 +22,8 @@
                 imports = builtins.filter (x: x != null) [
                   ./users/${username}/home.nix
                   (if builtins.pathExists
-                  ./users/hosts/${username}/${hostname}.nix then
-                    ./users/hosts/${username}/${hostname}.nix
+                  ./users/${username}/hosts/${hostname}.nix then
+                    ./users/${username}/hosts/${hostname}.nix
                   else
                     null)
                 ];
