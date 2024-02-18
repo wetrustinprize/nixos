@@ -2,8 +2,10 @@
   users.users.wetrustinprize = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
 
   virtualisation.docker.enable = true;
 
@@ -28,7 +30,7 @@
     killall
     nixfmt
     htop
-    nushell
+    thefuck
   ];
 
   system.stateVersion = "23.11";
