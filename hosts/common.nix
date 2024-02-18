@@ -2,10 +2,7 @@
   users.users.wetrustinprize = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ];
-    shell = pkgs.fish;
   };
-
-  programs.fish.enable = true;
 
   virtualisation.docker.enable = true;
 

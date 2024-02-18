@@ -9,8 +9,7 @@
     ./modules/polybar/polybar.nix
     ./modules/developing.nix
     ./modules/gamming.nix
-    ./modules/shell/fish.nix
-    ./modules/shell/nushell.nix
+    ./modules/shell/bash.nix
   ];
 
   programs.home-manager.enable = true;
