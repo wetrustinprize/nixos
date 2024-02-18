@@ -130,7 +130,7 @@ colors: {
     full-at = 100;
     low-at = 5;
     poll-interval = 5;
-    format-charging = "<ramp-capacity> <animation-charging> <label-charging>";
+    format-charging = "<animation-charging> <label-charging>";
     format-discharging = "<ramp-capacity> <label-discharging>";
     format-full = "<label-full>";
     format-low = "<animation-low> <label-low>";
