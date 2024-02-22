@@ -20,4 +20,6 @@
   };
 
   services.dunst.settings.global.font = lib.mkForce "Jetbrain 14";
+
+  services.blueman-applet.enable = true;
 }

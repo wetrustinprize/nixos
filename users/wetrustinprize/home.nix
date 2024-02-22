@@ -17,6 +17,8 @@
   home.username = "wetrustinprize";
   home.homeDirectory = "/home/wetrustinprize";
 
+  xsession.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [

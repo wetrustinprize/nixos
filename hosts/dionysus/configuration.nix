@@ -16,8 +16,9 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
-  environment.systemPackages = with pkgs; [ bluetuith blueman ];
+  environment.systemPackages = with pkgs; [ bluetuith ];
 
   hardware.opengl = {
     enable = true;
