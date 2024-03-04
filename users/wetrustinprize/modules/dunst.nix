@@ -28,7 +28,6 @@
         icon_position = "left";
         sticky_history = true;
         history_length = 20;
-        browser = "/usr/bin/vivaldi-stable";
         always_run_script = true;
         title = "Dunst";
         class = "Dunst";

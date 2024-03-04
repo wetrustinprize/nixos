@@ -23,7 +23,7 @@
 
   home.packages = with pkgs; [
     nitrogen
-    vivaldi
+    qutebrowser
     networkmanagerapplet
     volumeicon
     spotify

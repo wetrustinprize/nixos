@@ -1,7 +1,7 @@
 mod: {
   # Spawn
   "${mod}+Return" = "exec alacritty";
-  "${mod}+F2" = "exec vivaldi";
+  "${mod}+F2" = "exec qutebrowser";
   "${mod}+F3" = "exec thunar";
 
   # Kill 
