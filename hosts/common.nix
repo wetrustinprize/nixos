@@ -28,6 +28,8 @@
     nixfmt
     htop
     thefuck
+    tldr
+    docker-compose
   ];
 
   system.stateVersion = "23.11";
