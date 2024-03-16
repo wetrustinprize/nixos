@@ -3,9 +3,22 @@
 {
   imports = [ ../common.nix ../desktop.nix ./hardware-configuration.nix ];
 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-persistenced"
+      "logmein-hamachi"
+    ];
+
   boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "dionysus";
+  networking.firewall = {
+    enable = true;
+    allowedUDPPorts = [ 24454 ];
+    allowedTCPPorts = [ 25565 ];
+  };
 
   time.timeZone = "America/SaoPaulo";
 
@@ -16,7 +29,9 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+
   services.blueman.enable = true;
+  services.logmein-hamachi.enable = true;
 
   environment.systemPackages = with pkgs; [ bluetuith ];
 
@@ -27,15 +42,7 @@
   };
 
   nixpkgs.config.nvidia.acceptLicense = true;
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-x11"
-      "nvidia-settings"
-      "nvidia-persistenced"
-    ];
-
   services.xserver.videoDrivers = [ "nvidia" ];
-
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
     modesetting.enable = true;
@@ -44,7 +51,6 @@
     powerManagement.finegrained = false;
     powerManagement.enable = false;
   };
-
   hardware.nvidia.prime = {
     sync.enable = true;
     intelBusId = "PCI:0:2:0";
