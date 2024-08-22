@@ -25,7 +25,7 @@
     wget
     neofetch
     killall
-    nixfmt
+    nixfmt-classic
     htop
     thefuck
     tldr
