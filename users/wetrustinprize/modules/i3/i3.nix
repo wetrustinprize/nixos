@@ -14,11 +14,6 @@ in {
     config = {
       inherit modifier;
 
-      startup = [{
-        command = "polybar --reload primary";
-        notification = false;
-      }];
-
       bars = [ ]; # use polybar instead
 
       fonts = { names = [ "JetBrainsMono Nerd Font Mono" ]; };
@@ -44,6 +39,11 @@ in {
           command = "nm-applet";
           notification = false;
         }
+{
+  command = "polybar --reload primary";
+  notification = false;
+}
+
       ];
 
       floating = {
