@@ -6,9 +6,8 @@
     ../modules/polybar/polybar.nix
     ../modules/alacritty.nix
     ../modules/dunst.nix
-    ../modules/rofi.nix
-    ../modules/developing.nix
-    ../modules/gamming.nix
+../modules/rofi.nix
+
   ];
 
   services.polybar.settings."bar/primary".modules-right = lib.mkForce
