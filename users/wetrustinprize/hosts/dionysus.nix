@@ -9,7 +9,7 @@
     ../modules/rofi.nix
     ../modules/developing.nix
     ../modules/gamming.nix
-  ]
+  ];
 
   services.polybar.settings."bar/primary".modules-right = lib.mkForce
     "pulseaudio divider mute-mic mute-dunst divider battery divider open date time close";
