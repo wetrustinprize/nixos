@@ -7,6 +7,7 @@
 
   programs.home-manager.enable = true;
   programs.git = {
+    enable = true;
     userName = "Peterson Adami Candido";
     userEmail = "me@wetrustinprize.com";
   };
