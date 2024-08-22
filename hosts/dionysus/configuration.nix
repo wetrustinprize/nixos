@@ -24,6 +24,7 @@
   time.timeZone = "America/SaoPaulo";
 
   services.xserver.xkb.layout = "br";
+  services.logind.lidSwitch = "nothing";
 
   powerManagement.enable = true;
   services.thermald.enable = true;
