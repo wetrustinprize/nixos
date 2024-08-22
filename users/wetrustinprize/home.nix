@@ -6,6 +6,10 @@
   ];
 
   programs.home-manager.enable = true;
+  programs.git = {
+    userName = "Peterson Adami Candido";
+    userEmail = "me@wetrustinprize.com";
+  };
 
   home.username = "wetrustinprize";
   home.homeDirectory = "/home/wetrustinprize";
