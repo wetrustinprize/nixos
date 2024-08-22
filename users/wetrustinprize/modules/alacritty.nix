@@ -33,10 +33,6 @@ in {
             foreground = "CellBackground";
             background = "#88c0d0";
           };
-          footer_bar = {
-            background = "#434c53";
-            foreground = "#d8dee9";
-          };
         };
         normal = {
           black = "#3b4252";
