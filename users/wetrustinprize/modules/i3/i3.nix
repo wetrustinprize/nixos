@@ -39,11 +39,10 @@ in {
           command = "nm-applet";
           notification = false;
         }
-{
-  command = "polybar --reload primary";
-  notification = false;
-}
-
+        {
+          command = "polybar --reload primary";
+          notification = false;
+        }
       ];
 
       floating = {
