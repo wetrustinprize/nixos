@@ -53,5 +53,5 @@
 
   home.file.".background-image" = { source = ./background.png; };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }
