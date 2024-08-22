@@ -20,6 +20,7 @@
   services.xserver = {
     enable = true;
     displayManager = {
+      defaultSession = "none+i3";
       lightdm = {
         enable = true;
         greeter.enable = true;
@@ -49,7 +50,6 @@
           '';
         };
       };
-      defaultSession = "none+i3";
     };
     desktopManager.wallpaper = {
       mode = "scale";
