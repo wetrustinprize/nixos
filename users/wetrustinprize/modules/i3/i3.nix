@@ -13,6 +13,12 @@ in {
     enable = true;
     config = {
       inherit modifier;
+
+      startup = [{
+        command = "polybar --reload primary";
+        notification = false;
+      }];
+
       bars = [ ]; # use polybar instead
 
       fonts = { names = [ "JetBrainsMono Nerd Font Mono" ]; };
