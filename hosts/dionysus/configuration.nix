@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 
 {
-  imports = [ ../common.nix ../desktop.nix ./hardware-configuration.nix ];
+  imports = [ ../common.nix ../x11.nix ../desktop.nix ./hardware-configuration.nix ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
@@ -15,11 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "dionysus";
-  networking.firewall = {
-    enable = true;
-    allowedUDPPorts = [ 24454 ];
-    allowedTCPPorts = [ 25565 ];
-  };
+  networking.firewall = { enable = true; };
 
   time.timeZone = "America/SaoPaulo";
 
@@ -31,11 +27,10 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-
   services.blueman.enable = true;
-  services.logmein-hamachi.enable = true;
-
   environment.systemPackages = with pkgs; [ bluetuith ];
+
+  services.logmein-hamachi.enable = true;
 
   hardware.opengl = {
     enable = true;
