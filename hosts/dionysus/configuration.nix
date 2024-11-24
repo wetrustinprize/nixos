@@ -20,7 +20,7 @@
   time.timeZone = "America/SaoPaulo";
 
   services.xserver.xkb.layout = "br";
-  services.logind.lidSwitch = "nothing";
+  services.logind.lidSwitch = "suspend";
 
   powerManagement.enable = true;
   services.thermald.enable = true;
@@ -32,7 +32,7 @@
 
   services.logmein-hamachi.enable = true;
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   nixpkgs.config.nvidia.acceptLicense = true;
   services.xserver.videoDrivers = [ "nvidia" ];

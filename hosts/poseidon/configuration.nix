@@ -29,7 +29,7 @@
   services.blueman.enable = true;
   environment.systemPackages = with pkgs; [ bluetuith ];
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   nixpkgs.config.nvidia.acceptLicense = true;
   services.xserver.videoDrivers = [ "nvidia" ];
