@@ -3,13 +3,13 @@
     enable = true;
     extension = [{
       id = "gighmmpiobklfepjocnamgkkbiglidom";
-    } # Adblock
+    }; # Adblock
     {
       id = "nngceckbapebfimnlniiiahkandclblb"
-    } # Bitwarden
+    }; # Bitwarden
     {
       id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"
-    } # Dark reader
+    }; # Dark reader
       ];
   };
 }
