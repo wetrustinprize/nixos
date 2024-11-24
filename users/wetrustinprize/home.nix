@@ -45,7 +45,7 @@
 
   services.easyeffects = {
       enable = true;
-  }
+  };
 
   home.pointerCursor = {
     name = "Nordzy-cursors";
