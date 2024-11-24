@@ -1,7 +1,7 @@
 { pkgs, lib, ... }: {
   programs.chromium = {
     enable = true;
-    extension = [
+    extensions = [
       {
         id = "gighmmpiobklfepjocnamgkkbiglidom";
       } # Adblock

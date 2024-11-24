@@ -7,6 +7,6 @@
     ./modules/alacritty.nix
     ./modules/dunst.nix
     ./modules/rofi.nix
-    ./modules/chromiun.nix
+    ./modules/chromium.nix
   ];
 }
