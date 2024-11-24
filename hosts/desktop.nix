@@ -24,7 +24,11 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  environment.systemPackages = with pkgs; [ pulseaudioFull dconf ];
+  environment.systemPackages = with pkgs; [
+    pulseaudioFull
+    dconf
+    xorg.xkill
+  ];
   boot.plymouth = {
     enable = true;
     theme = "nixos-bgrt";

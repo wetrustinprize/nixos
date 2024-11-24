@@ -21,7 +21,6 @@
 
   home.packages = with pkgs; [
     nitrogen
-    qutebrowser
     networkmanagerapplet
     volumeicon
     spotify
@@ -43,6 +42,10 @@
       package = pkgs.nordzy-icon-theme;
     };
   };
+
+  services.easyeffects = {
+      enable = true;
+  }
 
   home.pointerCursor = {
     name = "Nordzy-cursors";

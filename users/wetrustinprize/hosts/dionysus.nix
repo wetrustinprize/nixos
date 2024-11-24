@@ -1,12 +1,8 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [ 
-    ../modules/i3/i3.nix
-    ../modules/polybar/polybar.nix
-    ../modules/alacritty.nix
-    ../modules/dunst.nix
-    ../modules/rofi.nix
+  imports = [
+    ../desktop.nix
   ];
 
   services.polybar.settings."bar/primary".modules-right = lib.mkForce
@@ -17,6 +13,10 @@
   };
 
   services.dunst.settings.global.font = lib.mkForce "Jetbrain 14";
-
   services.blueman-applet.enable = true;
+
+  home.packages = with pkgs; [
+    code-cursor
+    godot_4
+  ];
 }
