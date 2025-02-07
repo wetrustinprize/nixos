@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     cursor-editor.url = "github:omarcresp/cursor-flake";
-	nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.url = "github:misterio77/nix-colors";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +15,7 @@
       self,
       nixpkgs,
       home-manager,
-	  nix-colors,
+      nix-colors,
       ...
     }@inputs:
     let
@@ -46,19 +46,20 @@
                     inherit inputs;
                     inherit system;
                     inherit username;
-					inherit nix-colors;
+                    inherit nix-colors;
                   };
                   home-manager.users.${username} = {
-                    imports = builtins.filter (x: x != null) [
-                      ./users/${username}/home.nix
-                      (
-                        if builtins.pathExists ./users/${username}/hosts/${hostname}.nix then
-                          ./users/${username}/hosts/${hostname}.nix
-                        else
-                          null
-                      )
-                    ]
-					++ [ nix-colors.homeManagerModules.default ];
+                    imports =
+                      builtins.filter (x: x != null) [
+                        ./users/${username}/home.nix
+                        (
+                          if builtins.pathExists ./users/${username}/hosts/${hostname}.nix then
+                            ./users/${username}/hosts/${hostname}.nix
+                          else
+                            null
+                        )
+                      ]
+                      ++ [ nix-colors.homeManagerModules.default ];
                   };
                 }
               ];

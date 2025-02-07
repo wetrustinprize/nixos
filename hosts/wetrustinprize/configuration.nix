@@ -5,6 +5,7 @@
     ../common.nix
     ../desktop.nix
     ../audio.nix
+    ../virtualization.nix
     ./hardware-configuration.nix
   ];
 

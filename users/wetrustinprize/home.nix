@@ -32,6 +32,8 @@
     rofi-wayland
     bemoji
     blueman
+    llama-cpp
+    lmstudio
   ];
 
   programs.ssh = {
@@ -72,7 +74,7 @@
       "$explorer" = "thunar";
       general = {
         "allow_tearing" = true;
-		"gaps_out" = "10 20 20 20";
+        "gaps_out" = "10 20 20 20";
       };
       monitor = [
         "DP-1, highres@highrr, 1080x0, 1"
@@ -95,7 +97,7 @@
 
           # rofi stuff
           "$mod, p, exec, rofi -show drun -p Run"
-          "$mod SHIFT, p, exec, rofi -show run -p Run"
+          "$mod SHIFT, p, exec, bitwarden"
           "$mod, V, exec, cliphist list | rofi -dmenu -p Copy | cliphist decode | wl-copy"
           "$mod, o, exec, bemoji"
         ]
@@ -112,6 +114,7 @@
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "float,class:^($terminal)$,title:^($terminal)$"
+        "float,class:^(bitwarden)$,title:^(bitwarden)$"
       ];
     };
     extraConfig = ''
