@@ -1,13 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      ../common.nix
-      ../desktop.nix
-      ../audio.nix
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ../common.nix
+    ../desktop.nix
+    ../audio.nix
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -18,7 +17,10 @@
 
   users.users.wetrustinprize = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   system.stateVersion = "24.05";

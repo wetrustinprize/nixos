@@ -1,4 +1,11 @@
-{ pkgs, nixpkgs, usernames, ... }: {
+{
+  pkgs,
+  nixpkgs,
+  usernames,
+  lib,
+  ...
+}:
+{
   nixpkgs.config.allowUnfree = true;
   networking.networkmanager.enable = true;
 
@@ -20,17 +27,32 @@
     themePackages = [ pkgs.nixos-bgrt-plymouth ];
   };
 
-  nix.settings.trusted-users = [ "root" "@wheel" ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  users.users = lib.listToAttrs (
+    lib.map (username: {
+      name = username;
+      value = {
+        isNormalUser = true;
+        extraGroups = [
+          "wheel"
+          "docker"
+        ];
+      };
+    }) usernames
+  );
 
   services.openssh = {
-	enable = true;
-	ports = [ 22 ];
-	openFirewall = true;
-	hostKeys = builtins.map (user: {
-		type = "ed25519";
-		path = "/etc/ssh/ssh_${user}_ed25519_key";
-	}) usernames;
+    enable = true;
+    ports = [ 22 ];
+    openFirewall = true;
   };
 
   system.stateVersion = "24.05";
