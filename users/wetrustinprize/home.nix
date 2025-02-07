@@ -69,6 +69,7 @@
       "$explorer" = "thunar";
       general = {
         "allow_tearing" = true;
+		"gaps_out" = "10 20 20 20";
       };
       monitor = [
         "DP-1, highres@highrr, 1080x0, 1"

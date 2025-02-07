@@ -28,6 +28,8 @@
     };
   };
 
+  fonts.packages = with pkgs; [ nerdfonts ];
+
   environment.systemPackages = with pkgs; [
     kitty
     egl-wayland

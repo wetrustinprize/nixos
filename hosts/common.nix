@@ -19,6 +19,7 @@
     neofetch
     killall
     tldr
+	htop
   ];
 
   boot.plymouth = {

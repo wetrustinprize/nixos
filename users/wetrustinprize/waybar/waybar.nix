@@ -9,6 +9,9 @@
         layer = "top";
         position = "top";
         reload_style_on_change = true;
+		output = [
+			"DP-1"
+		];
         modules-left = [
           "custom/notification"
           "clock"
