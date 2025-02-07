@@ -51,8 +51,14 @@
   };
 
   home.pointerCursor = {
-    name = "Nordzy-cursors";
-    package = pkgs.nordzy-cursor-theme;
+    name = "phinger-cursors-light";
+    package = pkgs.phinger-cursors;
+    size = 32;
+	gtk.enable = true;
+	x11 = {
+		enable = true;
+		defaultCursor = "phinger-cursors-light";
+	};
   };
 
   programs.waybar = {
