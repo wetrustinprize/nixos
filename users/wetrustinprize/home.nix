@@ -24,10 +24,11 @@
     gitkraken
     waybar
     nixfmt-rfc-style
-	cliphist
-	pinentry
-	rofi-wayland
-	bemoji
+    cliphist
+    pinentry
+    rofi-wayland
+    bemoji
+    blueman
   ];
 
   programs.ssh = {
@@ -58,8 +59,8 @@
     settings = {
       exec-once = [
         "waybar"
-		"wl-paste --type text --watch cliphist store # Stores only text data"
-		"wl-paste --type image --watch cliphist store # Stores only image data"
+        "wl-paste --type text --watch cliphist store # Stores only text data"
+        "wl-paste --type image --watch cliphist store # Stores only image data"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -88,11 +89,11 @@
           "$mod, tab, pin"
           "$mod, x, exec, $explorer"
 
-		  # rofi stuff
+          # rofi stuff
           "$mod, p, exec, rofi -show drun -p Run"
-		  "$mod SHIFT, p, exec, rofi -show run -p Run"
-		  "$mod, V, exec, cliphist list | rofi -dmenu -p Copy | cliphist decode | wl-copy"
-		  "$mod, o, exec, bemoji"
+          "$mod SHIFT, p, exec, rofi -show run -p Run"
+          "$mod, V, exec, cliphist list | rofi -dmenu -p Copy | cliphist decode | wl-copy"
+          "$mod, o, exec, bemoji"
         ]
         ++ lib.map (i: "$mod, ${toString i}, workspace, ${toString i}") (lib.range 1 9)
         ++ lib.map (i: "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}") (lib.range 1 9);
@@ -117,6 +118,8 @@
       debug:disable_logs = false
     '';
   };
+
+  require = [ ./waybar/waybar.nix ];
 
   home.stateVersion = "24.05";
 }
