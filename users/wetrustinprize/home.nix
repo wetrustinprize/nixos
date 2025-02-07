@@ -5,10 +5,13 @@
   lib,
   nixpkgs,
   username,
+  nix-colors,
   ...
 }:
 {
   nixpkgs.config.allowUnfree = true;
+
+  colorScheme = nix-colors.colorSchemes.nord;
 
   home.username = username;
 
