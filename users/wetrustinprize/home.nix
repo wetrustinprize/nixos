@@ -34,13 +34,13 @@
     blueman
     llama-cpp
     lmstudio
-	gimp
-	krita
-	blender
-	godot_4
-	pinta
-	filezilla
-	stremio
+    gimp
+    krita
+    blender
+    godot_4
+    pinta
+    filezilla
+    stremio
   ];
 
   programs.ssh = {
@@ -63,23 +63,26 @@
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;
     size = 32;
-	gtk.enable = true;
-	x11 = {
-		enable = true;
-		defaultCursor = "phinger-cursors-light";
-	};
+    gtk.enable = true;
+    x11 = {
+      enable = true;
+      defaultCursor = "phinger-cursors-light";
+    };
   };
 
   services.swaync = {
-	enable = true;
+    enable = true;
   };
 
   programs.waybar = {
     enable = true;
   };
 
-
-  require = [ ./waybar/waybar.nix ./hypr/hyprland.nix ./hypr/hyprpaper.nix ];
+  require = [
+    ./waybar/waybar.nix
+    ./hypr/hyprland.nix
+    ./hypr/hyprpaper.nix
+  ];
 
   home.stateVersion = "24.05";
 }

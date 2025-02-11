@@ -41,7 +41,7 @@
   services.xserver.videoDriver = "nvidia";
   hardware.graphics = {
     enable = true;
-	enable32Bit = true;
+    enable32Bit = true;
   };
   hardware.nvidia = {
     modesetting.enable = true;
