@@ -64,10 +64,7 @@
     package = pkgs.phinger-cursors;
     size = 32;
     gtk.enable = true;
-    x11 = {
-      enable = true;
-      defaultCursor = "phinger-cursors-light";
-    };
+    x11.enable = true;
   };
 
   services.swaync = {
