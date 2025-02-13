@@ -35,5 +35,6 @@
     egl-wayland
     gparted
     wl-clipboard-rs
+    playerctl
   ];
 }

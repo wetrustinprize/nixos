@@ -18,6 +18,7 @@
     "sd_mod"
   ];
   boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/150ed8a2-424a-409b-9816-3c802f7f4f60";

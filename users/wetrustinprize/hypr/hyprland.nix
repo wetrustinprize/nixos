@@ -2,13 +2,13 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-	plugins = [ ];
+    plugins = [ ];
     settings = {
       exec-once = [
         "waybar"
         "wl-paste --type text --watch cliphist store # Stores only text data"
         "wl-paste --type image --watch cliphist store # Stores only image data"
-		"hyprctl setcursor phinger-cursors-light 32"
+        "hyprctl setcursor phinger-cursors-light 32"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -26,17 +26,25 @@
       ];
       bind =
         [
-          "$mod, T, exec, $terminal"
-          "$mod, B, exec, $browser"
-          "$mod, SPACE, togglefloating,"
+          # launch apps
+          "$mod, RETURN, exec, $terminal"
+          "$mod, F1, exec, $browser"
+          "$mod, F2, exec, $explorer"
+          "$mod, F3, exec, $visual"
+
+          # window management
+          "$mod SHIFT, SPACE, togglefloating,"
           "$mod SHIFT, C, killactive,"
+          "$mod, TAB, pin"
+
+          # layout
+          "$mod, f, fullscreen,"
+          "$mod, t, togglegroup,"
+
           "$mod, r, exec, reload"
+
           "$mod, mouse_down, workspace, e+1"
           "$mod, mouse_up, workspace, e-1"
-          "$mod, e, exec, $visual"
-          "$mod, f, fullscreen,"
-          "$mod, tab, pin"
-          "$mod, x, exec, $explorer"
 
           # rofi stuff
           "$mod, p, exec, rofi -show drun -p Run"
@@ -50,6 +58,17 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
+      bindel = [
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+      bindl = [
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+      ];
       workspace = [
         "10, monitor:HDMI-A-1"
       ] ++ lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
@@ -57,7 +76,6 @@
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "float,class:^($terminal)$,title:^($terminal)$"
-        "float,class:^(bitwarden)$,title:^(bitwarden)$"
       ];
     };
     extraConfig = ''
