@@ -32,7 +32,6 @@
     rofi-wayland
     bemoji
     blueman
-    llama-cpp
     lmstudio
     gimp
     krita
@@ -41,6 +40,7 @@
     pinta
     filezilla
     stremio
+    xarchiver
   ];
 
   programs.ssh = {
