@@ -6,6 +6,7 @@
     ../essentials/desktop.nix
     ../essentials/audio.nix
     ../essentials/virtualization.nix
+    ../essentials/ai.nix
     ./hardware-configuration.nix
   ];
 
@@ -24,6 +25,7 @@
     ];
   };
 
-  system.stateVersion = "24.05";
+  services.ollama.acceleration = "cuda";
 
+  system.stateVersion = "24.05";
 }
