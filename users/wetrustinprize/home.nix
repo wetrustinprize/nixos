@@ -97,6 +97,7 @@
     ./hypr/hyprland.nix
     ./hypr/hyprpaper.nix
 	./starship.nix
+	./kitty.nix
   ];
 
   home.stateVersion = "24.05";
