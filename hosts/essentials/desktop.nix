@@ -36,5 +36,6 @@
     gparted
     wl-clipboard-rs
     playerctl
+    steam-run
   ];
 }

@@ -3,15 +3,21 @@
   nixpkgs,
   usernames,
   lib,
+  inputs,
   ...
 }:
 {
+  nixpkgs.overlays = [
+    inputs.nix-your-shell.overlays.default
+  ];
+
   nixpkgs.config.allowUnfree = true;
   networking.networkmanager.enable = true;
 
   programs.git.enable = true;
 
   environment.systemPackages = with pkgs; [
+    nix-your-shell
     vim
     wget
     curl
@@ -20,6 +26,8 @@
     killall
     tldr
     htop
+    sudo
+    lshw
   ];
 
   boot.plymouth = {
@@ -32,23 +40,28 @@
     "root"
     "@wheel"
   ];
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  users.users = lib.listToAttrs (
-    lib.map (username: {
-      name = username;
-      value = {
-        isNormalUser = true;
-        extraGroups = [
-          "wheel"
-          "docker"
-        ];
-      };
-    }) usernames
-  );
+  users = {
+    defaultUserShell = pkgs.nushell;
+    users = lib.listToAttrs (
+      lib.map (username: {
+        name = username;
+        shell = pkgs.nushell;
+        value = {
+          isNormalUser = true;
+          extraGroups = [
+            "wheel"
+            "docker"
+          ];
+        };
+      }) usernames
+    );
+  };
 
   services.openssh = {
     enable = true;
@@ -56,6 +69,7 @@
     openFirewall = true;
   };
 
+  programs.nix-ld.enable = true;
   programs.dconf.enable = true;
 
   system.stateVersion = "24.05";

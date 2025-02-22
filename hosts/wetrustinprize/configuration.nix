@@ -6,7 +6,6 @@
     ../essentials/desktop.nix
     ../essentials/audio.nix
     ../essentials/virtualization.nix
-    ../essentials/development.nix
     ./hardware-configuration.nix
   ];
 

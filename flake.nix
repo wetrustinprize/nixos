@@ -4,6 +4,10 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     cursor-editor.url = "github:omarcresp/cursor-flake";
     nix-colors.url = "github:misterio77/nix-colors";
+    nix-your-shell = {
+      url = "github:MercuryTechnologies/nix-your-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
