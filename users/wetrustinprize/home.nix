@@ -43,7 +43,6 @@
     rofi-wayland
     bemoji
     blueman
-    lmstudio
     gimp
     krita
     blender
@@ -96,8 +95,8 @@
     ./waybar/waybar.nix
     ./hypr/hyprland.nix
     ./hypr/hyprpaper.nix
-	./starship.nix
-	./kitty.nix
+    ./starship.nix
+    ./kitty.nix
   ];
 
   home.stateVersion = "24.05";
