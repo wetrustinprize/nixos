@@ -51,6 +51,7 @@
     filezilla
     stremio
     xarchiver
+	qalculate-gtk
   ];
 
   programs.ssh = {

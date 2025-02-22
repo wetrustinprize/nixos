@@ -9,6 +9,8 @@
         "wl-paste --type text --watch cliphist store # Stores only text data"
         "wl-paste --type image --watch cliphist store # Stores only image data"
         "hyprctl setcursor phinger-cursors-light 32"
+		"qalculate-gtk"
+		"bitwarden"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -32,10 +34,13 @@
           "$mod, F2, exec, $explorer"
           "$mod, F3, exec, $visual"
 
+		  "$mod, C, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
+		  "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
+
           # window management
           "$mod SHIFT, SPACE, togglefloating,"
           "$mod SHIFT, C, killactive,"
-          "$mod, TAB, pin"
+          "$mod SHIFT, TAB, pin"
 
           # layout
           "$mod, f, fullscreen,"
@@ -48,7 +53,6 @@
 
           # rofi stuff
           "$mod, p, exec, rofi -show drun -p Run"
-          "$mod SHIFT, p, exec, bitwarden"
           "$mod, V, exec, cliphist list | rofi -dmenu -p Copy | cliphist decode | wl-copy"
           "$mod, o, exec, bemoji"
         ]
@@ -70,12 +74,17 @@
         ", XF86AudioPrev, exec, playerctl previous"
       ];
       workspace = [
-        "10, monitor:HDMI-A-1"
+        "name:side-monitor, monitor:HDMI-A-1"
       ] ++ lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "float,class:^($terminal)$,title:^($terminal)$"
+		"float,class:(qalculate-gtk)"
+		"float,class:(Bitwarden)"
+		"workspace special:calculator,class:(qalculate-gtk)"
+		"workspace special:password,class:(Bitwarden)"
+		"workspace name:side-monitor,class:(discord)"
       ];
     };
     extraConfig = ''
