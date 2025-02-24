@@ -6,13 +6,11 @@
       background = "#${config.colorScheme.palette.base00}";
       foreground = "#${config.colorScheme.palette.base06}";
 
-      # black
-      color0 = "#${config.colorScheme.palette.base00}";
-      color8 = "#${config.colorScheme.palette.base00}";
-
       # green
       color1 = "#${config.colorScheme.palette.base08}";
       color9 = "#${config.colorScheme.palette.base08}";
+
+	  # red
       color2 = "#${config.colorScheme.palette.base0B}";
       color10 = "#${config.colorScheme.palette.base0B}";
 
@@ -31,10 +29,6 @@
       # cyan
       color6 = "#${config.colorScheme.palette.base0C}";
       color14 = "#${config.colorScheme.palette.base0C}";
-
-      # white
-      color7 = "#${config.colorScheme.palette.base06}";
-      color15 = "#${config.colorScheme.palette.base07}";
     };
   };
 }

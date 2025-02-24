@@ -15,7 +15,8 @@
         yellow = "#${config.colorScheme.palette.base0A}";
         purple = "#${config.colorScheme.palette.base0E}";
         cyan = "#${config.colorScheme.palette.base0C}";
-        white = "#${config.colorScheme.palette.base05}";
+        white = "#${config.colorScheme.palette.base06}";
+		bright-white = "#${config.colorScheme.palette.base07}";
       };
     };
   };
