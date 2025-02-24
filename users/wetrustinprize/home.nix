@@ -52,6 +52,7 @@
     stremio
     xarchiver
 	qalculate-gtk
+	obsidian
   ];
 
   programs.ssh = {
