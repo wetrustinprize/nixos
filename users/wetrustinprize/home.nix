@@ -80,6 +80,8 @@
     userName = "wetrustinprize";
   };
 
+  gtk.theme.package = nix-colors.gtk-theme config.colorScheme;
+
   home.pointerCursor = {
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;
