@@ -11,6 +11,7 @@
         "hyprctl setcursor phinger-cursors-light 32"
 		"qalculate-gtk"
 		"bitwarden"
+		"discord"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
