@@ -53,7 +53,10 @@
     xarchiver
 	qalculate-gtk
 	obsidian
+	megasync
   ];
+
+  services.megasync.enable = true;
 
   programs.ssh = {
     enable = true;
