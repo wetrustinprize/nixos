@@ -13,6 +13,7 @@
 		"qalculate-gtk"
 		"bitwarden"
 		"discord"
+		"sleep 10 && megasync"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -84,6 +85,7 @@
         "float,class:^($terminal)$,title:^($terminal)$"
 		"float,class:(qalculate-gtk)"
 		"float,class:(Bitwarden)"
+		"float,class:(MEGAsync)"
 		"workspace special:calculator,class:(qalculate-gtk)"
 		"workspace special:password,class:(Bitwarden)"
 		"workspace name:side-monitor,class:(discord)"
