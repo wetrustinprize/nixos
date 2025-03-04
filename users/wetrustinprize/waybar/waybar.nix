@@ -1,9 +1,9 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, self, config, ... }:
 
 {
   programs.waybar = {
     enable = true;
-    style = lib.readFile ./style.css;
+    style =  self.lib.nixColorsToGtkCss config.colorScheme + lib.readFile ./style.css;
     settings = {
       mainBar = {
         layer = "top";
@@ -15,15 +15,16 @@
         modules-left = [
           "custom/notification"
           "clock"
-          "custom/pacman"
+          "custom/pkgs"
           "tray"
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
-          "group/expand"
+		"cpu"
+		"memory"
+		"temperature"
           "bluetooth"
           "network"
-          "battery"
         ];
 
         "hyprland/workspaces" = {
@@ -34,13 +35,7 @@
             empty = "";
           };
           persistent-workspaces = {
-            "*" = [
-              1
-              2
-              3
-              4
-              5
-            ];
+            "*" = lib.range 1 9;
           };
         };
 
@@ -91,72 +86,13 @@
           "on-click-right" = "blueman-manager";
         };
 
-        battery = {
-          interval = 30;
-          states = {
-            good = 95;
-            warning = 30;
-            critical = 20;
-          };
-          format = "{capacity}% {icon}";
-          "format-charging" = "{capacity}% 󰂄";
-          "format-plugged" = "{capacity}% 󰂄 ";
-          "format-alt" = "{time} {icon}";
-          format-icons = [
-            "󰁻"
-            "󰁼"
-            "󰁾"
-            "󰂀"
-            "󰂂"
-            "󰁹"
-          ];
-        };
-
-        "custom/pacman" = {
+        "custom/pkgs" = {
           format = "󰅢 {}";
           interval = 30;
-          exec = "checkupdates | wc -l";
+          exec = "echo $(( $(ls /run/current-system/sw/bin/ | wc -l) + $(ls ~/.nix-profile/bin/ | wc -l) ))";
           "exec-if" = "exit 0";
-          "on-click" =
-            "kitty sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar";
           signal = 8;
           tooltip = false;
-        };
-
-        "custom/expand" = {
-          format = "";
-          tooltip = false;
-        };
-
-        "custom/endpoint" = {
-          format = "|";
-          tooltip = false;
-        };
-
-        "group/expand" = {
-          orientation = "horizontal";
-          drawer = {
-            "transition-duration" = 600;
-            "transition-to-left" = true;
-            "click-to-reveal" = true;
-          };
-          modules = [
-            "custom/expand"
-            "custom/colorpicker"
-            "cpu"
-            "memory"
-            "temperature"
-            "custom/endpoint"
-          ];
-        };
-
-        "custom/colorpicker" = {
-          format = "{}";
-          "return-type" = "json";
-          interval = "once";
-          exec = "~/.config/waybar/scripts/colorpicker.sh -j";
-          "on-click" = "~/.config/waybar/scripts/colorpicker.sh";
-          signal = 1;
         };
 
         cpu = {

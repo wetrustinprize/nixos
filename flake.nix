@@ -38,6 +38,7 @@
             inherit inputs;
             inherit system;
             inherit usernames;
+			inherit self;
           };
           modules =
             [
@@ -52,6 +53,7 @@
                     inherit system;
                     inherit username;
                     inherit nix-colors;
+					inherit self;
                   };
                   home-manager.users.${username} = {
                     imports =
@@ -72,6 +74,10 @@
         };
     in
     {
+		lib = {
+			nixColorsToCss = import ./utils/nixColorsToCss.nix { inherit lib; };
+			nixColorsToGtkCss = import ./utils/nixColorsToGtkCss.nix { inherit lib; };
+		};
       nixosConfigurations = {
         wetrustinprize = mkConfig {
           inherit system;

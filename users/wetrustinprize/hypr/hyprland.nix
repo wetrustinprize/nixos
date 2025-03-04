@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, config, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -22,8 +22,16 @@
       "$explorer" = "thunar";
       general = {
         "allow_tearing" = true;
-        "gaps_out" = "10 20 20 20";
+        "gaps_out" = 10;
+		"col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
+		"col.active_border" = "rgb(${config.colorScheme.palette.base06})";
       };
+	  group = {
+		groupbar = {
+			"col.inactive" = "rgb(${config.colorScheme.palette.base01})";
+			"col.active" = "rgb(${config.colorScheme.palette.base0F})";
+		};
+	  };
       monitor = [
         "DP-1, highres@highrr, 1080x0, 1"
         "HDMI-A-1, highres@highrr, 0x-540, 1, transform, 1"

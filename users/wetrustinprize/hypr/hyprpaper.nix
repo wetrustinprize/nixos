@@ -30,6 +30,8 @@ in
 				"DP-1, ${mainWallpaper}"
 				"HDMI-A-1, ${secondaryWallpaper}"
 			];
+			splash = true;
+			splash_color = config.colorScheme.palette.base0C;
 		};
 };
 }
