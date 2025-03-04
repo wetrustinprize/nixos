@@ -86,6 +86,7 @@
 		"float,class:(qalculate-gtk)"
 		"float,class:(Bitwarden)"
 		"float,class:(MEGAsync)"
+		"float,class:(.blueman-manager-wrapped)"
 		"workspace special:calculator,class:(qalculate-gtk)"
 		"workspace special:password,class:(Bitwarden)"
 		"workspace name:side-monitor,class:(discord)"
