@@ -54,6 +54,7 @@
 	qalculate-gtk
 	obsidian
 	megasync
+	pavucontrol
   ];
 
   programs.ssh = {

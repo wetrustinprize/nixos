@@ -95,6 +95,8 @@
 		"float,class:(Bitwarden)"
 		"float,class:(MEGAsync)"
 		"float,class:(.blueman-manager-wrapped)"
+		"float,class:(org.pulseaudio.pavucontrol)"
+		"float,class:(com.github.wwmm.easyeffects)"
 		"workspace special:calculator,class:(qalculate-gtk)"
 		"workspace special:password,class:(Bitwarden)"
 		"workspace name:side-monitor,class:(discord)"
