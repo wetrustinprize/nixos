@@ -56,8 +56,6 @@
 	megasync
   ];
 
-  services.megasync.enable = true;
-
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
