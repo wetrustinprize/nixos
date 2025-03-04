@@ -1,5 +1,5 @@
-{ lib, ... }: {
-	nixColorsToCss = scheme: ''
+{ lib, ... }:
+	scheme: ''
 		:root {
 			--base-00: ${scheme.palette.base00};
 			--base-01: ${scheme.palette.base01};
@@ -19,4 +19,3 @@
 			--base-0F: ${scheme.palette.base0F};
 		}
 	'';
-}
