@@ -1,6 +1,6 @@
 { lib, ... }:
 	scheme: ''
-		:root {
+		* {
 			--base-00: #${scheme.palette.base00};
 			--base-01: #${scheme.palette.base01};
 			--base-02: #${scheme.palette.base02};
@@ -18,3 +18,4 @@
 			--base-0E: #${scheme.palette.base0E};
 			--base-0F: #${scheme.palette.base0F};
 		}
+	''

@@ -93,10 +93,6 @@
     x11.enable = true;
   };
 
-  services.swaync = {
-    enable = true;
-  };
-
   programs.waybar = {
     enable = true;
   };
@@ -107,6 +103,7 @@
     ./hypr/hyprpaper.nix
     ./starship.nix
     ./kitty.nix
+	./swaync/swaync.nix
   ];
 
   home.stateVersion = "24.05";

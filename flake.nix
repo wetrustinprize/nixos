@@ -77,6 +77,7 @@
 		lib = {
 			nixColorsToCss = import ./utils/nixColorsToCss.nix { inherit lib; };
 			nixColorsToGtkCss = import ./utils/nixColorsToGtkCss.nix { inherit lib; };
+			nixColorsReplace = import ./utils/nixColorsReplace.nix { inherit lib; };
 		};
       nixosConfigurations = {
         wetrustinprize = mkConfig {
