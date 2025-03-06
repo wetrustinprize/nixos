@@ -55,6 +55,7 @@
 	obsidian
 	megasync
 	pavucontrol
+	hyprpolkitagent
   ];
 
   programs.ssh = {
