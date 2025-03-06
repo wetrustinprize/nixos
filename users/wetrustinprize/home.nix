@@ -68,7 +68,7 @@
 
   programs.nushell = {
     enable = true;
-	configFile = ''
+	configFile.text = ''
 		$env.config.buffer_editor = "cursor"
 		$env.config.show_banner = false
 	'';
