@@ -68,6 +68,10 @@
 
   programs.nushell = {
     enable = true;
+	configFile = ''
+		$env.config.buffer_editor = "cursor"
+		$env.config.show_banner = false
+	'';
     shellAliases = {
       "?" = "question";
     };
