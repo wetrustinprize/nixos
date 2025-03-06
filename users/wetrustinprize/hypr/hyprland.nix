@@ -1,20 +1,25 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [ ];
     settings = {
       exec-once = [
-		"hyprpaper"
+        "hyprpaper"
         "waybar"
         "wl-paste --type text --watch cliphist store # Stores only text data"
         "wl-paste --type image --watch cliphist store # Stores only image data"
-		"systemctl --user start hyprpolkitagent"
+        "systemctl --user start hyprpolkitagent"
         "hyprctl setcursor phinger-cursors-light 32"
-		"qalculate-gtk"
-		"bitwarden"
-		"discord"
-		"sleep 10 && megasync"
+        "qalculate-gtk"
+        "bitwarden"
+        "discord"
+        "sleep 10 && megasync"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -24,15 +29,15 @@
       general = {
         "allow_tearing" = true;
         "gaps_out" = 10;
-		"col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
-		"col.active_border" = "rgb(${config.colorScheme.palette.base06})";
+        "col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
+        "col.active_border" = "rgb(${config.colorScheme.palette.base06})";
       };
-	  group = {
-		groupbar = {
-			"col.inactive" = "rgb(${config.colorScheme.palette.base01})";
-			"col.active" = "rgb(${config.colorScheme.palette.base0F})";
-		};
-	  };
+      group = {
+        groupbar = {
+          "col.inactive" = "rgb(${config.colorScheme.palette.base01})";
+          "col.active" = "rgb(${config.colorScheme.palette.base0F})";
+        };
+      };
       monitor = [
         "DP-1, highres@highrr, 1080x0, 1"
         "HDMI-A-1, highres@highrr, 0x-540, 1, transform, 1"
@@ -46,8 +51,8 @@
           "$mod, F2, exec, $explorer"
           "$mod, F3, exec, $visual"
 
-		  "$mod, C, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
-		  "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
+          "$mod, C, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
+          "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
 
           # window management
           "$mod SHIFT, SPACE, togglefloating,"
@@ -92,15 +97,15 @@
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "float,class:^($terminal)$,title:^($terminal)$"
-		"float,class:(qalculate-gtk)"
-		"float,class:(Bitwarden)"
-		"float,class:(MEGAsync)"
-		"float,class:(.blueman-manager-wrapped)"
-		"float,class:(org.pulseaudio.pavucontrol)"
-		"float,class:(com.github.wwmm.easyeffects)"
-		"workspace special:calculator,class:(qalculate-gtk)"
-		"workspace special:password,class:(Bitwarden)"
-		"workspace name:side-monitor,class:(discord)"
+        "float,class:(qalculate-gtk)"
+        "float,class:(Bitwarden)"
+        "float,class:(MEGAsync)"
+        "float,class:(.blueman-manager-wrapped)"
+        "float,class:(org.pulseaudio.pavucontrol)"
+        "float,class:(com.github.wwmm.easyeffects)"
+        "workspace special:calculator,class:(qalculate-gtk)"
+        "workspace special:password,class:(Bitwarden)"
+        "workspace name:side-monitor,class:(discord)"
       ];
     };
     extraConfig = ''

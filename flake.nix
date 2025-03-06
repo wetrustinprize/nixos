@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     cursor-editor.url = "github:omarcresp/cursor-flake";
-	question.url = "github:wetrustinprize/question";
+    question.url = "github:wetrustinprize/question";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-your-shell = {
       url = "github:MercuryTechnologies/nix-your-shell";
@@ -38,7 +38,7 @@
             inherit inputs;
             inherit system;
             inherit usernames;
-			inherit self;
+            inherit self;
           };
           modules =
             [
@@ -53,7 +53,7 @@
                     inherit system;
                     inherit username;
                     inherit nix-colors;
-					inherit self;
+                    inherit self;
                   };
                   home-manager.users.${username} = {
                     imports =
@@ -74,11 +74,11 @@
         };
     in
     {
-		lib = {
-			nixColorsToCss = import ./utils/nixColorsToCss.nix { inherit lib; };
-			nixColorsToGtkCss = import ./utils/nixColorsToGtkCss.nix { inherit lib; };
-			nixColorsReplace = import ./utils/nixColorsReplace.nix { inherit lib; };
-		};
+      lib = {
+        nixColorsToCss = import ./utils/nixColorsToCss.nix { inherit lib; };
+        nixColorsToGtkCss = import ./utils/nixColorsToGtkCss.nix { inherit lib; };
+        nixColorsReplace = import ./utils/nixColorsReplace.nix { inherit lib; };
+      };
       nixosConfigurations = {
         wetrustinprize = mkConfig {
           inherit system;

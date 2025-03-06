@@ -51,11 +51,11 @@
     filezilla
     stremio
     xarchiver
-	qalculate-gtk
-	obsidian
-	megasync
-	pavucontrol
-	hyprpolkitagent
+    qalculate-gtk
+    obsidian
+    megasync
+    pavucontrol
+    hyprpolkitagent
   ];
 
   programs.ssh = {
@@ -68,10 +68,10 @@
 
   programs.nushell = {
     enable = true;
-	shellAliases = {
-		"?" = "question";
-	};
-	extraConfig = "source nix-your-shell.nu";
+    shellAliases = {
+      "?" = "question";
+    };
+    extraConfig = "source nix-your-shell.nu";
   };
   home.file."${config.xdg.configHome}/nushell/nix-your-shell.nu".source =
     pkgs.nix-your-shell.generate-config "nu";
@@ -104,7 +104,7 @@
     ./hypr/hyprpaper.nix
     ./starship.nix
     ./kitty.nix
-	./swaync/swaync.nix
+    ./swaync/swaync.nix
   ];
 
   home.stateVersion = "24.05";

@@ -16,11 +16,11 @@
   fonts.packages = with pkgs; [ nerdfonts ];
 
   services.displayManager.ly = {
-	enable = true;
-	settings = {
-		"clear_password" = true;
-		"vi_mode" = true;
-	};
+    enable = true;
+    settings = {
+      "clear_password" = true;
+      "vi_mode" = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
