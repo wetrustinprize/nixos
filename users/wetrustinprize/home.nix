@@ -54,8 +54,13 @@
     qalculate-gtk
     obsidian
     megasync
-    pavucontrol
-    hyprpolkitagent
+	pavucontrol
+    egl-wayland
+    gparted
+    wl-clipboard-rs
+    playerctl
+    steam-run
+	hyprshot
   ];
 
   programs.ssh = {

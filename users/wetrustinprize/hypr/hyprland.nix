@@ -14,7 +14,6 @@
         "waybar"
         "wl-paste --type text --watch cliphist store # Stores only text data"
         "wl-paste --type image --watch cliphist store # Stores only image data"
-        "systemctl --user start hyprpolkitagent"
         "hyprctl setcursor phinger-cursors-light 32"
         "qalculate-gtk"
         "bitwarden"
@@ -72,6 +71,9 @@
           "$mod, p, exec, rofi -show drun -p Run"
           "$mod, V, exec, cliphist list | rofi -dmenu -p Copy | cliphist decode | wl-copy"
           "$mod, o, exec, bemoji"
+
+		  # screenshot
+		  ", Print, exec, hyprshot -m region --clipboard-only"
         ]
         ++ lib.map (i: "$mod, ${toString i}, workspace, ${toString i}") (lib.range 1 9)
         ++ lib.map (i: "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}") (lib.range 1 9);
@@ -103,6 +105,7 @@
         "float,class:(.blueman-manager-wrapped)"
         "float,class:(org.pulseaudio.pavucontrol)"
         "float,class:(com.github.wwmm.easyeffects)"
+        "float,title:Picture-in-Picture"
         "workspace special:calculator,class:(qalculate-gtk)"
         "workspace special:password,class:(Bitwarden)"
         "workspace name:side-monitor,class:(discord)"
