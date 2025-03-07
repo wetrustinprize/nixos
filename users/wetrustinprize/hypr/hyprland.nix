@@ -12,19 +12,19 @@
       exec-once = [
         "hyprpaper"
         "waybar"
-        "wl-paste --type text --watch cliphist store # Stores only text data"
-        "wl-paste --type image --watch cliphist store # Stores only image data"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
         "hyprctl setcursor phinger-cursors-light 32"
-        "qalculate-gtk"
-        "bitwarden"
-        "discord"
+        "[workspace special:calculator] qalculate-gtk"
+        "[worksapce special:password] bitwarden"
+        "[workspace name:side-monitor] discord"
         "sleep 10 && megasync"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
       "$browser" = "zen";
+      "$editor" = "vim";
       "$visual" = "cursor";
-      "$explorer" = "thunar";
       general = {
         "allow_tearing" = true;
         "gaps_out" = 10;
@@ -45,10 +45,10 @@
       bind =
         [
           # launch apps
-          "$mod, RETURN, exec, $terminal"
+          "$mod, RETURN, exec, [float, center, size 16 16] $terminal"
           "$mod, F1, exec, $browser"
-          "$mod, F2, exec, $explorer"
-          "$mod, F3, exec, $visual"
+          "$mod, F2, exec, $visual"
+          "$mod, F3, exec, $terminal yazi"
 
           "$mod, C, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
           "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
@@ -63,6 +63,7 @@
           "$mod, t, togglegroup,"
 
           "$mod, r, exec, reload"
+          "$mod SHIFT, Q, exec, exit"
 
           "$mod, mouse_down, workspace, e+1"
           "$mod, mouse_up, workspace, e-1"
@@ -72,8 +73,8 @@
           "$mod, V, exec, cliphist list | rofi -dmenu -p Copy | cliphist decode | wl-copy"
           "$mod, o, exec, bemoji"
 
-		  # screenshot
-		  ", Print, exec, hyprshot -m region --clipboard-only"
+          # screenshot
+          ", Print, exec, hyprshot -m region --clipboard-only"
         ]
         ++ lib.map (i: "$mod, ${toString i}, workspace, ${toString i}") (lib.range 1 9)
         ++ lib.map (i: "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}") (lib.range 1 9);
@@ -94,11 +95,12 @@
       ];
       workspace = [
         "name:side-monitor, monitor:HDMI-A-1"
+        "special:calculator, monitor:DP-1"
+        "special:password, monitor:DP-1"
       ] ++ lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-        "float,class:^($terminal)$,title:^($terminal)$"
         "float,class:(qalculate-gtk)"
         "float,class:(Bitwarden)"
         "float,class:(MEGAsync)"
@@ -112,11 +114,12 @@
       ];
     };
     extraConfig = ''
-      env = LIBVA_DRIVER_NAME,nvidia
-      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-      env = NVD_BACKEND,direct
-      env = ELECTRON_OZONE_PLATFORM_HINT,auto
-      debug:disable_logs = false
+            env = LIBVA_DRIVER_NAME,nvidia
+            env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+            env = NVD_BACKEND,direct
+            env = ELECTRON_OZONE_PLATFORM_HINT,auto
+      	  env = EDITOR,vim
+            debug:disable_logs = false
     '';
   };
 }

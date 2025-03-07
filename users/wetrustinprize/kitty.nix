@@ -3,6 +3,8 @@
   programs.kitty = {
     enable = true;
     settings = {
+      "confirm_os_window_close" = 0;
+
       background = "#${config.colorScheme.palette.base00}";
       foreground = "#${config.colorScheme.palette.base06}";
 

@@ -54,13 +54,13 @@
     qalculate-gtk
     obsidian
     megasync
-	pavucontrol
+    pavucontrol
     egl-wayland
     gparted
     wl-clipboard-rs
     playerctl
     steam-run
-	hyprshot
+    hyprshot
   ];
 
   programs.ssh = {
@@ -71,12 +71,17 @@
     ];
   };
 
+  programs.yazi = {
+    enable = true;
+  };
+
   programs.nushell = {
     enable = true;
-	configFile.text = ''
-		$env.config.buffer_editor = "cursor"
-		$env.config.show_banner = false
-	'';
+    configFile.text = ''
+      		$env.config.buffer_editor = "cursor"
+      		$env.config.show_banner = false
+      		$env.EDITOR = "vim"
+      	'';
     shellAliases = {
       "?" = "question";
     };
