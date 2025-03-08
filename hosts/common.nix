@@ -46,6 +46,9 @@
     "flakes"
   ];
 
+
+  services.xserver.enable = true;
+
   users = {
     defaultUserShell = pkgs.nushell;
     users = lib.listToAttrs (
