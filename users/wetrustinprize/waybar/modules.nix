@@ -45,7 +45,6 @@
       ];
     };
     "on-click" = "pavucontrol";
-    "on-click-right" = "easyeffects";
   };
 
   network = {

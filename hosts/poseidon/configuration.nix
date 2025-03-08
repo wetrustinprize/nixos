@@ -12,10 +12,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  networking.hostName = "wetrustinprize";
+  networking.hostName = "poseidon";
   time.timeZone = "America/Sao_Paulo";
-
-  services.xserver.enable = true;
 
   users.users.wetrustinprize = {
     isNormalUser = true;

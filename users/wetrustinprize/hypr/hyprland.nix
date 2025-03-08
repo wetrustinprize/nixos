@@ -37,11 +37,6 @@
           "col.active" = "rgb(${config.colorScheme.palette.base0F})";
         };
       };
-      monitor = [
-        "DP-1, highres@highrr, 1080x0, 1"
-        "HDMI-A-1, highres@highrr, 0x-540, 1, transform, 1"
-        ", preferred, auto, 1, mirror, DP-1"
-      ];
       bind =
         [
           # launch apps
@@ -93,11 +88,6 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
-      workspace = [
-        "name:side-monitor, monitor:HDMI-A-1"
-        "special:calculator, monitor:DP-1"
-        "special:password, monitor:DP-1"
-      ] ++ lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
@@ -106,7 +96,6 @@
         "float,class:(MEGAsync)"
         "float,class:(.blueman-manager-wrapped)"
         "float,class:(org.pulseaudio.pavucontrol)"
-        "float,class:(com.github.wwmm.easyeffects)"
         "float,title:Picture-in-Picture"
         "workspace special:calculator,class:(qalculate-gtk)"
         "workspace special:password,class:(Bitwarden)"
@@ -114,12 +103,12 @@
       ];
     };
     extraConfig = ''
-            env = LIBVA_DRIVER_NAME,nvidia
-            env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-            env = NVD_BACKEND,direct
-            env = ELECTRON_OZONE_PLATFORM_HINT,auto
-      	  env = EDITOR,vim
-            debug:disable_logs = false
+      env = LIBVA_DRIVER_NAME,nvidia
+      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+      env = NVD_BACKEND,direct
+      env = ELECTRON_OZONE_PLATFORM_HINT,auto
+      env = EDITOR,vim
+      debug:disable_logs = false
     '';
   };
 }

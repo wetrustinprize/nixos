@@ -80,16 +80,16 @@
         nixColorsReplace = import ./utils/nixColorsReplace.nix { inherit lib; };
       };
       nixosConfigurations = {
-        wetrustinprize = mkConfig {
+        poseidon = mkConfig {
           inherit system;
-          hostname = "wetrustinprize";
+          hostname = "poseidon";
           usernames = [ "wetrustinprize" ];
         };
-	dionysus = mkConfig {
-	  inherit system;
-	  hostname = "dionysus";
-	  usernames = [ "wetrustinprize" ];
-	};
+        dionysus = mkConfig {
+          inherit system;
+          hostname = "dionysus";
+          usernames = [ "wetrustinprize" ];
+        };
       };
     };
 }
