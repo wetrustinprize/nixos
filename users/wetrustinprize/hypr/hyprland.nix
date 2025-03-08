@@ -40,7 +40,7 @@
       bind =
         [
           # launch apps
-          "$mod, RETURN, exec, [float, center, size 16 16] $terminal"
+          "$mod, RETURN, exec, [float; center; size 730 470] $terminal"
           "$mod, F1, exec, $browser"
           "$mod, F2, exec, $visual"
           "$mod, F3, exec, $terminal yazi"
