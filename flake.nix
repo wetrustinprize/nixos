@@ -84,6 +84,11 @@
           hostname = "wetrustinprize";
           usernames = [ "wetrustinprize" ];
         };
+	dionysus = mkConfig {
+	  inherit system;
+	  hostname = "dionysus";
+	  usernames = [ "wetrustinprize" ];
+	};
       };
     };
 }
