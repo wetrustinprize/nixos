@@ -61,6 +61,7 @@
     playerctl
     steam-run
     hyprshot
+	hyprpaper
   ];
 
   programs.ssh = {

@@ -61,8 +61,8 @@ in
 		"${mainWallpaper}"
     ];
     wallpaper = [
-      "DP-1, ${sideWallpaper}"
-      "HDMI-A-1, ${mainWallpaper}"
+      "DP-1, ${mainWallpaper}"
+      "HDMI-A-1, ${sideWallpaper}"
     ];
   };
 }
