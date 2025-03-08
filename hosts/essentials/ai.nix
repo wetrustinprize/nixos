@@ -6,6 +6,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-	inputs.question.packages.${pkgs.system}.default
+    inputs.question.packages.${pkgs.system}.default
   ];
 }

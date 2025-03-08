@@ -51,10 +51,16 @@
     filezilla
     stremio
     xarchiver
-	qalculate-gtk
-	obsidian
-	megasync
-	pavucontrol
+    qalculate-gtk
+    obsidian
+    megasync
+    pavucontrol
+    egl-wayland
+    gparted
+    wl-clipboard-rs
+    playerctl
+    steam-run
+    hyprshot
   ];
 
   programs.ssh = {
@@ -65,12 +71,21 @@
     ];
   };
 
+  programs.yazi = {
+    enable = true;
+  };
+
   programs.nushell = {
     enable = true;
-	shellAliases = {
-		"?" = "question";
-	};
-	extraConfig = "source nix-your-shell.nu";
+    configFile.text = ''
+      		$env.config.buffer_editor = "cursor"
+      		$env.config.show_banner = false
+      		$env.EDITOR = "vim"
+      	'';
+    shellAliases = {
+      "?" = "question";
+    };
+    extraConfig = "source nix-your-shell.nu";
   };
   home.file."${config.xdg.configHome}/nushell/nix-your-shell.nu".source =
     pkgs.nix-your-shell.generate-config "nu";
@@ -93,10 +108,6 @@
     x11.enable = true;
   };
 
-  services.swaync = {
-    enable = true;
-  };
-
   programs.waybar = {
     enable = true;
   };
@@ -107,6 +118,7 @@
     ./hypr/hyprpaper.nix
     ./starship.nix
     ./kitty.nix
+    ./swaync/swaync.nix
   ];
 
   home.stateVersion = "24.05";

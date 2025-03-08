@@ -3,6 +3,8 @@
   programs.kitty = {
     enable = true;
     settings = {
+      "confirm_os_window_close" = 0;
+
       background = "#${config.colorScheme.palette.base00}";
       foreground = "#${config.colorScheme.palette.base06}";
 
@@ -10,7 +12,7 @@
       color1 = "#${config.colorScheme.palette.base08}";
       color9 = "#${config.colorScheme.palette.base08}";
 
-	  # red
+      # red
       color2 = "#${config.colorScheme.palette.base0B}";
       color10 = "#${config.colorScheme.palette.base0B}";
 

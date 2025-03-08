@@ -30,12 +30,15 @@
 
   fonts.packages = with pkgs; [ nerdfonts ];
 
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      "clear_password" = true;
+      "vi_mode" = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     kitty
-    egl-wayland
-    gparted
-    wl-clipboard-rs
-    playerctl
-    steam-run
   ];
 }

@@ -1,6 +1,6 @@
 { config, ... }:
 {
-	programs.bash.enable = true;
+  programs.bash.enable = true;
 
   programs.starship = {
     enable = true;
@@ -18,7 +18,7 @@
         purple = "#${config.colorScheme.palette.base0E}";
         cyan = "#${config.colorScheme.palette.base0C}";
         white = "#${config.colorScheme.palette.base06}";
-		bright-white = "#${config.colorScheme.palette.base07}";
+        bright-white = "#${config.colorScheme.palette.base07}";
       };
     };
   };
