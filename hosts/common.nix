@@ -34,7 +34,6 @@
     enable = true;
     theme = "nixos-bgrt";
     themePackages = [ pkgs.nixos-bgrt-plymouth ];
-	logo = ../utils/logo.png;
   };
 
   nix.settings.trusted-users = [
