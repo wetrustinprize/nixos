@@ -23,6 +23,8 @@
     ];
   };
 
+  virtualisation.docker.enableNvidia = true;
+
   services.ollama.acceleration = "cuda";
 
   system.stateVersion = "24.05";
