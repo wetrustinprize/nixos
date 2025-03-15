@@ -62,6 +62,8 @@
     steam-run
     hyprshot
 	hyprpaper
+	gamemode
+	protonup
   ];
 
   programs.ssh = {
