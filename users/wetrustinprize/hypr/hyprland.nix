@@ -18,7 +18,7 @@
         "[workspace special:calculator] qalculate-gtk"
         "[worksapce special:password] bitwarden"
         "[workspace name:side-monitor] discord"
-        "sleep 10 && megasync"
+		"[workspace special:obsidian] obsidian"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -47,6 +47,7 @@
 
           "$mod, C, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
           "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
+		  "$mod, O, exec, pgrep -f obsidian && hyprctl dispatch togglespecialworkspace obsidian || obsidian &"
 
           # window management
           "$mod SHIFT, SPACE, togglefloating,"
@@ -66,7 +67,7 @@
           # rofi stuff
           "$mod, p, exec, rofi -show drun -p Run"
           "$mod, V, exec, cliphist list | rofi -dmenu -p Copy | cliphist decode | wl-copy"
-          "$mod, o, exec, bemoji"
+          "$mod SHIFT, E, exec, bemoji"
 
           # screenshot
           ", Print, exec, hyprshot -m region --clipboard-only"
@@ -99,6 +100,7 @@
         "float,title:Picture-in-Picture"
         "workspace special:calculator,class:(qalculate-gtk)"
         "workspace special:password,class:(Bitwarden)"
+		"workspace special:obsidian,class:(obsidian)"
         "workspace name:side-monitor,class:(discord)"
       ];
     };
@@ -108,6 +110,7 @@
       env = NVD_BACKEND,direct
       env = ELECTRON_OZONE_PLATFORM_HINT,auto
       env = EDITOR,vim
+	  env = NIXOS_OZONE_WL,1
       debug:disable_logs = false
     '';
   };

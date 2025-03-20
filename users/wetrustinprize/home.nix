@@ -53,17 +53,20 @@
     xarchiver
     qalculate-gtk
     obsidian
-    megasync
+    megacmd
     pavucontrol
     egl-wayland
     gparted
-    wl-clipboard-rs
+    wl-clipboard
     playerctl
     steam-run
     hyprshot
 	hyprpaper
 	gamemode
 	protonup
+	qbittorrent
+	obsidian
+	gh
   ];
 
   programs.ssh = {
