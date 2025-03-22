@@ -88,9 +88,6 @@
       		$env.config.show_banner = false
       		$env.EDITOR = "vim"
       	'';
-    shellAliases = {
-      "?" = "question";
-    };
     extraConfig = "source nix-your-shell.nu";
   };
   home.file."${config.xdg.configHome}/nushell/nix-your-shell.nu".source =

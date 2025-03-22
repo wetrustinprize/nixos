@@ -3,7 +3,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     cursor-editor.url = "github:omarcresp/cursor-flake";
-    question.url = "github:wetrustinprize/question";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-your-shell = {
       url = "github:MercuryTechnologies/nix-your-shell";
