@@ -12,7 +12,6 @@
       exec-once = [
         "hyprpaper"
         "waybar"
-		"mega-sync"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hyprctl setcursor phinger-cursors-light 32"
@@ -20,6 +19,7 @@
         "[worksapce special:password] bitwarden"
         "[workspace name:side-monitor] discord"
 		"[workspace special:obsidian] obsidian"
+        "sleep 10 && mega-sync"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
