@@ -61,12 +61,12 @@
     playerctl
     steam-run
     hyprshot
-	hyprpaper
-	gamemode
-	protonup
-	qbittorrent
-	obsidian
-	gh
+    hyprpaper
+    gamemode
+    protonup
+    qbittorrent
+    obsidian
+    gh
   ];
 
   programs.ssh = {

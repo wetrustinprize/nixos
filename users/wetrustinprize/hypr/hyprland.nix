@@ -18,7 +18,7 @@
         "[workspace special:calculator] qalculate-gtk"
         "[worksapce special:password] bitwarden"
         "[workspace name:side-monitor] discord"
-		"[workspace special:obsidian] obsidian"
+        "[workspace special:obsidian] obsidian"
         "sleep 10 && mega-sync"
       ];
       "$mod" = "SUPER";
@@ -48,7 +48,7 @@
 
           "$mod, C, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
           "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
-		  "$mod, O, exec, pgrep -f obsidian && hyprctl dispatch togglespecialworkspace obsidian || obsidian &"
+          "$mod, O, exec, pgrep -f obsidian && hyprctl dispatch togglespecialworkspace obsidian || obsidian &"
 
           # window management
           "$mod SHIFT, SPACE, togglefloating,"
@@ -101,18 +101,18 @@
         "float,title:Picture-in-Picture"
         "workspace special:calculator,class:(qalculate-gtk)"
         "workspace special:password,class:(Bitwarden)"
-		"workspace special:obsidian,class:(obsidian)"
+        "workspace special:obsidian,class:(obsidian)"
         "workspace name:side-monitor,class:(discord)"
       ];
     };
     extraConfig = ''
-      env = LIBVA_DRIVER_NAME,nvidia
-      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-      env = NVD_BACKEND,direct
-      env = ELECTRON_OZONE_PLATFORM_HINT,auto
-      env = EDITOR,vim
-	  env = NIXOS_OZONE_WL,1
-      debug:disable_logs = false
+            env = LIBVA_DRIVER_NAME,nvidia
+            env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+            env = NVD_BACKEND,direct
+            env = ELECTRON_OZONE_PLATFORM_HINT,auto
+            env = EDITOR,vim
+      	  env = NIXOS_OZONE_WL,1
+            debug:disable_logs = false
     '';
   };
 }

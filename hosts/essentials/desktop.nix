@@ -40,6 +40,6 @@
 
   environment.systemPackages = with pkgs; [
     kitty
-	headsetcontrol
+    headsetcontrol
   ];
 }

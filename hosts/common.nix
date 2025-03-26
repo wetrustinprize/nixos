@@ -46,7 +46,6 @@
     "flakes"
   ];
 
-
   services.xserver.enable = true;
 
   users = {
