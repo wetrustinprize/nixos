@@ -66,6 +66,7 @@
     protonup
     qbittorrent
     obsidian
+	kooha
     gh
   ];
 
@@ -120,6 +121,7 @@
     ./starship.nix
     ./kitty.nix
     ./swaync/swaync.nix
+	./mangohud.nix
   ];
 
   home.stateVersion = "24.05";
