@@ -66,7 +66,9 @@
     protonup
     qbittorrent
     obsidian
-	kooha
+    kooha
+    sticky-notes
+    obs-studio
     gh
   ];
 
@@ -121,7 +123,8 @@
     ./starship.nix
     ./kitty.nix
     ./swaync/swaync.nix
-	./mangohud.nix
+    ./mangohud.nix
+    ./sticky-notes.nix
   ];
 
   home.stateVersion = "24.05";

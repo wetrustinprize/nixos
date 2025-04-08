@@ -1,14 +1,14 @@
-{ pkgs, ... }: {
-	home.packages = with pkgs; [
-		mangohud
-	];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    mangohud
+  ];
 
-	programs.mangohud = {
-		enable = true;
-		enableSessionWide = true;
+  programs.mangohud = {
+    enable = true;
 
-		settings = {
-			"toggle_hud" = "Shift_R+Enter";
-		};
-	};
+    settings = {
+      "toggle_hud" = "Shift_R+Enter";
+    };
+  };
 }
