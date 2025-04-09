@@ -58,12 +58,26 @@
           # layout
           "$mod, f, fullscreen,"
           "$mod, t, togglegroup,"
+          "$mod shift, t, moveoutofgroup"
 
           "$mod, r, exec, reload"
           "$mod SHIFT, Q, exec, exit"
 
           "$mod, mouse_down, workspace, e+1"
           "$mod, mouse_up, workspace, e-1"
+
+          # movement
+          "$mod, h, movefocus, l"
+          "$mod, l, movefocus, r"
+          "$mod, k, movefocus, u"
+          "$mod, j, movefocus, d"
+          "$mod, tab, changegroupactive, f"
+
+          # move window
+          "$mod shift, h, movewindow, l"
+          "$mod shift, l, movewindow, r"
+          "$mod shift, k, movewindow, u"
+          "$mod shift, j, movewindow, d"
 
           # rofi stuff
           "$mod, p, exec, rofi -show drun -p Run"
@@ -99,6 +113,7 @@
         "float,class:(.blueman-manager-wrapped)"
         "float,class:(org.pulseaudio.pavucontrol)"
         "float,title:Picture-in-Picture"
+        "float,title:Open Files"
         "workspace special:calculator,class:(qalculate-gtk)"
         "workspace special:password,class:(Bitwarden)"
         "workspace special:obsidian,class:(obsidian)"
