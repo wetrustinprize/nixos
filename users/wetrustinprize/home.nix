@@ -120,6 +120,7 @@
     ./hypr/hyprland.nix
     ./hypr/hyprpaper.nix
     ./hypr/hypridle.nix
+    ./hypr/hyprpolkit.nix
     ./starship.nix
     ./kitty.nix
     ./swaync/swaync.nix
