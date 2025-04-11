@@ -93,7 +93,7 @@
 			inherit system;
 			hostname = "atena";
 			usernames = [ "wetrustinprize" ];
-		}
+		};
       };
     };
 }
