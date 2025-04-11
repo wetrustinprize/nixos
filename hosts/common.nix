@@ -66,6 +66,4 @@
 
   programs.nix-ld.enable = true;
   programs.dconf.enable = true;
-
-  system.stateVersion = "24.05";
 }
