@@ -66,6 +66,7 @@
     qbittorrent
     obsidian
     kooha
+	megacmd
     obs-studio
     gh
   ];
