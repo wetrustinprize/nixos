@@ -67,7 +67,6 @@
     qbittorrent
     obsidian
     kooha
-    sticky-notes
     obs-studio
     gh
   ];
