@@ -1,9 +1,11 @@
 { ... }:
 {
   wayland.windowManager.hyprland = {
-    exec-once = [
-      "hypridle"
-    ];
+    settings = {
+      exec-once = [
+        "hypridle"
+      ];
+    };
   };
 
   services.hypridle = {
