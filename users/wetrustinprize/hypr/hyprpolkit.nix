@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
+	  home.packages = with pkgs; [
+		hyprpolkitagent
+  ];
+
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
@@ -7,6 +11,4 @@
       ];
     };
   };
-
-  services.hyprpolkitagent.enable = true;
 }
