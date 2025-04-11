@@ -30,12 +30,6 @@
     lshw
   ];
 
-  boot.plymouth = {
-    enable = true;
-    theme = "nixos-bgrt";
-    themePackages = [ pkgs.nixos-bgrt-plymouth ];
-  };
-
   nix.settings.trusted-users = [
     "root"
     "@wheel"
@@ -46,8 +40,6 @@
     "flakes"
   ];
 
-  services.xserver.enable = true;
-
   users = {
     defaultUserShell = pkgs.nushell;
     users = lib.listToAttrs (
@@ -57,6 +49,7 @@
         value = {
           isNormalUser = true;
           extraGroups = [
+            "networkmanager"
             "wheel"
             "docker"
           ];
