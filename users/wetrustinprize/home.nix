@@ -53,7 +53,6 @@
     xarchiver
     qalculate-gtk
     obsidian
-    megacmd
     pavucontrol
     egl-wayland
     gparted

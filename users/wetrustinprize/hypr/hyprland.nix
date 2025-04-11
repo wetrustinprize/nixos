@@ -19,7 +19,6 @@
         "[worksapce special:password] bitwarden"
         "[workspace name:side-monitor] discord"
         "[workspace special:obsidian] obsidian"
-        "sleep 10 && mega-sync"
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -109,7 +108,6 @@
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "float,class:(qalculate-gtk)"
         "float,class:(Bitwarden)"
-        "float,class:(MEGAsync)"
         "float,class:(.blueman-manager-wrapped)"
         "float,class:(org.pulseaudio.pavucontrol)"
         "float,title:Picture-in-Picture"
