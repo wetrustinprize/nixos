@@ -14,14 +14,6 @@
   networking.hostName = "poseidon";
   time.timeZone = "America/Sao_Paulo";
 
-  users.users.wetrustinprize = {
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
-
   services.ollama.acceleration = "cuda";
 
   system.stateVersion = "24.05";
