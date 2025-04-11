@@ -28,7 +28,7 @@
     htop
     sudo
     lshw
-	fzf
+    fzf
   ];
 
   nix.settings.trusted-users = [

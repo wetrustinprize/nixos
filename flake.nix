@@ -89,11 +89,11 @@
           hostname = "dionysus";
           usernames = [ "wetrustinprize" ];
         };
-		atena = mkConfig {
-			inherit system;
-			hostname = "atena";
-			usernames = [ "wetrustinprize" ];
-		};
+        atena = mkConfig {
+          inherit system;
+          hostname = "atena";
+          usernames = [ "wetrustinprize" ];
+        };
       };
     };
 }

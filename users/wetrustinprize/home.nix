@@ -66,7 +66,7 @@
     qbittorrent
     obsidian
     kooha
-	megacmd
+    megacmd
     obs-studio
     gh
   ];
@@ -119,6 +119,7 @@
     ./waybar/waybar.nix
     ./hypr/hyprland.nix
     ./hypr/hyprpaper.nix
+    ./hypr/hypridle.nix
     ./starship.nix
     ./kitty.nix
     ./swaync/swaync.nix
