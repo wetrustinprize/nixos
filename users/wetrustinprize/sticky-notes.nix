@@ -5,9 +5,9 @@
   ];
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      "com.vixalien.sticky -i"
-    ];
+    # exec-once = [
+    #   "com.vixalien.sticky -i"
+    # ];
     bind = [
       "$mod, N, exec, com.vixalien.sticky -n"
     ];
