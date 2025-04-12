@@ -3,7 +3,10 @@
 {
   imports = [
     ../common.nix
+    ../essentials/virtualization.nix
+    ../essentials/ai.nix
     ./hardware-configuration.nix
+    ./containers/karakeep.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
