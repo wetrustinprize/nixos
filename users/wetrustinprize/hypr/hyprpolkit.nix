@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
-	  home.packages = with pkgs; [
-		hyprpolkitagent
+  home.packages = with pkgs; [
+    hyprpolkitagent
   ];
 
   wayland.windowManager.hyprland = {
