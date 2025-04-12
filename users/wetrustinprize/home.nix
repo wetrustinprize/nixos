@@ -48,6 +48,7 @@
   require = [
     ./modules/nushell.nix
     ./modules/yazi.nix
+    ./modules/starship.nix
   ];
 
   home.stateVersion = "24.05";

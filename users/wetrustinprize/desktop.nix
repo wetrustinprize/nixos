@@ -80,7 +80,6 @@
     ./modules/hypr/hyprpaper.nix
     ./modules/hypr/hypridle.nix
     ./modules/hypr/hyprpolkit.nix
-    ./modules/starship.nix
     ./modules/kitty.nix
     ./modules/swaync/swaync.nix
     ./modules/mangohud.nix
