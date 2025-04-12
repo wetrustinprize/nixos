@@ -3,7 +3,7 @@ let
   env = { };
 in
 {
-  virtualisation.podman = {
+  services.podman = {
     networks."karakeep" = { };
     volumes = {
       "karakeep" = { };
