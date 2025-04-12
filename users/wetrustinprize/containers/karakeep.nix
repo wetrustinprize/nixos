@@ -27,7 +27,7 @@ in
         image = "gcr.io/zenika-hub/alpine-chrome:123";
         autoStart = true;
         network = "karakeep";
-        entrypoint = "chromium-browser --headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-debugging-port=9222 --remote-debugging-address=0.0.0.0 --hide-scrollbars";
+        entrypoint = "['chromium-browser', '--headless', '--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu', '--remote-debugging-port=9222', '--remote-debugging-address=0.0.0.0', '--hide-scrollbars']";
       };
       "meilisearch" = {
         image = "getmeili/meilisearch:v1.11.1";
