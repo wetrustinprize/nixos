@@ -10,6 +10,7 @@
     # ];
     bind = [
       "$mod, N, exec, com.vixalien.sticky -n"
+      "$mod SHIFT, N, exec, com.vixalien.sticky"
     ];
     # not avaliable yet in 0.45.2
     # bindo = [
