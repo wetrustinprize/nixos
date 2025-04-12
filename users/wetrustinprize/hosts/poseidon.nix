@@ -6,7 +6,7 @@
   ...
 }:
 let
-  waybarModules = import ../waybar/modules.nix { inherit lib; };
+  waybarModules = import ../modules/waybar/modules.nix { inherit lib; };
   mkWallpaper = import ../../../utils/mkWallpaper.nix {
     inherit lib;
     inherit pkgs;
@@ -23,6 +23,8 @@ let
   };
 in
 {
+	require = [ ../desktop.nix ];
+
   programs.waybar.settings.statusBar = lib.recursiveUpdate {
     layer = "bottom";
     position = "top";

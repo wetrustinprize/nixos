@@ -17,6 +17,8 @@ let
   };
 in
 {
+	require = [ ../desktop.nix ];
+
   programs.waybar.settings.mainBar.output = [ "eDP-1" ];
 
   wayland.windowManager.hyprland.settings.monitor = [
