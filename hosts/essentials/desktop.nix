@@ -21,7 +21,14 @@
 
   security.polkit.enable = true;
 
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = [
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "CodeNewRoman"
+        "JetBrainsMono"
+      ];
+    })
+  ];
 
   services.displayManager.ly = {
     enable = true;
