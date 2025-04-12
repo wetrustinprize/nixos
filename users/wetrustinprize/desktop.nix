@@ -22,7 +22,6 @@
 
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${system}".default
-    inputs.cursor-editor.packages."${system}".default
     chromium
     libreoffice
     discord
@@ -86,5 +85,6 @@
     ./modules/swaync/swaync.nix
     ./modules/mangohud.nix
     ./modules/sticky-notes.nix
+    ./modules/vscode.nix
   ];
 }
