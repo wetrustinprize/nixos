@@ -21,13 +21,9 @@
 
   security.polkit.enable = true;
 
-  fonts.packages = [
-    (pkgs.nerdfonts.override {
-      fonts = [
-        "CodeNewRoman"
-        "JetBrainsMono"
-      ];
-    })
+  fonts.packages = with pkgs; [
+    nerd-fonts.code-new-roman
+    nerd-fonts.jetbrains-mono
   ];
 
   services.displayManager.ly = {
