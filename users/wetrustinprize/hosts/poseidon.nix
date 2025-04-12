@@ -49,6 +49,11 @@ in
     ", preferred, auto, 1, mirror, DP-1"
   ];
 
+  wayland.windowManager.hyprland.settings.input = {
+    kb_layout = "us";
+    kb_variant = "altgr-intl";
+  };
+
   wayland.windowManager.hyprland.settings.workspace = [
     "name:side-monitor, monitor:HDMI-A-1"
     "special:calculator, monitor:DP-1"

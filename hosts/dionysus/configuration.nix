@@ -33,5 +33,10 @@
   services.blueman.enable = true;
   environment.systemPackages = with pkgs; [ bluetuith ];
 
+  services.xserver = {
+    xkb.layout = "us";
+    xkbVariant = "altgr-intl";
+  };
+
   system.stateVersion = "24.05";
 }
