@@ -62,8 +62,8 @@
     obsidian
     kooha
     obs-studio
-	mucommander
-	fm
+    mucommander
+    fm
   ];
 
   gtk.theme.package = nix-colors.gtk-theme config.colorScheme;
