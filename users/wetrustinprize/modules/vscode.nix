@@ -16,5 +16,5 @@
         arcticicestudio.nord-visual-studio-code
       ];
     };
-  }
+  };
 }
