@@ -16,6 +16,7 @@ in
         autoStart = true;
         ports = [ "3000:3000" ];
         volumes = [ "karakeep:/data" ];
+		network = "karakeep";
         environment = lib.recursiveUpdate env {
           MEILI_HOST = "http://meilisearch:7700";
           BROWSER_WEB_URL = "http://chrome:9222";
@@ -25,6 +26,7 @@ in
       "chrome" = {
         image = "gcr.io/zenika-hub/alpine-chrome:123";
         autoStart = true;
+		network = "karakeep";
         # extraPodmanArgs = [
         #   "--no-sandbox"
         #   "--disable-dev-shm-usage"
@@ -37,6 +39,7 @@ in
       "meilisearch" = {
         image = "getmeili/meilisearch:v1.11.1";
         autoStart = true;
+		network = "karakeep";
         environment = lib.recursiveUpdate env {
           MEILI_NO_ANALYTICS = "true";
         };
