@@ -15,6 +15,7 @@
 
   time.timeZone = "America/Sao_Paulo";
 
-  system.stateVersion = "24.11";
+  networking.firewall.enable = false;
 
+  system.stateVersion = "24.11";
 }
