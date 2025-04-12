@@ -25,12 +25,14 @@ in
       "chrome" = {
         image = "gcr.io/zenika-hub/alpine-chrome:123";
         autoStart = true;
-        exec = "--no-sandbox
-          --disable-dev-shm-usage
-          --disable-gpu
-          --remote-debugging-port=9222
-          --remote-debugging-address=0.0.0.0
-		  --hide-scrollbars";
+        extraPodmanArgs = [
+          "--no-sandbox"
+          "--disable-dev-shm-usage"
+          "--disable-gpu"
+          "--remote-debugging-port=9222"
+          "--remote-debugging-address=0.0.0.0"
+          "--hide-scrollbars"
+        ];
       };
       "meilisearch" = {
         image = "getmeili/meilisearch:v1.11.1";
