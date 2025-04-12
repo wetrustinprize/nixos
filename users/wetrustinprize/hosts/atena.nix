@@ -1,3 +1,3 @@
 { ... }: {
-	require = [ ./containers/karakeep.nix ];
+	require = [ ../containers/karakeep.nix ];
 }
