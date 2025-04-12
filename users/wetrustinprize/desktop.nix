@@ -1,6 +1,13 @@
-{ pkgs, inputs, nix-colors, config, ... }: {
-	nixpkgs = {
-		overlays = [
+{
+  pkgs,
+  inputs,
+  nix-colors,
+  config,
+  ...
+}:
+{
+  nixpkgs = {
+    overlays = [
       (self: super: {
         tidal-hifi = super.tidal-hifi.overrideAttrs (attrs: {
           version = "5.18.2";
@@ -10,8 +17,8 @@
           };
         });
       })
-		];
-	};
+    ];
+  };
 
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${system}".default

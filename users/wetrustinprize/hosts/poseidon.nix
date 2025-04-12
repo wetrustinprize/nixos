@@ -23,7 +23,7 @@ let
   };
 in
 {
-	require = [ ../desktop.nix ];
+  require = [ ../desktop.nix ];
 
   programs.waybar.settings.statusBar = lib.recursiveUpdate {
     layer = "bottom";

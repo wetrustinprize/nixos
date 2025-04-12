@@ -26,7 +26,7 @@
   home.packages = with pkgs; [
     nixfmt-rfc-style
     pinentry
-	libqalculate
+    libqalculate
     megacmd
     gh
   ];
@@ -46,8 +46,8 @@
   };
 
   require = [
-	./modules/nushell.nix
-	./modules/yazi.nix
+    ./modules/nushell.nix
+    ./modules/yazi.nix
   ];
 
   home.stateVersion = "24.05";
