@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     cursor-editor.url = "github:omarcresp/cursor-flake";
     nix-colors.url = "github:misterio77/nix-colors";
@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
