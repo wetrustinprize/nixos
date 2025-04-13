@@ -62,6 +62,7 @@
     kooha
     obs-studio
     mucommander
+    gnome-keyring
     fm
   ];
 
