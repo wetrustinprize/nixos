@@ -35,7 +35,6 @@ in
         # behaviour
         vscodevim.vim
         fill-labs.dependi
-        danielsanmedium.dscodegpt
         eamodio.gitlens
         wakatime.vscode-wakatime
         naumovs.color-highlight
