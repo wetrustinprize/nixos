@@ -1,10 +1,16 @@
 { pkgs, system, ... }:
 let
   # this is to fix remote-ssh extension
-  forkedNixpkgs = import (fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/577417344339acac020744052a86f4d112c83e2f.tar.gz";
-    sha256 = "11qdhd0dg1kz7v730rqy21fgra8babg2ljds6zmr6wz0ih3d47x0";
-  }) { inherit system; config.allowUnfree = true; };
+  forkedNixpkgs =
+    import
+      (fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/577417344339acac020744052a86f4d112c83e2f.tar.gz";
+        sha256 = "11qdhd0dg1kz7v730rqy21fgra8babg2ljds6zmr6wz0ih3d47x0";
+      })
+      {
+        inherit system;
+        config.allowUnfree = true;
+      };
 in
 {
   nixpkgs.overlays = [
@@ -47,6 +53,7 @@ in
 
         # nix
         bbenoist.nix
+        brettm12345.nixfmt-vscode
 
         # javascript/typescript
         dbaeumer.vscode-eslint
@@ -67,6 +74,8 @@ in
         "window.commandCenter" = false;
         "editor.minimap.enabled" = false;
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
+        "editor.formatOnSave" = true;
+        "editor.formatOnSaveMode" = "modifications";
         "chat.commandCenter.enabled" = false;
         "workbench.startupEditor" = "none";
         "files.autoSave" = "onWindowChange";
@@ -77,6 +86,16 @@ in
         "vim.leader" = "<space>";
         "vim.useSystemClipboard" = true;
         "vim.normalModeKeyBindingsNonRecursive" = [
+          # Rename symbol
+          {
+            "before" = [
+              "<leader>"
+              "r"
+              "s"
+            ];
+            commands = [ "editor.action.rename" ];
+          }
+
           # Toggle terminal
           {
             "before" = [
