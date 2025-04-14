@@ -1,5 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, system, ... }:
+let
+  # this is to fix remote-ssh extension
+  forkedNixpkgs = import (fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/577417344339acac020744052a86f4d112c83e2f.tar.gz";
+    sha256 = "11qdhd0dg1kz7v730rqy21fgra8babg2ljds6zmr6wz0ih3d47x0";
+  }) { inherit system; config.allowUnfree = true; };
+in
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      vscode-extensions = super.vscode-extensions // {
+        ms-vscode-remote.remote-ssh = forkedNixpkgs.vscode-extensions.ms-vscode-remote.remote-ssh;
+      };
+    })
+  ];
+
   home.packages = with pkgs; [
     vscode
   ];
@@ -36,6 +51,7 @@
 
         # javascript/typescript
         dbaeumer.vscode-eslint
+        styled-components.vscode-styled-components
 
         # rust
         rust-lang.rust-analyzer
@@ -51,11 +67,26 @@
         "window.customTitleBarVisibility" = "never";
         "window.commandCenter" = false;
         "editor.minimap.enabled" = false;
+        "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
         "chat.commandCenter.enabled" = false;
+        "workbench.startupEditor" = "none";
+        "files.autoSave" = "onWindowChange";
+        "git.confirmSync" = false;
+        "git.followTagsWhenSync" = true;
 
         # Vim
         "vim.leader" = "<space>";
+        "vim.useSystemClipboard" = true;
         "vim.normalModeKeyBindingsNonRecursive" = [
+          # Toggle terminal
+          {
+            "before" = [
+              "<leader>"
+              "t"
+            ];
+            commands = [ "workbench.action.terminal.toggleTerminal" ];
+          }
+
           # Open file search
           {
             "before" = [
