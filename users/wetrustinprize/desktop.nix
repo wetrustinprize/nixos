@@ -8,6 +8,7 @@
 {
   nixpkgs = {
     overlays = [
+      inputs.blender-bin.overlays.default
       (self: super: {
         tidal-hifi = super.tidal-hifi.overrideAttrs (attrs: {
           version = "5.18.2";
@@ -39,7 +40,7 @@
     blueman
     gimp
     krita
-    blender
+    blender_4_4
     godot_4
     pinta
     filezilla

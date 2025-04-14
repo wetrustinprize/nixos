@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/master";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    cursor-editor.url = "github:omarcresp/cursor-flake";
+    blender-bin.url = "github:edolstra/nix-warez?dir=blender";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-your-shell = {
       url = "github:MercuryTechnologies/nix-your-shell";
