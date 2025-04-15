@@ -5,6 +5,13 @@
     settings = {
       "confirm_os_window_close" = 0;
 
+      "font_family" = "JetBrainsMono Nerd Font";
+      "font_features" = "+liga";
+      "bold_font" = "auto";
+      "italic_font" = "auto";
+      "bold_italic_font" = "auto";
+      "disable_ligatures" = "cursor";
+
       background = "#${config.colorScheme.palette.base00}";
       foreground = "#${config.colorScheme.palette.base06}";
 
