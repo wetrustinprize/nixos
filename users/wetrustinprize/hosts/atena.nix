@@ -2,6 +2,6 @@
 {
   require = [
     ../modules/podman.nix
-    ../containers/cloudflared.nix
+    ../containers/cloudflared/cloudflared.nix
   ];
 }
