@@ -5,7 +5,9 @@
     ../common.nix
     ../essentials/virtualization.nix
     ../essentials/ai.nix
+
     ../containers/cloudflared/cloudflared.nix
+    ../containers/traefik.nix
 
     ./hardware-configuration.nix
   ];
