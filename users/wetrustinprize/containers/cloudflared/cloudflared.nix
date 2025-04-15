@@ -8,7 +8,7 @@
 {
   sops.secrets.cloudflared = {
     format = "dotenv";
-    sopsFile = ./env.${hostname};
+    sopsFile = ./.env.${hostname};
   };
   services.podman.containers = {
     "cloudflared" = {
