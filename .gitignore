@@ -1,1 +1,3 @@
-.sops.yaml
+# All that is secret
+secrets.yaml
+.env*

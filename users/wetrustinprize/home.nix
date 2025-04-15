@@ -45,6 +45,11 @@
     userName = "wetrustinprize";
   };
 
+  sops = {
+    age.keyFile = "${config.home.homeDirectory}/.age.key";
+    defaultSopsFile = ../../secrets.yaml;
+  };
+
   require = [
     ./modules/nushell.nix
     ./modules/yazi.nix

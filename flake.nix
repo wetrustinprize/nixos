@@ -4,6 +4,10 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
     nix-colors.url = "github:misterio77/nix-colors";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-your-shell = {
       url = "github:MercuryTechnologies/nix-your-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +40,7 @@
           specialArgs = {
             inherit inputs;
             inherit system;
+            inherit hostname;
             inherit usernames;
             inherit self;
           };
@@ -51,9 +56,13 @@
                     inherit inputs;
                     inherit system;
                     inherit username;
+                    inherit hostname;
                     inherit nix-colors;
                     inherit self;
                   };
+                  home-manager.sharedModules = [
+                    inputs.sops-nix.homeManagerModules.sops
+                  ];
                   home-manager.users.${username} = {
                     imports =
                       builtins.filter (x: x != null) [
