@@ -1,6 +1,6 @@
 { lib, ... }:
 let
-  token = lib.readFile /usr/share/cloudflared;
+  token = lib.readFile ~/cloudflared;
 in
 {
   services.podman.containers = {
