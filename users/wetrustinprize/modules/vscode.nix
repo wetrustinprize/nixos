@@ -53,7 +53,6 @@ in
 
         # nix
         bbenoist.nix
-        brettm12345.nixfmt-vscode
 
         # javascript/typescript
         dbaeumer.vscode-eslint
