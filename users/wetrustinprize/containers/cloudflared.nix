@@ -1,6 +1,6 @@
-{ lib, ... }:
+{ lib, config, ... }:
 let
- token = (lib.readFile /run/secrets/cloudflared);
+ token = lib.readFile config.sops.secrets.my-token.path;
 in
 {
   services.podman.containers = {
