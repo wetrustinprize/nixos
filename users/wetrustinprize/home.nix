@@ -45,6 +45,10 @@
     userName = "wetrustinprize";
   };
 
+  sops = {
+    age.keyFile = "~/.age-key";
+  };
+
   require = [
     ./modules/nushell.nix
     ./modules/yazi.nix
