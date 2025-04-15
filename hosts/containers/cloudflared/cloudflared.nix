@@ -14,7 +14,11 @@
   virtualisation.oci-containers.containers."cloudflared" = {
     image = "docker.io/cloudflare/cloudflared:latest";
     autoStart = true;
-    cmd = ["--token $TUNNEL_TOKEN"];
+    extraOptions = [ "--network=host" ];
+    cmd = [
+      "tunnel"
+      "run"
+    ];
     environmentFiles = [
       config.sops.secrets.cloudflared.path
     ];
