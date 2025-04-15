@@ -2,7 +2,7 @@
 
 let
   hasSecret = lib.hasAttr "cloudflared" config.sops.secrets;
-  _ = lib.warnIf (!hasSecret) "⚠️ Secret 'cloudflared' not found — skipping cloudflared container.";
+  _ = lib.warnIf (!hasSecret) "Secret 'cloudflared' not found — skipping cloudflared container.";
 
   token = builtins.readFile config.sops.secrets.cloudflared.path;
 in
