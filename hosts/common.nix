@@ -61,6 +61,13 @@
     );
   };
 
+  sops = {
+    # FIXME: This should be more related to the system instead
+    # of the user
+    age.keyFile = "/home/wetrustinprize/.age.key";
+    defaultSopsFile = ../../secrets.yaml;
+  };
+
   services.openssh = {
     enable = true;
     ports = [ 22 ];

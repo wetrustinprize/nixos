@@ -47,6 +47,7 @@
           modules =
             [
               ./hosts/${hostname}/configuration.nix
+              inputs.sops-nix.nixosModules.sops
             ]
             ++ (lib.map (username: {
               imports = [
