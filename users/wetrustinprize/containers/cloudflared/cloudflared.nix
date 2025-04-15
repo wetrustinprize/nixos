@@ -9,7 +9,9 @@
   sops.secrets.cloudflared = {
     format = "dotenv";
     sopsFile = ./.env.${hostname};
+    restartUnits = [ "podman-cloudflared" ];
   };
+
   services.podman.containers = {
     "cloudflared" = {
       image = "docker.io/cloudflare/cloudflared:latest";
