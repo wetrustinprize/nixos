@@ -76,11 +76,13 @@ in
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
         "editor.formatOnSave" = true;
         "editor.formatOnSaveMode" = "modifications";
+        "editor.fontLigatures" = true;
         "chat.commandCenter.enabled" = false;
         "workbench.startupEditor" = "none";
         "files.autoSave" = "onWindowChange";
         "git.confirmSync" = false;
         "git.followTagsWhenSync" = true;
+        "terminal.integrated.fontLigatures.enabled" = true;
 
         # Vim
         "vim.leader" = "<space>";
