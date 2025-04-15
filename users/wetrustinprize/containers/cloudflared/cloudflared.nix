@@ -9,7 +9,6 @@
   sops.secrets.cloudflared = {
     format = "dotenv";
     sopsFile = ./.env.${hostname};
-    restartUnits = [ "podman-cloudflared" ];
   };
 
   services.podman.containers = {
