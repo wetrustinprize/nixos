@@ -7,7 +7,7 @@
 }:
 {
   sops.secrets.cloudflared = {
-    format = "env";
+    format = "dotenv";
     sopsFile = ./env.${hostname};
   };
   services.podman.containers = {
