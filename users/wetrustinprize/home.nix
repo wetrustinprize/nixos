@@ -45,8 +45,14 @@
     userName = "wetrustinprize";
   };
 
+  systemd.user.services.mbsync.unitConfig.After = [ "sops-nix.service" ];
   sops = {
-    age.keyFile = "~/.age-key";
+    age = {
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
+    };
+
+    defaultSopsFile = ../.sops.yaml;
   };
 
   require = [
