@@ -14,7 +14,7 @@
   virtualisation.oci-containers.containers."cloudflared" = {
     image = "docker.io/cloudflare/cloudflared:latest";
     autoStart = true;
-    environmentFile = [
+    environmentFiles = [
       config.sops.secrets.cloudflared.path
     ];
   };
