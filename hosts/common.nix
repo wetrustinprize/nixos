@@ -29,8 +29,6 @@
     sudo
     lshw
     fzf
-    age
-    sops
   ];
 
   nix.settings.trusted-users = [

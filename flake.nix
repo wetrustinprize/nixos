@@ -3,7 +3,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/master";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
-    sops-nix.url = "github:Mic92/sops-nix";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-your-shell = {
       url = "github:MercuryTechnologies/nix-your-shell";
@@ -21,7 +20,6 @@
       nixpkgs,
       home-manager,
       nix-colors,
-      sops-nix,
       ...
     }@inputs:
     let
@@ -44,7 +42,6 @@
           modules =
             [
               ./hosts/${hostname}/configuration.nix
-              sops-nix.nixosModules.sops
             ]
             ++ (lib.map (username: {
               imports = [
@@ -68,7 +65,7 @@
                             null
                         )
                       ]
-                      ++ [ nix-colors.homeManagerModules.default sops-nix.homeManagerModules.sops ];
+                      ++ [ nix-colors.homeManagerModules.default ];
                   };
                 }
               ];
