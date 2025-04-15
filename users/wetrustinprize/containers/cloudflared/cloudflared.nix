@@ -12,7 +12,7 @@
   };
   services.podman.containers = {
     "cloudflared" = {
-      image = "cloudflare/cloudflared:latest";
+      image = "docker.io/cloudflare/cloudflared:latest";
       autoStart = true;
       autoUpdate = "local";
       environmentFile = [
