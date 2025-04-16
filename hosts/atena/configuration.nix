@@ -8,6 +8,7 @@
 
     ../containers/cloudflared/cloudflared.nix
     ../containers/traefik.nix
+    ./containers/actual.nix
 
     ./hardware-configuration.nix
   ];
