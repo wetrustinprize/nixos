@@ -51,6 +51,9 @@ in
         aaron-bond.better-comments
         ms-vscode-remote.remote-ssh
 
+        # dotenv
+        vscode-extensions.mikestead.dotenv
+
         # nix
         bbenoist.nix
 
@@ -60,6 +63,9 @@ in
 
         # rust
         rust-lang.rust-analyzer
+
+        # gdscript
+        vscode-extensions.geequlim.godot-tools
       ];
 
       userSettings = {
@@ -76,10 +82,13 @@ in
         "editor.formatOnSave" = true;
         "editor.formatOnSaveMode" = "modifications";
         "editor.fontLigatures" = true;
+        "editor.wordWrap" = "on";
         "chat.commandCenter.enabled" = false;
         "workbench.startupEditor" = "none";
         "files.autoSave" = "onWindowChange";
         "git.confirmSync" = false;
+        "git.autoStash" = true;
+        "git.autofetch" = "all";
         "git.followTagsWhenSync" = true;
         "terminal.integrated.fontLigatures.enabled" = true;
 
