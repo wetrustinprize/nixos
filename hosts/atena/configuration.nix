@@ -7,8 +7,8 @@
     ../essentials/ai.nix
 
     ../containers/cloudflared/cloudflared.nix
+    ../containers/pihole/pihole.nix
     ../containers/traefik.nix
-    ../containers/pihole.nix
     ./containers/actual.nix
 
     ./hardware-configuration.nix
