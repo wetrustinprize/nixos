@@ -65,7 +65,7 @@ in
         rust-lang.rust-analyzer
 
         # gdscript
-        vscode-extensions.geequlim.godot-tools
+        geequlim.godot-tools
       ];
 
       userSettings = {
