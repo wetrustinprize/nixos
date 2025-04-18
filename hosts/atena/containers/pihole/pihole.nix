@@ -6,6 +6,8 @@
             # DNS Ports
             "53:53/tcp"
             "53:53/udp"
+
+            "8080:80"
         ];
         environment = {
             "TZ" = "America/Sao_Paulo";
@@ -16,7 +18,7 @@
         };
         labels = {
             "traefik.enable" = "true";
-            "traefik.http.routers.pihole.rule" = "Host(`pihole.wetrustinprize.com`)";
+            "traefik.http.routers.pihole.rule" = "Host(`pihole.home`)";
             "traefik.http.routers.pihole.entrypoints" = "web";
             "traefik.http.services.pihole.loadbalancer.server.port" = "80";
         };
