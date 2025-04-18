@@ -15,7 +15,7 @@
       "traefik.enable" = "true";
       "traefik.http.routers.traefik.rule" = "Host(`traefik.home`)";
       "traefik.http.routers.traefik.entrypoints" = "web";
-      "traefik.http.services.traefik.loadbalancer.server.port" = "80";
+      "traefik.http.services.traefik.loadbalancer.server.port" = "8080";
     };
   };
 }
