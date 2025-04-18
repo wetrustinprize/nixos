@@ -3,11 +3,8 @@
         image = "pihole/pihole:latest";
         autoStart = true;
         ports = [
-            # DNS Ports
             "53:53/tcp"
             "53:53/udp"
-
-            "8080:80"
         ];
         environment = {
             "TZ" = "America/Sao_Paulo";
