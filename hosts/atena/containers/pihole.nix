@@ -16,9 +16,8 @@
         };
         labels = {
             "label=traefik.enable" = "true";
-            "label=traefik.http.routers.pihole.rule" = "Path(`/pihole`)";
-            "label=traefik.http.routers.pihole.entrypoints" = "websecure";
-            "label=traefik.http.routers.pihole.tls" = "true";
+            "label=traefik.http.routers.pihole.rule" = "Host(`pihole.wetrustinprize.com`)";
+            "label=traefik.http.routers.pihole.entrypoints" = "web";
             "label=traefik.http.services.pihole.loadbalancer.server.port" = "80";
         };
         volumes = [
