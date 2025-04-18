@@ -21,7 +21,8 @@
         };
         volumes = [
             "/srv/pihole:/etc/pihole"
-            "${builtins.toPath ./hosts.list}:/etc/pihole/hosts/custom.list:ro"
+            "${builtins.toPath ./pihole.toml}:/etc/pihole/pihole.toml:ro"
+            "${builtins.toPath ./dnsmasq.conf}:/etc/dnsmasq.d/nixos.conf:ro"
         ];
     };
 }
