@@ -33,6 +33,7 @@
     sops
     bat
     zoxide
+    lsof
   ];
 
   nix.settings.trusted-users = [
