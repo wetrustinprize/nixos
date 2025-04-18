@@ -52,7 +52,7 @@ in
         ms-vscode-remote.remote-ssh
 
         # dotenv
-        vscode-extensions.mikestead.dotenv
+        mikestead.dotenv
 
         # nix
         bbenoist.nix
