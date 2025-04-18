@@ -6,9 +6,9 @@
     ../essentials/virtualization.nix
     ../essentials/ai.nix
 
-    ../containers/cloudflared/cloudflared.nix
-    ../containers/pihole/pihole.nix
-    ../containers/traefik.nix
+    ./containers/cloudflared/cloudflared.nix
+    ./containers/pihole/pihole.nix
+    ./containers/traefik/traefik.nix
     ./containers/actual.nix
 
     ./hardware-configuration.nix
