@@ -31,6 +31,8 @@
     fzf
     age
     sops
+    bat
+    zoxide
   ];
 
   nix.settings.trusted-users = [
