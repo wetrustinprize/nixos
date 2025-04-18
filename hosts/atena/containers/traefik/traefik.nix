@@ -10,6 +10,7 @@
     autoStart = true;
     volumes = [
       "/var/run/docker.sock:/var/run/docker.sock"
+      "/srv/traefik/certs/:/etc/traefik/certs/:rw"
       "${builtins.toPath ./traefik.yaml}:/etc/traefik/traefik.yaml:ro"
     ];
     ports = [
