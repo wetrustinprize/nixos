@@ -1,5 +1,5 @@
 { ... }: {
-    virtualisation.oci-containers.containers."pi-hole" = {
+    virtualisation.oci-containers.containers."pihole" = {
         image = "pihole/pihole:latest";
         ports = [
             # DNS Ports
