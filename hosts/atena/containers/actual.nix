@@ -6,7 +6,9 @@
     labels = {
       "traefik.enable" = "true";
       "traefik.http.routers.actual.rule" = "Host(`actual.wetrustinprize.com`) || Host(`actual.home`)";
-      "traefik.http.routers.actual.entrypoints" = "web";
+      "traefik.http.routers.actual.tls" = "true";
+      "traefik.http.routers.actual.entrypoints" = "websecure";
+      "traefik.http.routers.actual.certresolver" = "digitalocean";
       "traefik.http.services.actual.loadbalancer.server.port" = "5006";
     };
     volumes = [
