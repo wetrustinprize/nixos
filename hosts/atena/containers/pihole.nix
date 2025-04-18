@@ -1,6 +1,7 @@
 { ... }: {
     virtualisation.oci-containers.containers."pihole" = {
         image = "pihole/pihole:latest";
+        autoStart = true;
         ports = [
             # DNS Ports
             "53:53/tcp"
