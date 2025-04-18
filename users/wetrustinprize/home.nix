@@ -31,6 +31,11 @@
     gh
   ];
 
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
