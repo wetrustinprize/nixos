@@ -15,10 +15,10 @@
             "FTLCONF_webserver_api_password" = "pihole"; 
         };
         labels = {
-            "label=traefik.enable" = "true";
-            "label=traefik.http.routers.pihole.rule" = "Host(`pihole.wetrustinprize.com`)";
-            "label=traefik.http.routers.pihole.entrypoints" = "web";
-            "label=traefik.http.services.pihole.loadbalancer.server.port" = "80";
+            "traefik.enable" = "true";
+            "traefik.http.routers.pihole.rule" = "Host(`pihole.wetrustinprize.com`)";
+            "traefik.http.routers.pihole.entrypoints" = "web";
+            "traefik.http.services.pihole.loadbalancer.server.port" = "80";
         };
         volumes = [
             "/srv/pihole:/etc/pihole"
