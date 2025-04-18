@@ -15,7 +15,7 @@
         };
         labels = {
             "traefik.enable" = "true";
-            "traefik.http.routers.pihole.rule" = "Host(`pihole.home`)";
+            "traefik.http.routers.pihole.rule" = "Host(`pihole.home.wetrustinprize.com`)";
             "traefik.http.routers.pihole.entrypoints" = "web";
             "traefik.http.services.pihole.loadbalancer.server.port" = "80";
         };
