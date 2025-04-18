@@ -2,13 +2,12 @@
   lib,
   config,
   host,
-  hostname,
   ...
 }:
 {
   sops.secrets.cloudflared = {
     format = "dotenv";
-    sopsFile = ./.env.${hostname};
+    sopsFile = ./.env;
   };
 
   virtualisation.oci-containers.containers."cloudflared" = {
