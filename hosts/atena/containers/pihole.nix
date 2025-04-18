@@ -4,8 +4,8 @@
         autoStart = true;
         ports = [
             # DNS Ports
-            "53:53/tcp"
-            "53:53/tcp"
+            "5353:53/tcp"
+            "5353:53/tcp"
         ];
         environment = {
             "TZ" = "America/Sao_Paulo";
