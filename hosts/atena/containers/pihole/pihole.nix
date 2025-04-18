@@ -22,7 +22,7 @@
         };
         volumes = [
             "/srv/pihole:/etc/pihole"
-            "./hosts.list:/etc/pihole/hosts/custom.list:ro"
+            "${builtins.toPath ./hosts.list}:/etc/pihole/hosts/custom.list:ro"
         ];
     };
 }
