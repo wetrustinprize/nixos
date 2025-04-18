@@ -25,6 +25,14 @@ in
     vscode
   ];
 
+  # FIXME: Look after why code is so bad at wayland
+  # this wasn't an issue in the past
+  xdg.desktopEntries."code" = {
+    name = "Visual Studio Code";
+    genericName = "Text Editor";
+    exec = "code %F --ozone-platform=x11";
+  };
+
   programs.vscode = {
     enable = true;
 

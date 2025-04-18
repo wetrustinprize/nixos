@@ -69,6 +69,17 @@
 
   gtk.theme.package = nix-colors.gtk-theme config.colorScheme;
 
+  # FIXME: Look after why Git Kraken is so bad at wayland
+  xdg.desktopEntries."GitKraken Desktop" = {
+    categories = [ "Development" ];
+    comment = "Unleash your repo";
+    exec = "gitkraken --ozone-platform=x11";
+    genericName = "Git Client";
+    icon = "gitkraken";
+    name = "GitKraken Desktop";
+    type = "Application";
+  };
+
   home.pointerCursor = {
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;
