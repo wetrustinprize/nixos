@@ -8,8 +8,8 @@
 
     ../containers/cloudflared/cloudflared.nix
     ../containers/traefik.nix
+    ../containers/pihole.nix
     ./containers/actual.nix
-    ./containers/pihole.nix
 
     ./hardware-configuration.nix
   ];

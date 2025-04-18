@@ -22,6 +22,7 @@
         };
         volumes = [
             "/srv/pihole:/etc/pihole"
+            "./hosts.list:/etc/pihole/hosts/custom.list:ro"
         ];
     };
 }
