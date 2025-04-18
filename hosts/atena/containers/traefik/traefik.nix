@@ -1,5 +1,10 @@
 { ... }:
 {
+  sops.secrets.traefik = {
+    format = "dotenv";
+    sopsFile = ./.env;
+  };
+
   virtualisation.oci-containers.containers."traefik" = {
     image = "traefik:v3.3";
     autoStart = true;
@@ -17,5 +22,8 @@
       "traefik.http.routers.traefik.entrypoints" = "web";
       "traefik.http.services.traefik.loadbalancer.server.port" = "8080";
     };
+    environmentFiles = [
+      config.sops.secrets.traefik.path
+    ];
   };
 }
