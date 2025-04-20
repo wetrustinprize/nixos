@@ -1023,7 +1023,7 @@
   # Incorrectly formatted or config files specifying options which can only be defined
   # once can result in conflicts with the automatic configuration of Pi-hole (see
   # /etc/pihole/dnsmasq.conf) and may stop DNS resolution from working.
-  etc_dnsmasq_d = true
+  etc_dnsmasq_d = false
 
   # Additional lines to inject into the generated dnsmasq configuration.
   # Warning: This is an advanced setting and should only be used with care. Incorrectly
@@ -1034,7 +1034,9 @@
   #
   # Possible values are:
   #     array of valid dnsmasq config line options
-  dnsmasq_lines = []
+  dnsmasq_lines = [
+    "address=/.home.wetrustinprize.com/192.168.15.14"
+  ]
 
   # Log additional information about queries and replies to pihole.log
   # When this setting is enabled, the log has extra information at the start of each

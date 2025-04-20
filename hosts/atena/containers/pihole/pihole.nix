@@ -21,7 +21,6 @@
         };
         volumes = [
             "${builtins.toPath ./pihole.toml}:/etc/pihole/pihole.toml:rw"
-            "${builtins.toPath ./dnsmasq.conf}:/etc/dnsmasq.d/home_dns.conf:ro"
         ];
     };
 }
