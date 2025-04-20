@@ -4,12 +4,12 @@
     autoStart = true;
     labels = {
       "traefik.enable" = "true";
-      "traefik.http.routers.actual.rule" =
+      "traefik.http.routers.nextcloud.rule" =
         "Host(`nextcloud.wetrustinprize.com`) || Host(`nextcloud.home.wetrustinprize.com`)";
-      "traefik.http.routers.actual.tls" = "true";
-      "traefik.http.routers.actual.tls.certresolver" = "cloudflare";
-      "traefik.http.routers.actual.entrypoints" = "websecure";
-      "traefik.http.services.actual.loadbalancer.server.port" = "80";
+      "traefik.http.routers.nextcloud.tls" = "true";
+      "traefik.http.routers.nextcloud.tls.certresolver" = "cloudflare";
+      "traefik.http.routers.nextcloud.entrypoints" = "websecure";
+      "traefik.http.services.nextcloud.loadbalancer.server.port" = "80";
     };
   };
 }
