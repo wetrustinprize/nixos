@@ -20,8 +20,8 @@
             "traefik.http.services.pihole.loadbalancer.server.port" = "80";
         };
         volumes = [
-            "${builtins.toPath ./pihole.toml}:/etc/pihole/pihole.toml:ro"
-            "${builtins.toPath ./dnsmasq.conf}:/etc/dnsmasq.d/nixos.conf:ro"
+            "${builtins.toPath ./pihole.toml}:/etc/pihole/pihole.toml:rw"
+            "${builtins.toPath ./dnsmasq.conf}:/etc/dnsmasq.d/home_dns.conf:ro"
         ];
     };
 }
