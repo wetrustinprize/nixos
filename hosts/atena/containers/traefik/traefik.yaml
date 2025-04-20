@@ -16,16 +16,17 @@ entryPoints:
     address: :443
 
 certificateResolvers:
-  digitalocean:
-    email: "me@wetrustinprize.com"
-    storage: /var/traefik/certs/digitalocean-acme.json
-    caServer: 'https://acme-v02.api.letsencrypt.org/directory'
-    keyType: EC256
-    dnsChallenge:
-      provider: digitalocean
-      resolvers:
-        - "1.1.1.1:53"
-        - "8.8.8.8:53"
+  cloudflare:
+    acme:
+      email: "me@wetrustinprize.com"
+      storage: /var/traefik/certs/cloudflare-acme.json
+      caServer: 'https://acme-v02.api.letsencrypt.org/directory'
+      keyType: EC256
+      dnsChallenge:
+        provider: cloudflare
+        resolvers:
+          - "1.1.1.1:53"
+          - "8.8.8.8:53"
 
 providers:
   docker:
