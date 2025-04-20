@@ -9,6 +9,7 @@
     ./containers/cloudflared/cloudflared.nix
     ./containers/pihole/pihole.nix
     ./containers/traefik/traefik.nix
+    ./containers/nextcloud.nix
     ./containers/actual.nix
 
     ./hardware-configuration.nix
