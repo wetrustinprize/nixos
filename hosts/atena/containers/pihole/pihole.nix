@@ -20,10 +20,8 @@
             "traefik.http.services.pihole.loadbalancer.server.port" = "80";
         };
         volumes = [
-            # This is a impure configuration since we want to change configurations
-            # through the web interface
-            "${toString ./pihole.toml}:/etc/pihole/pihole.toml:rw"
-            "${toString ./dnsmasq.conf}:/etc/dnsmasq.d/home_dns.conf:ro"
+            "${builtins.toPath ./pihole.toml}:/etc/pihole/pihole.toml:rw"
+            "${builtins.toPath ./dnsmasq.conf}:/etc/dnsmasq.d/home_dns.conf:ro"
         ];
     };
 }
