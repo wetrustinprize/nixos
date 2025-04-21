@@ -62,7 +62,7 @@ in
     "jellyseer" = {
       image = "ghcr.io/fallenbagel/jellyseerr";
       autoStart = true;
-      volumes = ["/srv/jellyseer:/app/config:rw"];
+      volumes = [ "/srv/jellyseer:/app/config:rw" ];
       labels = {
         "traefik.enable" = "true";
         "traefik.http.routers.jellyseer.rule" =
