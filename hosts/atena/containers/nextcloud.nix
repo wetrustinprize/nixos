@@ -2,7 +2,7 @@
   virtualisation.oci-containers.containers."nextcloud" = {
     image = "nextcloud:latest";
     autoStart = true;
-    enviroment = {
+    environment = {
       "NEXTCLOUD_DATA_DIR" = "srv/nextcloud/data:/var/www/html/data:rw";
     };
     labels = {
