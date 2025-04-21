@@ -47,7 +47,7 @@ in
         "/mnt/storage/tv:/tv"
       ];
       labels = genTraefikLabels {
-        service = "sonnar";
+        service = "sonarr";
         port = 8989;
       };
     };
