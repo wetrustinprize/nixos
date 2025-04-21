@@ -39,14 +39,10 @@ in
         port = 8989;
       };
     };
-    "bazarr" = {
-      image = "lscr.io/linuxserver/bazarr:latest";
+    "flaresolverr" = {
+      image = "ghcr.io/flaresolverr/flaresolverr:latest";
       autoStart = true;
-      volumes = ["${builtins.toPath ./bazarr.xml}:/config/config/config.yaml:ro"];
-      labels = genTraefikLabels {
-        service = "bazarr";
-        port = 6767;
-      };
+      hostname = "flaresolverr";
     };
     "overseerr" = {
       image = "lscr.io/linuxserver/overseerr:latest";
