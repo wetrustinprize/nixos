@@ -1039,7 +1039,7 @@
   # Possible values are:
   #     array of valid dnsmasq config line options
   dnsmasq_lines = [
-    "address=/.home.wetrustinprize.com/192.168.15.14"
+    "address=/.wetrustinprize.com/192.168.15.14"
   ]
 
   # Log additional information about queries and replies to pihole.log
