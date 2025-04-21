@@ -25,6 +25,7 @@
       "traefik.http.services.traefik.loadbalancer.server.port" = "8080";
 
       # Homepage
+      "homepage.group" = "Server";
       "homepage.name" = "Traefik";
       "homepage.description" = "Reverse-proxy manager.";
       "homepage.href" = "https://traefik.home.wetrustinprize.com";

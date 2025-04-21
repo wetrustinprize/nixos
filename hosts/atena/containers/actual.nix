@@ -14,6 +14,7 @@
       "traefik.http.services.actual.loadbalancer.server.port" = "5006";
 
       # Homepage
+      "homepage.group" = "Tools";
       "homepage.name" = "Actual";
       "homepage.description" = "Finacnes organizer.";
       "homepage.href" = "https://actual.home.wetrustinprize.com";

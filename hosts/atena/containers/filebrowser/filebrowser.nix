@@ -18,6 +18,7 @@
       "traefik.http.services.filebrowser.loadbalancer.server.port" = "80";
 
       # Homepage
+      "homepage.group" = "Server";
       "homepage.name" = "File Browser";
       "homepage.description" = "Simple file browser.";
       "homepage.href" = "https://filebrowser.home.wetrustinprize.com";

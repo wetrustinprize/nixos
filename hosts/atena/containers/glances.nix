@@ -21,6 +21,7 @@
       "traefik.http.services.glances.loadbalancer.server.port" = "61208";
 
       # Homepage
+      "homepage.group" = "Server";
       "homepage.name" = "Glances";
       "homepage.description" = "Server monitoring.";
       "homepage.href" = "https://glances.home.wetrustinprize.com";

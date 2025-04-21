@@ -22,6 +22,7 @@
       "traefik.http.services.pihole.loadbalancer.server.port" = "80";
 
       # Homepage
+      "homepage.group" = "Server";
       "homepage.name" = "piHole";
       "homepage.description" = "Custom DNS.";
       "homepage.href" = "https://pihole.home.wetrustinprize.com";
