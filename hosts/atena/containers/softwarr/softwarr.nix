@@ -34,6 +34,10 @@ in
   };
 
   virtualisation.oci-containers.containers = {
+    "softwarr-torrent" = {
+      imnage = "lscr.io/linuxserver/qbittorrent:latest";
+      autoStart = true;
+    };
     "prowlarr" = {
       image = "lscr.io/linuxserver/prowlarr:latest";
       autoStart = true;
