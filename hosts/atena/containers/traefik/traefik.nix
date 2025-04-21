@@ -18,10 +18,16 @@
       "443:443"
     ];
     labels = {
+      # Traefik
       "traefik.enable" = "true";
       "traefik.http.routers.traefik.rule" = "Host(`traefik.home.wetrustinprize.com`)";
       "traefik.http.routers.traefik.entrypoints" = "web";
       "traefik.http.services.traefik.loadbalancer.server.port" = "8080";
+
+      # Homepage
+      "homepage.name" = "Traefik";
+      "homepage.description" = "Reverse-proxy manager.";
+      "homepage.href" = "https://traefik.home.wetrustinprize.com";
     };
     environmentFiles = [
       config.sops.secrets.traefik.path
