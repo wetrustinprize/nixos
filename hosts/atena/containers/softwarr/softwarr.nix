@@ -1,3 +1,9 @@
+# Sadly, the wole arr softwares
+# have a fucking shitty configuration
+# system, so everytime this is freshly
+# built it needs to be configured manually
+# by using the ui. :\
+
 { ... }:
 let
   genTraefikLabels =
@@ -15,7 +21,6 @@ in
     "prowlarr" = {
       image = "lscr.io/linuxserver/prowlarr:latest";
       autoStart = true;
-      volumes = ["${builtins.toPath ./prowlarr.xml}:/config/config.xml:ro"];
       labels = genTraefikLabels {
         service = "prowlarr";
         port = 9696;
@@ -24,7 +29,6 @@ in
     "radarr" = {
       image = "lscr.io/linuxserver/radarr:latest";
       autoStart = true;
-      volumes = ["${builtins.toPath ./radarr.xml}:/config/config.xml:ro"];
       labels = genTraefikLabels {
         service = "radarr";
         port = 7878;
@@ -33,7 +37,6 @@ in
     "sonarr" = {
       image = "lscr.io/linuxserver/sonarr:latest";
       autoStart = true;
-      volumes = ["${builtins.toPath ./sonarr.xml}:/config/config.xml:ro"];
       labels = genTraefikLabels {
         service = "sonnar";
         port = 8989;
