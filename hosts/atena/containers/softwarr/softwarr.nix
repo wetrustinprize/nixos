@@ -7,11 +7,8 @@ let
       "traefik.http.routers.${service}.rule" =
         "Host(`softwarr.home.wetrustinprize.com`) && PathPrefix(`/${service}`)";
       "traefik.http.routers.${service}.entrypoints" = "web";
-      "traefik.http.routers.${service}.middlewares" = "strip-${service},header-${service}";
-
+      "traefik.http.routers.${service}.middlewares" = "strip-${service}";
       "traefik.http.middlewares.strip-${service}.stripprefix.prefixes" = "/${service}";
-      "traefik.http.middlewares.header-${service}.headers.customresponseheaders.X-Forwarded-Prefix" = "/${service}";
-
       "traefik.http.services.${service}.loadbalancer.server.port" = "${toString port}";
     };
 in
