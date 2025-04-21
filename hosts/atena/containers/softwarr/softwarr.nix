@@ -83,19 +83,5 @@ in
       autoStart = true;
       extraOptions = [ "--network=softwarr-network" ];
     };
-    "overseerr" = {
-      image = "lscr.io/linuxserver/overseerr:latest";
-      autoStart = true;
-      labels = {
-        "traefik.enable" = "true";
-        "traefik.http.routers.overseerr.rule" =
-          "Host(`overseerr.wetrustinprize.com`) || Host(`overseerr.home.wetrustinprize.com`)";
-        "traefik.http.routers.overseerr.tls" = "true";
-        "traefik.http.routers.overseerr.tls.certresolver" = "cloudflare";
-        "traefik.http.routers.overseerr.entrypoints" = "websecure";
-        "traefik.http.services.overseerr.loadbalancer.server.port" = "5055";
-      };
-      extraOptions = [ "--network=softwarr-network" ];
-    };
   };
 }
