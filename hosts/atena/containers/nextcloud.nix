@@ -2,9 +2,6 @@
   virtualisation.oci-containers.containers."nextcloud" = {
     image = "nextcloud:latest";
     autoStart = true;
-    environment = {
-      "NEXTCLOUD_DATA_DIR" = "srv/nextcloud/data:/var/www/html/data:rw";
-    };
     labels = {
       "traefik.enable" = "true";
       "traefik.http.routers.nextcloud.rule" =
