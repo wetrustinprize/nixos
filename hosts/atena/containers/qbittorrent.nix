@@ -19,6 +19,7 @@
       "traefik.http.services.qbittorrent.loadbalancer.server.port" = "8080";
 
       # Homepage
+      "homepage.group" = "Tools";
       "homepage.name" = "qBitTorrent";
       "homepage.description" = "Torrent client.";
       "homepage.href" = "https://qbittorrent.home.wetrustinprize.com";
