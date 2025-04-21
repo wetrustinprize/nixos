@@ -21,6 +21,7 @@
       # Homepage
       "homepage.group" = "Tools";
       "homepage.name" = "qBitTorrent";
+      "homepage.icon" = "qbittorrent.png";
       "homepage.description" = "Torrent client.";
       "homepage.href" = "https://qbittorrent.home.wetrustinprize.com";
     };

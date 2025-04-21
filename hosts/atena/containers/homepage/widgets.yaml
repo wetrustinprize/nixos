@@ -1,3 +1,4 @@
+---
 - resources:
   label: System
   cpu: true

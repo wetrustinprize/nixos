@@ -23,6 +23,7 @@ let
     {
       "homepage.group" = "Media";
       "homepage.name" = service;
+      "homepage.icon" = "${service}.png";
       "homepage.description" = description;
       "homepage.href" = "https://softwarr.home.wetrustinprize.com/${service}";
     };
@@ -70,6 +71,7 @@ in
         # Homepage
         "homepage.group" = "Media";
         "homepage.name" = "Jellyfin";
+        "homepage.icon" = "jellyfin.png";
         "homepage.description" = "Media server";
         "homepage.href" = "https://jellyfin.home.wetrustinprize.com";
       };
@@ -91,7 +93,8 @@ in
 
         # Homepage
         "homepage.group" = "Media";
-        "homepage.name" = "Jellyseer";
+        "homepage.name" = "Jellyseerr";
+        "homepage.icon" = "jellyseerr.png";
         "homepage.description" = "Media requester";
         "homepage.href" = "https://jellyseer.home.wetrustinprize.com";
       };

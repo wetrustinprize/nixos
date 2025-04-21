@@ -24,6 +24,7 @@
       # Homepage
       "homepage.group" = "Server";
       "homepage.name" = "piHole";
+      "homepage.icon" = "pi-hole.png";
       "homepage.description" = "Custom DNS.";
       "homepage.href" = "https://pihole.home.wetrustinprize.com";
     };

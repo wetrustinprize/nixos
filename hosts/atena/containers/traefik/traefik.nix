@@ -27,6 +27,7 @@
       # Homepage
       "homepage.group" = "Server";
       "homepage.name" = "Traefik";
+      "homepage.icon" = "traefik.png";
       "homepage.description" = "Reverse-proxy manager.";
       "homepage.href" = "https://traefik.home.wetrustinprize.com";
     };

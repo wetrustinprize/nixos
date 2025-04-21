@@ -16,6 +16,7 @@
       # Homepage
       "homepage.group" = "Tools";
       "homepage.name" = "Actual";
+      "homepage.icon" = "actual-budget.png";
       "homepage.description" = "Finacnes organizer.";
       "homepage.href" = "https://actual.home.wetrustinprize.com";
     };

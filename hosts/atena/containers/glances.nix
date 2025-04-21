@@ -23,6 +23,7 @@
       # Homepage
       "homepage.group" = "Server";
       "homepage.name" = "Glances";
+      "homepage.icon" = "glances.png";
       "homepage.description" = "Server monitoring.";
       "homepage.href" = "https://glances.home.wetrustinprize.com";
     };

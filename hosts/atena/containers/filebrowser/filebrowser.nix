@@ -20,6 +20,7 @@
       # Homepage
       "homepage.group" = "Server";
       "homepage.name" = "File Browser";
+      "homepage.icon" = "filebrowser.png";
       "homepage.description" = "Simple file browser.";
       "homepage.href" = "https://filebrowser.home.wetrustinprize.com";
     };
