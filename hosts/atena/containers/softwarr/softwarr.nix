@@ -15,7 +15,7 @@ in
         "prowlarr" = {
             image = "lscr.io/linuxserver/prowlarr:latest";
             autoStart = true;
-            labels = genTraefikLabels { service="prowlarr"; port=9696 }
+            labels = genTraefikLabels { service="prowlarr"; port=9696; }
         };
     };
 }
