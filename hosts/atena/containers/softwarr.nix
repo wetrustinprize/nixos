@@ -58,8 +58,9 @@ in
         "traefik.http.routers.jellyfin.entrypoints" = "websecure";
         "traefik.http.services.jellyfin.loadbalancer.server.port" = "8096";
       };
+      extraOptions = [ "--network=softwarr-network" ];
     };
-    "jellyseer" = {
+    "jellyseerr" = {
       image = "ghcr.io/fallenbagel/jellyseerr";
       autoStart = true;
       volumes = [ "/srv/jellyseer:/app/config:rw" ];
