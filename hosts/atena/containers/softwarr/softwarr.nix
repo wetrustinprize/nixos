@@ -21,7 +21,10 @@ in
     description = "Create Docker network for softwarr services";
     after = [ "docker.service" ];
     wantedBy = [ "multi-user.target" ];
-    serviceConfig.Type = "oneshot";
+    serviceConfig = {
+      Type = "oneshot";
+      Environment = "PATH=/run/current-system/sw/bin";
+    };
     script = ''
       docker network inspect softwarr-network >/dev/null 2>&1 || docker network create softwarr-network
     '';
