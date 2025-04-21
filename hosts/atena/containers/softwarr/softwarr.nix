@@ -50,6 +50,7 @@ in
       volumes = [
         "/srv/radarr:/config:rw"
         "/mnt/storage/movies:/movies:rw"
+        "/mnt/storage/torrent:/downloads:rw"
       ];
       environment = {
         "PUID" = "1000";
@@ -67,6 +68,7 @@ in
       volumes = [
         "/srv/sonarr:/config:rw"
         "/mnt/storage/tv:/tv"
+        "/mnt/storage/torrent:/downloads:rw"
       ];
       environment = {
         "PUID" = "1000";
