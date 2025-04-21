@@ -102,16 +102,15 @@ in
       autoStart = true;
       volumes = [ "/srv/prowlarr:/config:rw" ];
       labels =
-        lib.recursiveUpdate genHomepageLabels
-          {
+        lib.recursiveUpdate
+          (genHomepageLabels {
             service = "prowlarr";
             description = "Softwarr indexer";
-          }
-          genTraefikLabels
-          {
+          })
+          (genTraefikLabels {
             service = "prowlarr";
             port = 9696;
-          };
+          });
       extraOptions = [ "--network=softwarr-network" ];
     };
     "radarr" = {
@@ -127,16 +126,15 @@ in
         "PGID" = "1000";
       };
       labels =
-        lib.recursiveUpdate genHomepageLabels
-          {
+        lib.recursiveUpdate
+          (genHomepageLabels {
             service = "radarr";
             description = "Movie fetcher";
-          }
-          genTraefikLabels
-          {
+          })
+          (genTraefikLabels {
             service = "radarr";
             port = 7878;
-          };
+          });
       extraOptions = [ "--network=softwarr-network" ];
     };
     "sonarr" = {
@@ -152,16 +150,15 @@ in
         "PGID" = "1000";
       };
       labels =
-        lib.recursiveUpdate genHomepageLabels
-          {
+        lib.recursiveUpdate
+          (genHomepageLabels {
             service = "sonarr";
             description = "TV Shows Fetcher";
-          }
-          genTraefikLabels
-          {
+          })
+          (genTraefikLabels {
             service = "sonarr";
             port = 8989;
-          };
+          });
       extraOptions = [ "--network=softwarr-network" ];
     };
     "flaresolverr" = {
