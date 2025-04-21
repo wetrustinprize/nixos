@@ -1,5 +1,6 @@
 ---
 - search:
-  provider: duckduckgo
-  focus: true
-  target: _self
+    provider: duckduckgo
+    focus: true
+    showSearchSuggestions: true
+    target: _blank
