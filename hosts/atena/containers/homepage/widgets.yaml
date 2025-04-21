@@ -1,5 +1,6 @@
 ---
 - glances:
+  url: 172.17.0.1:61208
   label: System
   cpu: true
   cputemp: true
@@ -7,13 +8,12 @@
   units: metric
   disk: /
   uptime: true
-  url: http://172.17.0.1:61208
 
 - glances:
+  url: 172.17.0.1:61208
   label: Storage
   expanded: true
   disk: /mnt/storage
-  url: http://172.17.0.1:61208
 
 - search:
     provider: duckduckgo
