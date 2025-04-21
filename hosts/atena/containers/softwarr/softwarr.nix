@@ -7,7 +7,7 @@ let
       "traefik.http.routers.${service}.entrypoints" = "web";
       "traefik.http.routers.${service}.middlewares" = "strip-${service}";
       "traefik.http.middlewares.${service}.stripprefix.prefixes" = "/${service}";
-      "traefik.http.services.${service}.loadbalancer.server.port" = port;
+      "traefik.http.services.${service}.loadbalancer.server.port" = "${port}";
     };
 in
 {
