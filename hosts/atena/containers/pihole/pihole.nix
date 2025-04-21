@@ -21,7 +21,7 @@
       "traefik.http.services.pihole.loadbalancer.server.port" = "80";
     };
     volumes = [
-      "${builtins.toPath ./pihole.toml}:/etc/pihole/pihole.toml:rw"
+      "${builtins.toPath ./pihole.toml}:/etc/pihole/pihole.toml:ro"
     ];
   };
 }
