@@ -14,8 +14,8 @@
     labels = {
       "traefik.enable" = "true";
       "traefik.http.routers.qbittorrent.rule" = "Host(`qbittorrent.home.wetrustinprize.com`)";
-      "traefik.http.routers.traefik.entrypoints" = "web";
-      "traefik.http.services.traefik.loadbalancer.server.port" = "8080";
+      "traefik.http.routers.qbittorrent.entrypoints" = "web";
+      "traefik.http.services.qbittorrent.loadbalancer.server.port" = "8080";
     };
   };
 }
