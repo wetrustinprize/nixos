@@ -1,6 +1,6 @@
 { ... }:
 {
-  virtualisation.oci-containers."homepage" = {
+  virtualisation.oci-containers.containers."homepage" = {
     image = "ghcr.io/gethomepage/homepage:latest";
     autoStart = true;
     volumes = [
