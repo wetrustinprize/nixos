@@ -1,17 +1,4 @@
 ---
-- resources:
-  label: System
-  cpu: true
-  cputemp: true
-  memory: true
-  units: metric
-  disk: /
-
-- resources:
-  label: Storage
-  expanded: true
-  disk: /mnt/storage
-
 - search:
   provider: duckduckgo
   focus: true
