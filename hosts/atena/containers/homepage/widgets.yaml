@@ -1,4 +1,20 @@
 ---
+- glances:
+  label: System
+  cpu: true
+  cputemp: true
+  memory: true
+  units: metric
+  disk: /
+  uptime: true
+  url: http://172.17.0.1:61208
+
+- glances:
+  label: Storage
+  expanded: true
+  disk: /mnt/storage
+  url: http://172.17.0.1:61208
+
 - search:
     provider: duckduckgo
     focus: true
