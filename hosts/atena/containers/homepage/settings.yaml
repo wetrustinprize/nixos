@@ -5,3 +5,6 @@ layout:
   Media:
     style: row
     columns: 5
+
+showStats: true
+statusStyle: "dot"
