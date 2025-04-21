@@ -6,6 +6,7 @@
   units: metric
   uptime: true
   disk: /
+  url: http://172.17.0.1:61208
 
 - resources:
   label: Storage

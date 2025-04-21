@@ -19,6 +19,7 @@
     ./containers/actual.nix
     ./containers/softwarr.nix
     ./containers/qbittorrent.nix
+    ./containers/glances.nix
 
     ./hardware-configuration.nix
   ];
