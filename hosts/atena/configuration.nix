@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -9,7 +14,7 @@
     ./containers/cloudflared/cloudflared.nix
     ./containers/pihole/pihole.nix
     ./containers/traefik/traefik.nix
-    ./containers/nextcloud.nix
+    ./containers/filebrowser/filebrowser.nix
     ./containers/actual.nix
 
     ./hardware-configuration.nix
@@ -31,7 +36,6 @@
     enable = true;
     mdadmConf = lib.readFile ./mdadm.conf;
   };
-
 
   fileSystems."/mnt/storage" = {
     device = "/dev/md0";
