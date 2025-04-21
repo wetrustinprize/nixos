@@ -4,6 +4,9 @@
 # built it needs to be configured manually
 # by using the ui. :\
 
+# TODO: Make the configuration be made with the flemmarr
+# https://github.com/Flemmarr/Flemmarr
+
 { ... }:
 let
   genTraefikLabels =
