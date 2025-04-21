@@ -1,0 +1,19 @@
+- glances:
+  label: System
+  cpu: true
+  cputemp: true
+  memory: true
+  units: metric
+  uptime: true
+  disk: /
+
+- resources:
+  label: Storage
+  expanded: true
+  disk: /mnt/storage
+
+- search:
+  provider: duckduckgo
+  focus: true
+  showSearchSuggestions: true
+  target: _self

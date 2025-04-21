@@ -6,6 +6,11 @@
     volumes = [
       "/var/run/docker.sock:/var/run/docker.sock"
       "/srv/homepage:/app/config:rw"
+      "${builtins.toPath ./bookmarks.yaml}:/app/config/bookmarks.yaml:ro"
+      "${builtins.toPath ./docker.yaml}:/app/config/docker.yaml:ro"
+      "${builtins.toPath ./services.yaml}:/app/config/services.yaml:ro"
+      "${builtins.toPath ./settings.yaml}:/app/config/settings.yaml:ro"
+      "${builtins.toPath ./widgets.yaml}:/app/config/widgets.yaml:ro"
     ];
     environment = {
       "HOMEPAGE_ALLOWED_HOSTS" = "home.wetrustinprize.com";
