@@ -56,7 +56,7 @@ in
         "traefik.http.routers.jellyfin.tls" = "true";
         "traefik.http.routers.jellyfin.tls.certresolver" = "cloudflare";
         "traefik.http.routers.jellyfin.entrypoints" = "websecure";
-        "traefik.http.services.jellyfin.loadbalancer.server.port" = "8920";
+        "traefik.http.services.jellyfin.loadbalancer.server.port" = "8096";
       };
     };
     "jellyseer" = {
@@ -70,8 +70,9 @@ in
         "traefik.http.routers.jellyseer.tls" = "true";
         "traefik.http.routers.jellyseer.tls.certresolver" = "cloudflare";
         "traefik.http.routers.jellyseer.entrypoints" = "websecure";
-        "traefik.http.services.jellyseer.loadbalancer.server.port" = "80";
+        "traefik.http.services.jellyseer.loadbalancer.server.port" = "5055";
       };
+      extraOptions = [ "--network=softwarr-network" ];
     };
     "prowlarr" = {
       image = "lscr.io/linuxserver/prowlarr:latest";
