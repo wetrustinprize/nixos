@@ -35,6 +35,7 @@ in
     "sonarr" = {
       image = "lscr.io/linuxserver/sonarr:latest";
       autoStart = true;
+      volumes = ["${builtins.toPath ./sonarr.xml}:/config/config.xml:ro"];
       labels = genTraefikLabels {
         service = "sonnar";
         port = 8989;
