@@ -3,7 +3,7 @@ let
     genTraefikLabels = { service, port }: {
       "traefik.enable" = "true";
       "traefik.http.routers.${service}.rule" =
-        "Host(`softwarr.home.wetrustinprize.com`) & PathPrefix(`${service}`)";
+        "Host(`softwarr.home.wetrustinprize.com`) && PathPrefix(`${service}`)";
       "traefik.http.routers.${service}.entrypoints" = "web";
       "traefik.http.routers.${service}.middlewares" = "strip-${service}";
       "traefik.http.middlewares.strip-${service}.stripprefix.prefixes" = "/${service}";
