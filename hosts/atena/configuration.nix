@@ -15,6 +15,7 @@
     ./containers/pihole/pihole.nix
     ./containers/traefik/traefik.nix
     ./containers/filebrowser/filebrowser.nix
+    ./containers/softwarr/softwarr.nix
     ./containers/actual.nix
 
     ./hardware-configuration.nix
