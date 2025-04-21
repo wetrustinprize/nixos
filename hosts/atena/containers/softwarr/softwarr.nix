@@ -6,7 +6,7 @@ let
         "Host(`softwarr.home.wetrustinprize.com`) & PathPrefix(`${service}`)";
       "traefik.http.routers.${service}.entrypoints" = "web";
       "traefik.http.routers.${service}.middlewares" = "strip-${service}";
-      "traefik.http.middlewares.${service}.stripprefix.prefixes" = "/${service}";
+      "traefik.http.middlewares.strip-${service}.stripprefix.prefixes" = "/${service}";
       "traefik.http.services.${service}.loadbalancer.server.port" = "${toString port}";
     };
 in
