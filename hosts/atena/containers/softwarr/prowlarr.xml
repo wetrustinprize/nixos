@@ -11,7 +11,7 @@
   <LogLevel>debug</LogLevel>
   <SslCertPath></SslCertPath>
   <SslCertPassword></SslCertPassword>
-  <UrlBase>softwarr.home.wetrustinprize.com/prowlarr</UrlBase>
+  <UrlBase>prowlarr</UrlBase>
   <InstanceName>Prowlarr</InstanceName>
   <UpdateMechanism>Docker</UpdateMechanism>
 </Config>

@@ -11,6 +11,6 @@
   <LogLevel>debug</LogLevel>
   <SslCertPath></SslCertPath>
   <SslCertPassword></SslCertPassword>
-  <UrlBase>softwarr.home.wetrustinprize.com/sonarr</UrlBase>
+  <UrlBase>sonarr</UrlBase>
   <InstanceName>Sonarr</InstanceName>
 </Config>
