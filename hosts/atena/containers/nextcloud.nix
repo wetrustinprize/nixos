@@ -2,6 +2,9 @@
   virtualisation.oci-containers.containers."nextcloud" = {
     image = "nextcloud:latest";
     autoStart = true;
+    volumes = [
+      "/mnt/storage/nextcloud:/var/www/html/data:rw"
+    ];
     labels = {
       "traefik.enable" = "true";
       "traefik.http.routers.nextcloud.rule" =
