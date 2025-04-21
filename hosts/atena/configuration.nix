@@ -15,10 +15,10 @@
     ./containers/pihole/pihole.nix
     ./containers/traefik/traefik.nix
     ./containers/filebrowser/filebrowser.nix
+    ./containers/homepage/homepage.nix
     ./containers/actual.nix
     ./containers/softwarr.nix
     ./containers/qbittorrent.nix
-    ./containers/homepage.nix
 
     ./hardware-configuration.nix
   ];
