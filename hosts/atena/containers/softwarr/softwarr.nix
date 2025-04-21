@@ -20,6 +20,7 @@ in
     "prowlarr" = {
       image = "lscr.io/linuxserver/prowlarr:latest";
       autoStart = true;
+      volumes = ["${builtins.toPath ./prowlarr.xml}:/config/config.xml:ro"];
       labels = genTraefikLabels {
         service = "prowlarr";
         port = 9696;
@@ -28,13 +29,14 @@ in
     "radarr" = {
       image = "lscr.io/linuxserver/radarr:latest";
       autoStart = true;
+      volumes = ["${builtins.toPath ./radarr.xml}:/config/config.xml:ro"];
       labels = genTraefikLabels {
         service = "radarr";
         port = 7878;
       };
     };
     "sonarr" = {
-      image = "lscr.io/linuxserver/sonnar:latest";
+      image = "lscr.io/linuxserver/sonarr:latest";
       autoStart = true;
       labels = genTraefikLabels {
         service = "sonnar";
@@ -44,6 +46,7 @@ in
     "bazarr" = {
       image = "lscr.io/linuxserver/bazarr:latest";
       autoStart = true;
+      volumes = ["${builtins.toPath ./bazarr.xml}:/config/config/config.yaml:ro"];
       labels = genTraefikLabels {
         service = "bazarr";
         port = 6767;
