@@ -27,7 +27,6 @@
     nixfmt-rfc-style
     pinentry
     libqalculate
-    megacmd
     gh
   ];
 
