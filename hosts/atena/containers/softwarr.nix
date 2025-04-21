@@ -34,6 +34,45 @@ in
   };
 
   virtualisation.oci-containers.containers = {
+    "jellyfin" = {
+      image = "lscr.io/linuxserver/jellyfin:latest";
+      autoStart = true;
+      volumes = [
+        "/srv/jellyfin:/config:rw"
+        "/mnt/storage/movies:/movies:rw"
+        "/mnt/storage/tv:/tvshows:rw"
+      ];
+      ports = [
+        "7359:7359/udp"
+      ];
+      environment = {
+        "PUID" = "1000";
+        "PGID" = "1000";
+      };
+      labels = {
+        "traefik.enable" = "true";
+        "traefik.http.routers.jellyfin.rule" =
+          "Host(`jellyfin.wetrustinprize.com`) || Host(`jellyfin.home.wetrustinprize.com`)";
+        "traefik.http.routers.jellyfin.tls" = "true";
+        "traefik.http.routers.jellyfin.tls.certresolver" = "cloudflare";
+        "traefik.http.routers.jellyfin.entrypoints" = "websecure";
+        "traefik.http.services.jellyfin.loadbalancer.server.port" = "8920";
+      };
+    };
+    "jellyseer" = {
+      image = "ghcr.io/fallenbagel/jellyseerr";
+      autoStart = true;
+      volumes = ["/srv/jellyseer:/app/config:rw"];
+      labels = {
+        "traefik.enable" = "true";
+        "traefik.http.routers.jellyseer.rule" =
+          "Host(`jellyseer.wetrustinprize.com`) || Host(`jellyseer.home.wetrustinprize.com`)";
+        "traefik.http.routers.jellyseer.tls" = "true";
+        "traefik.http.routers.jellyseer.tls.certresolver" = "cloudflare";
+        "traefik.http.routers.jellyseer.entrypoints" = "websecure";
+        "traefik.http.services.jellyseer.loadbalancer.server.port" = "80";
+      };
+    };
     "prowlarr" = {
       image = "lscr.io/linuxserver/prowlarr:latest";
       autoStart = true;
