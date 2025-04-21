@@ -22,7 +22,9 @@
 
   time.timeZone = "America/Sao_Paulo";
 
-  users.users.wetrustinprize.linger = true;
+  environment.systemPackages = with pkgs; [
+    mdadm
+  ];
 
   system.stateVersion = "24.11";
 }
