@@ -7,7 +7,7 @@
 # TODO: Make the configuration be made with the flemmarr
 # https://github.com/Flemmarr/Flemmarr
 
-{ ... }:
+{ lib, ... }:
 let
   genTraefikLabels =
     { service, port }:
@@ -17,6 +17,14 @@ let
         "Host(`softwarr.home.wetrustinprize.com`) && PathPrefix(`/${service}`)";
       "traefik.http.routers.${service}.entrypoints" = "web";
       "traefik.http.services.${service}.loadbalancer.server.port" = "${toString port}";
+    };
+  genHomepageLabels =
+    { service, description }:
+    {
+      "homepage.group" = "Media";
+      "homepage.name" = service;
+      "homepage.description" = description;
+      "homepage.href" = "https://softwarr.home.wetrustinprize.com/${service}";
     };
 in
 {
@@ -50,6 +58,7 @@ in
         "PGID" = "1000";
       };
       labels = {
+        # Traefik
         "traefik.enable" = "true";
         "traefik.http.routers.jellyfin.rule" =
           "Host(`jellyfin.wetrustinprize.com`) || Host(`jellyfin.home.wetrustinprize.com`)";
@@ -57,6 +66,12 @@ in
         "traefik.http.routers.jellyfin.tls.certresolver" = "cloudflare";
         "traefik.http.routers.jellyfin.entrypoints" = "websecure";
         "traefik.http.services.jellyfin.loadbalancer.server.port" = "8096";
+
+        # Homepage
+        "homepage.group" = "Media";
+        "homepage.name" = "Jellyfin";
+        "homepage.description" = "Media server";
+        "homepage.href" = "https://jellyfin.home.wetrustinprize.com";
       };
       extraOptions = [ "--network=softwarr-network" ];
     };
@@ -65,6 +80,7 @@ in
       autoStart = true;
       volumes = [ "/srv/jellyseer:/app/config:rw" ];
       labels = {
+        # Traefik
         "traefik.enable" = "true";
         "traefik.http.routers.jellyseer.rule" =
           "Host(`jellyseer.wetrustinprize.com`) || Host(`jellyseer.home.wetrustinprize.com`)";
@@ -72,6 +88,12 @@ in
         "traefik.http.routers.jellyseer.tls.certresolver" = "cloudflare";
         "traefik.http.routers.jellyseer.entrypoints" = "websecure";
         "traefik.http.services.jellyseer.loadbalancer.server.port" = "5055";
+
+        # Homepage
+        "homepage.group" = "Media";
+        "homepage.name" = "Jellyseer";
+        "homepage.description" = "Media requester";
+        "homepage.href" = "https://jellyseer.home.wetrustinprize.com";
       };
       extraOptions = [ "--network=softwarr-network" ];
     };
@@ -79,10 +101,17 @@ in
       image = "lscr.io/linuxserver/prowlarr:latest";
       autoStart = true;
       volumes = [ "/srv/prowlarr:/config:rw" ];
-      labels = genTraefikLabels {
-        service = "prowlarr";
-        port = 9696;
-      };
+      labels =
+        lib.recursiveUpdate genHomepageLabels
+          {
+            service = "prowlarr";
+            description = "Softwarr indexer";
+          }
+          genTraefikLabels
+          {
+            service = "prowlarr";
+            port = 9696;
+          };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "radarr" = {
@@ -97,10 +126,17 @@ in
         "PUID" = "1000";
         "PGID" = "1000";
       };
-      labels = genTraefikLabels {
-        service = "radarr";
-        port = 7878;
-      };
+      labels =
+        lib.recursiveUpdate genHomepageLabels
+          {
+            service = "radarr";
+            description = "Movie fetcher";
+          }
+          genTraefikLabels
+          {
+            service = "radarr";
+            port = 7878;
+          };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "sonarr" = {
@@ -115,10 +151,17 @@ in
         "PUID" = "1000";
         "PGID" = "1000";
       };
-      labels = genTraefikLabels {
-        service = "sonarr";
-        port = 8989;
-      };
+      labels =
+        lib.recursiveUpdate genHomepageLabels
+          {
+            service = "sonarr";
+            description = "TV Shows Fetcher";
+          }
+          genTraefikLabels
+          {
+            service = "sonarr";
+            port = 8989;
+          };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "flaresolverr" = {
