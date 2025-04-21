@@ -17,6 +17,16 @@ let
     };
 in
 {
+  systemd.services.softwarr-network = {
+    description = "Create Docker network for softwarr services";
+    after = [ "docker.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "oneshot";
+    script = ''
+      docker network inspect softwarr-network >/dev/null 2>&1 || docker network create softwarr-network
+    '';
+  };
+
   virtualisation.oci-containers.containers = {
     "prowlarr" = {
       image = "lscr.io/linuxserver/prowlarr:latest";
@@ -26,6 +36,7 @@ in
         service = "prowlarr";
         port = 9696;
       };
+      extraOptions = [ "--network=softwarr-network" ];
     };
     "radarr" = {
       image = "lscr.io/linuxserver/radarr:latest";
@@ -38,6 +49,7 @@ in
         service = "radarr";
         port = 7878;
       };
+      extraOptions = [ "--network=softwarr-network" ];
     };
     "sonarr" = {
       image = "lscr.io/linuxserver/sonarr:latest";
@@ -50,11 +62,12 @@ in
         service = "sonarr";
         port = 8989;
       };
+      extraOptions = [ "--network=softwarr-network" ];
     };
     "flaresolverr" = {
       image = "ghcr.io/flaresolverr/flaresolverr:latest";
       autoStart = true;
-      hostname = "flaresolverr";
+      extraOptions = [ "--network=softwarr-network" ];
     };
     "overseerr" = {
       image = "lscr.io/linuxserver/overseerr:latest";
@@ -68,6 +81,7 @@ in
         "traefik.http.routers.overseerr.entrypoints" = "websecure";
         "traefik.http.services.overseerr.loadbalancer.server.port" = "5006";
       };
+      extraOptions = [ "--network=softwarr-network" ];
     };
   };
 }
