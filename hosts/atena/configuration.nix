@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -25,6 +25,17 @@
   environment.systemPackages = with pkgs; [
     mdadm
   ];
+
+  boot.swraid = {
+    enable = true;
+    mdadmConf = lib.readFile ./mdadm.conf;
+  };
+
+
+  fileSystems."/mnt/storage" = {
+    device = "/dev/md0";
+    fsType = "ext4";
+  };
 
   system.stateVersion = "24.11";
 }
