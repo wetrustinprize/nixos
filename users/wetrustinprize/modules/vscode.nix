@@ -59,6 +59,9 @@ in
         aaron-bond.better-comments
         ms-vscode-remote.remote-ssh
 
+        # toml
+        tamasfe.even-better-toml
+
         # dotenv
         mikestead.dotenv
 
