@@ -51,6 +51,10 @@ in
         "/srv/radarr:/config:rw"
         "/mnt/storage/movies:/movies:rw"
       ];
+      environment = {
+        "PUID" = "1000";
+        "PGID" = "1000";
+      };
       labels = genTraefikLabels {
         service = "radarr";
         port = 7878;
@@ -64,6 +68,10 @@ in
         "/srv/sonarr:/config:rw"
         "/mnt/storage/tv:/tv"
       ];
+      environment = {
+        "PUID" = "1000";
+        "PGID" = "1000";
+      };
       labels = genTraefikLabels {
         service = "sonarr";
         port = 8989;
