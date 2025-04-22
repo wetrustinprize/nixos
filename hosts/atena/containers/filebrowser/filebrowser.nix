@@ -5,6 +5,7 @@
     autoStart = true;
     volumes = [
       "${builtins.toPath ./config.json}:/.filebrowser.json:ro"
+      "/srv/filebrowser/database.db:/database.db:rw"
       "/mnt/storage:/srv:rw"
     ];
     labels = {
