@@ -124,6 +124,10 @@ in
         "/mnt/storage/movies:/movies"
         "/mnt/storage/tv:/tv"
       ];
+      environment = {
+        "PUID" = "1000";
+        "PGID" = "1000";
+      };
       labels =
         lib.recursiveUpdate
           (genHomepageLabels {
