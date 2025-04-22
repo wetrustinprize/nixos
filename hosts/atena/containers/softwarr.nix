@@ -116,6 +116,26 @@ in
           });
       extraOptions = [ "--network=softwarr-network" ];
     };
+    "bazarr" = {
+      image = "lscr.io/linuxserver/bazarr:latest";
+      autoStart = true;
+      volumes = [
+        "/srv/bazarr:/config:rw"
+        "/mnt/storage/movies:/movies"
+        "/mnt/storage/tv:/tv"
+      ];
+      labels =
+        lib.recursiveUpdate
+          (genHomepageLabels {
+            service = "bazarr";
+            description = "Softwarr captions downloader.";
+          })
+          (genTraefikLabels {
+            service = "bazarr";
+            port = 9696;
+          });
+      extraOptions = [ "--network=softwarr-network" ];
+    };
     "radarr" = {
       image = "lscr.io/linuxserver/radarr:latest";
       autoStart = true;
