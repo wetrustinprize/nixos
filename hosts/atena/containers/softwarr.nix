@@ -136,7 +136,7 @@ in
           })
           (genTraefikLabels {
             service = "bazarr";
-            port = 9696;
+            port = 6767;
           });
       extraOptions = [ "--network=softwarr-network" ];
     };
