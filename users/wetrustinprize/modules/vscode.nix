@@ -58,7 +58,7 @@ in
         ms-vsliveshare.vsliveshare
         aaron-bond.better-comments
         ms-vscode-remote.remote-ssh
-        vscode-extension-editorconfig-editorconfig
+        editorconfig.editorconfig
 
         # toml
         tamasfe.even-better-toml
