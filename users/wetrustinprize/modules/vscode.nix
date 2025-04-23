@@ -102,6 +102,7 @@ in
         "git.autofetch" = "all";
         "git.followTagsWhenSync" = true;
         "terminal.integrated.fontLigatures.enabled" = true;
+        "dependi.extras.silenceUpdateMessages" = true;
 
         # Vim
         "vim.leader" = "<space>";
