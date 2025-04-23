@@ -103,6 +103,8 @@ in
         "git.followTagsWhenSync" = true;
         "terminal.integrated.fontLigatures.enabled" = true;
         "dependi.extras.silenceUpdateMessages" = true;
+        "extensions.autoCheckUpdates" = false;
+        "update.mode" = "none";
 
         # Vim
         "vim.leader" = "<space>";
