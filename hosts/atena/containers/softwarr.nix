@@ -55,6 +55,7 @@ in
         "7359:7359/udp"
       ];
       environment = {
+        "TZ" = "America/Sao_Paulo";
         "PUID" = "1000";
         "PGID" = "1000";
       };
@@ -81,6 +82,9 @@ in
       image = "ghcr.io/fallenbagel/jellyseerr";
       autoStart = true;
       volumes = [ "/srv/jellyseer:/app/config:rw" ];
+      environment = {
+        "TZ" = "America/Sao_Paulo";
+      };
       labels = {
         # Traefik
         "traefik.enable" = "true";
@@ -112,6 +116,7 @@ in
         "8265:8265"
       ];
       environment = {
+        "TZ" = "America/Sao_Paulo";
         "PUID" = "1000";
         "PGID" = "1000";
         "ROOT_URL" = "http://softwarr.home.wetrustinprize.com/tdarr";
@@ -157,6 +162,7 @@ in
         "/mnt/storage/tv:/tv"
       ];
       environment = {
+        "TZ" = "America/Sao_Paulo";
         "PUID" = "1000";
         "PGID" = "1000";
       };
@@ -181,6 +187,7 @@ in
         "/mnt/storage/torrent:/downloads:rw"
       ];
       environment = {
+        "TZ" = "America/Sao_Paulo";
         "PUID" = "1000";
         "PGID" = "1000";
       };
@@ -205,6 +212,7 @@ in
         "/mnt/storage/torrent:/downloads:rw"
       ];
       environment = {
+        "TZ" = "America/Sao_Paulo";
         "PUID" = "1000";
         "PGID" = "1000";
       };
