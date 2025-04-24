@@ -100,6 +100,33 @@ in
       };
       extraOptions = [ "--network=softwarr-network" ];
     };
+    "tdarr" = {
+      image = "ghcr.io/haveagitgat/tdarr:latest";
+      autoStart = true;
+      volumes = [
+        "/srv/tdarr:/config:rw"
+        "/mnt/storage/movies:/media/movies:rw"
+        "/mnt/storage/tv:/media/tv:rw"
+      ];
+      environment = {
+        "PUID" = "1000";
+        "PGID" = "1000";
+        "internalNode" = "true";
+        "inContainer" = "true";
+        "internalNode" = "internal";
+      };
+      labels =
+        lib.recursiveUpdate
+          (genHomepageLabels {
+            service = "tdarr";
+            description = "Softwarr transcoder.";
+          })
+          (genTraefikLabels {
+            service = "tdarr";
+            port = 8265;
+          });
+      extraOptions = [ "--network=softwarr-network" ];
+    };
     "prowlarr" = {
       image = "lscr.io/linuxserver/prowlarr:latest";
       autoStart = true;
