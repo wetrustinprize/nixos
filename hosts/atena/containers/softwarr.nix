@@ -111,7 +111,7 @@ in
       environment = {
         "PUID" = "1000";
         "PGID" = "1000";
-        "BASE" = "/tdarr";
+        "ROOT_URL" = "http://softwarr.home.wetrustinprize.com/tdarr";
         "internalNode" = "true";
         "inContainer" = "true";
         "nodeName" = "internal";
