@@ -108,10 +108,14 @@ in
         "/mnt/storage/movies:/media/movies:rw"
         "/mnt/storage/tv:/media/tv:rw"
       ];
+      ports = [
+        "8265:8265"
+      ];
       environment = {
         "PUID" = "1000";
         "PGID" = "1000";
         "ROOT_URL" = "http://softwarr.home.wetrustinprize.com/tdarr";
+        "BASE" = "/tdarr";
         "internalNode" = "true";
         "inContainer" = "true";
         "nodeName" = "internal";
