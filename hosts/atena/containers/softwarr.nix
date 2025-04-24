@@ -113,7 +113,7 @@ in
         "PGID" = "1000";
         "internalNode" = "true";
         "inContainer" = "true";
-        "internalNode" = "internal";
+        "nodeName" = "internal";
       };
       labels =
         lib.recursiveUpdate
