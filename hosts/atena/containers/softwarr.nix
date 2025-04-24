@@ -122,16 +122,19 @@ in
             service = "tdarr";
             description = "Softwarr transcoder.";
           })
-          (genTraefikLabels {
-            service = "tdarr";
-            port = 8265;
-          })
-          ({
-            "traefik.http.routers.tdarr.middlewares" = "tdarr-strip,tdarr-pathregex";
-            "traefik.http.middlewares.tdarr-strip.stripprefix.prefixes" = "/tdarr";
-            "traefik.http.middlewares.tdarr-pathregex.replacepathregex.regex" = "^/tdarr(.*)";
-            "traefik.http.middlewares.tdarr-pathregex.replacepathregex.replacement" = "$$1";
-          });
+          (
+            lib.recursiveUpdate
+              (genTraefikLabels {
+                service = "tdarr";
+                port = 8265;
+              })
+              ({
+                "traefik.http.routers.tdarr.middlewares" = "tdarr-strip,tdarr-pathregex";
+                "traefik.http.middlewares.tdarr-strip.stripprefix.prefixes" = "/tdarr";
+                "traefik.http.middlewares.tdarr-pathregex.replacepathregex.regex" = "^/tdarr(.*)";
+                "traefik.http.middlewares.tdarr-pathregex.replacepathregex.replacement" = "$$1";
+              })
+          );
       extraOptions = [ "--network=softwarr-network" ];
     };
     "prowlarr" = {
