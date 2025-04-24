@@ -104,7 +104,7 @@ in
       image = "ghcr.io/haveagitgat/tdarr:latest";
       autoStart = true;
       volumes = [
-        "/srv/tdarr:/config:rw"
+        "/srv/tdarr:/app/configs:rw"
         "/mnt/storage/movies:/media/movies:rw"
         "/mnt/storage/tv:/media/tv:rw"
       ];
