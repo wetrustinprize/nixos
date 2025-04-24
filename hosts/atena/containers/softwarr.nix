@@ -111,6 +111,7 @@ in
       environment = {
         "PUID" = "1000";
         "PGID" = "1000";
+        "BASE" = "/tdarr";
         "internalNode" = "true";
         "inContainer" = "true";
         "nodeName" = "internal";
