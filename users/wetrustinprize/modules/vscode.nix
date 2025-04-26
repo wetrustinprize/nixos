@@ -36,10 +36,12 @@ in
   programs.vscode = {
     enable = true;
 
-    profiles.wetrustinprize = {
+    profiles.default = {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
+    };
 
+    profiles.wetrustinprize = {
       extensions = with pkgs.vscode-extensions; [
         # theme
         arcticicestudio.nord-visual-studio-code
