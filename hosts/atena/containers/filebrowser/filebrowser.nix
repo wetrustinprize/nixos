@@ -11,11 +11,8 @@
     labels = {
       # Traefik
       "traefik.enable" = "true";
-      "traefik.http.routers.filebrowser.rule" =
-        "Host(`filebrowser.wetrustinprize.com`) || Host(`filebrowser.home.wetrustinprize.com`)";
-      "traefik.http.routers.filebrowser.tls" = "true";
-      "traefik.http.routers.filebrowser.tls.certresolver" = "cloudflare";
-      "traefik.http.routers.filebrowser.entrypoints" = "websecure";
+      "traefik.http.routers.filebrowser.rule" = "Host(`filebrowser.home.wetrustinprize.com`)";
+      "traefik.http.routers.filebrowser.entrypoints" = "web";
       "traefik.http.services.filebrowser.loadbalancer.server.port" = "80";
 
       # Homepage
