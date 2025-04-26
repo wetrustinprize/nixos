@@ -78,11 +78,6 @@
           "$mod shift, k, movewindow, u"
           "$mod shift, j, movewindow, d"
 
-          # rofi stuff
-          "$mod, p, exec, rofi -show drun -p Run"
-          "$mod, V, exec, cliphist list | rofi -dmenu -p Copy | cliphist decode | wl-copy"
-          "$mod SHIFT, E, exec, bemoji"
-
           # screenshot
           ", Print, exec, hyprshot -m region --clipboard-only"
         ]

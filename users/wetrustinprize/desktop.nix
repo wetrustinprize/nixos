@@ -35,8 +35,6 @@
     gitkraken
     waybar
     cliphist
-    rofi-wayland
-    bemoji
     blueman
     gimp
     krita
@@ -95,6 +93,7 @@
     ./modules/hypr/hypridle.nix
     ./modules/hypr/hyprpolkit.nix
     ./modules/kitty.nix
+    ./modules/rofi/rofi.nix
     ./modules/swaync/swaync.nix
     ./modules/mangohud.nix
     ./modules/sticky-notes.nix
