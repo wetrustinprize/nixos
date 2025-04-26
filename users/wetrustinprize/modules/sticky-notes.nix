@@ -5,17 +5,10 @@
   ];
 
   wayland.windowManager.hyprland.settings = {
-    # exec-once = [
-    #   "com.vixalien.sticky -i"
-    # ];
     bind = [
       "$mod, N, exec, com.vixalien.sticky -n"
-      "$mod SHIFT, N, exec, com.vixalien.sticky"
+      "$mod SHIFT, N, exec, com.vixalien.sticky -a"
     ];
-    # not avaliable yet in 0.45.2
-    # bindo = [
-    # 	"$mod, N, exec, com.vixalien.sticky"
-    # ];
     windowrulev2 = [
       "float,class:(com.vixalien.sticky)"
     ];
