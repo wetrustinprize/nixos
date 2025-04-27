@@ -24,7 +24,7 @@ in
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    font = "JetBrainsMono Nerd Font 10";
+    font = "CodeNewRoman Nerd Font Propo 10";
     theme = ./theme.rasi;
   };
 
