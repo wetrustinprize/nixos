@@ -10,6 +10,10 @@ let
   color = config.colorScheme.palette;
 in
 {
+  nixpkgs.overlays = [(final: prev: {
+    rofimoji = prev.rofi-calc.override { rofi = prev.rofi-wayland; };
+  })];
+
   home.packages = with pkgs; [
     bemoji
   ];
@@ -24,6 +28,7 @@ in
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
+    plugins = with pkgs; [ rofi-calc ];
     font = "CodeNewRoman Nerd Font Propo 10";
     theme = ./theme.rasi;
   };
@@ -34,6 +39,8 @@ in
 
     "$mod, E, exec, bemoji"
     "$mod, W, exec, rofi -show window"
+
+    "$mod, C, exec, rofi -show calc"
 
     "$mod, V, exec, cliphist list | rofi -dmenu -p  | cliphist decode | wl-copy"
   ];

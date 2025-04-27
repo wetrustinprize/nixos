@@ -26,7 +26,6 @@
   home.packages = with pkgs; [
     nixfmt-rfc-style
     pinentry
-    libqalculate
     gh
   ];
 

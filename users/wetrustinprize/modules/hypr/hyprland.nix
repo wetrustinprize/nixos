@@ -15,7 +15,6 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hyprctl setcursor phinger-cursors-light 32"
-        "[workspace special:calculator] qalculate-gtk"
         "[worksapce special:password] bitwarden"
         "[workspace name:side-monitor] discord"
         "[workspace special:obsidian] obsidian"
@@ -45,7 +44,6 @@
           "$mod, F2, exec, $visual"
           "$mod, F3, exec, $terminal yazi"
 
-          "$mod, C, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk &"
           "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
           "$mod, O, exec, pgrep -f obsidian && hyprctl dispatch togglespecialworkspace obsidian || obsidian &"
 
@@ -101,13 +99,11 @@
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-        "float,class:(qalculate-gtk)"
         "float,class:(Bitwarden)"
         "float,class:(.blueman-manager-wrapped)"
         "float,class:(org.pulseaudio.pavucontrol)"
         "float,title:Picture-in-Picture"
         "float,title:Open Files"
-        "workspace special:calculator,class:(qalculate-gtk)"
         "workspace special:password,class:(Bitwarden)"
         "workspace special:obsidian,class:(obsidian)"
         "workspace name:side-monitor,class:(discord)"

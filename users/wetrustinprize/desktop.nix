@@ -44,7 +44,6 @@
     filezilla
     stremio
     xarchiver
-    qalculate-gtk
     obsidian
     pavucontrol
     egl-wayland
