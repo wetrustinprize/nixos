@@ -9,18 +9,17 @@
 
 { lib, ... }:
 let
-  genTraefikLabels =
-    { service, port }:
+  genLabels =
+    { service, port, description }:
     {
+      # Traefik labels
       "traefik.enable" = "true";
       "traefik.http.routers.${service}.rule" =
         "Host(`softwarr.home.wetrustinprize.com`) && PathPrefix(`/${service}`)";
       "traefik.http.routers.${service}.entrypoints" = "web";
       "traefik.http.services.${service}.loadbalancer.server.port" = "${toString port}";
-    };
-  genHomepageLabels =
-    { service, description }:
-    {
+
+      # Homepage labels
       "homepage.group" = "Media";
       "homepage.name" = service;
       "homepage.icon" = "${service}.png";
@@ -129,14 +128,12 @@ in
       };
       labels =
         lib.recursiveUpdate
-          (genHomepageLabels {
+          (genLabels {
             service = "tdarr";
             description = "Softwarr transcoder.";
-          })
-          (genTraefikLabels {
-            service = "tdarr";
             port = 8265;
-          });
+          })
+          ({});
       extraOptions = [ "--network=softwarr-network" ];
     };
     "prowlarr" = {
@@ -144,15 +141,11 @@ in
       autoStart = true;
       volumes = [ "/srv/prowlarr:/config:rw" ];
       labels =
-        lib.recursiveUpdate
-          (genHomepageLabels {
+          genLabels {
             service = "prowlarr";
             description = "Softwarr indexer";
-          })
-          (genTraefikLabels {
-            service = "prowlarr";
             port = 9696;
-          });
+          };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "bazarr" = {
@@ -169,15 +162,11 @@ in
         "PGID" = "1000";
       };
       labels =
-        lib.recursiveUpdate
-          (genHomepageLabels {
+          genLabels {
             service = "bazarr";
             description = "Softwarr captions downloader.";
-          })
-          (genTraefikLabels {
-            service = "bazarr";
             port = 6767;
-          });
+          };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "radarr" = {
@@ -194,15 +183,11 @@ in
         "PGID" = "1000";
       };
       labels =
-        lib.recursiveUpdate
-          (genHomepageLabels {
+          genLabels {
             service = "radarr";
             description = "Movie fetcher";
-          })
-          (genTraefikLabels {
-            service = "radarr";
             port = 7878;
-          });
+          };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "sonarr" = {
@@ -219,15 +204,11 @@ in
         "PGID" = "1000";
       };
       labels =
-        lib.recursiveUpdate
-          (genHomepageLabels {
+          genLabels {
             service = "sonarr";
             description = "TV Shows Fetcher";
-          })
-          (genTraefikLabels {
-            service = "sonarr";
             port = 8989;
-          });
+          };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "flaresolverr" = {
