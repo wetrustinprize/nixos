@@ -89,7 +89,7 @@ in
         # Traefik
         "traefik.enable" = "true";
         "traefik.http.routers.jellyseer.rule" =
-          "Host(`jellyseer.wetrustinprize.com`) || Host(`jellyseer.home.wetrustinprize.com`)";
+          "Host(`jellyseerr.wetrustinprize.com`) || Host(`jellyseerr.home.wetrustinprize.com`)";
         "traefik.http.routers.jellyseer.tls" = "true";
         "traefik.http.routers.jellyseer.tls.certresolver" = "cloudflare";
         "traefik.http.routers.jellyseer.entrypoints" = "websecure";
