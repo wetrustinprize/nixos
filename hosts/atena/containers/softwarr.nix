@@ -10,7 +10,11 @@
 { lib, ... }:
 let
   genLabels =
-    { service, port, description }:
+    {
+      service,
+      port,
+      description,
+    }:
     {
       # Traefik labels
       "traefik.enable" = "true";
@@ -135,7 +139,8 @@ in
           })
           ({
             "traefik.http.middlewares.tdarr-strip.stripprefix.prefixes" = "/tdarr";
-            "traefik.http.middlewares.tdarr-headers.customrequestheaders.Host" = "http://softwarr.home.wetrustinprize.com/tdarr";
+            "traefik.http.middlewares.tdarr-headers.customrequestheaders.Host" =
+              "http://softwarr.home.wetrustinprize.com/tdarr";
             # "traefik.http.middlewares.tdarr-middleware.customrequestheaders.X-Real-IP" = "{remote}";
             # "traefik.http.middlewares.tdarr-middleware.customrequestheaders.X-Forwarded-For" = "{remote}";
             "traefik.http.routers.tdarr.middlewares" = "tdarr-headers,tdarr-strip";
@@ -146,12 +151,11 @@ in
       image = "lscr.io/linuxserver/prowlarr:latest";
       autoStart = true;
       volumes = [ "/srv/prowlarr:/config:rw" ];
-      labels =
-          genLabels {
-            service = "prowlarr";
-            description = "Softwarr indexer";
-            port = 9696;
-          };
+      labels = genLabels {
+        service = "prowlarr";
+        description = "Softwarr indexer";
+        port = 9696;
+      };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "bazarr" = {
@@ -167,12 +171,11 @@ in
         "PUID" = "1000";
         "PGID" = "1000";
       };
-      labels =
-          genLabels {
-            service = "bazarr";
-            description = "Softwarr captions downloader.";
-            port = 6767;
-          };
+      labels = genLabels {
+        service = "bazarr";
+        description = "Softwarr captions downloader.";
+        port = 6767;
+      };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "radarr" = {
@@ -188,12 +191,11 @@ in
         "PUID" = "1000";
         "PGID" = "1000";
       };
-      labels =
-          genLabels {
-            service = "radarr";
-            description = "Movie fetcher";
-            port = 7878;
-          };
+      labels = genLabels {
+        service = "radarr";
+        description = "Movie fetcher";
+        port = 7878;
+      };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "sonarr" = {
@@ -209,12 +211,11 @@ in
         "PUID" = "1000";
         "PGID" = "1000";
       };
-      labels =
-          genLabels {
-            service = "sonarr";
-            description = "TV Shows Fetcher";
-            port = 8989;
-          };
+      labels = genLabels {
+        service = "sonarr";
+        description = "TV Shows Fetcher";
+        port = 8989;
+      };
       extraOptions = [ "--network=softwarr-network" ];
     };
     "flaresolverr" = {
