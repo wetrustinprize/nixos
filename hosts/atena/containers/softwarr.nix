@@ -138,12 +138,10 @@ in
             port = 8265;
           })
           ({
+            "traefik.http.routers.tdarr.middleware" = "tdarr-strip,tdarr-pathregex";
             "traefik.http.middlewares.tdarr-strip.stripprefix.prefixes" = "/tdarr";
-            "traefik.http.middlewares.tdarr-headers.customrequestheaders.Host" =
-              "http://softwarr.home.wetrustinprize.com/tdarr";
-            # "traefik.http.middlewares.tdarr-middleware.customrequestheaders.X-Real-IP" = "{remote}";
-            # "traefik.http.middlewares.tdarr-middleware.customrequestheaders.X-Forwarded-For" = "{remote}";
-            "traefik.http.routers.tdarr.middlewares" = "tdarr-headers,tdarr-strip";
+            "traefik.http.middlewares.tdarr-pathregex.replacepathregex.regex" = "^/home/tdarr(.*)";
+            "traefik.http.middlewares.tdarr-pathregex.replacepathregex.replacement" = "$$1";
           });
       extraOptions = [ "--network=softwarr-network" ];
     };
