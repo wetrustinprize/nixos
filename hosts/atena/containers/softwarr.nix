@@ -133,7 +133,10 @@ in
             description = "Softwarr transcoder.";
             port = 8265;
           })
-          ({});
+          ({
+            "traefik.http.middlewares.tdarr-strip.stripprefix.prefixes" = "/tdarr"
+            "traefik.http.routers.tdarr.middlewares" = "tdarr-strip@docker"
+          });
       extraOptions = [ "--network=softwarr-network" ];
     };
     "prowlarr" = {
