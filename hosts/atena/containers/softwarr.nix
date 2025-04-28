@@ -114,6 +114,7 @@ in
         "/srv/tdarr/config:/app/configs:rw"
         "/srv/tdarr/server:/app/server:rw"
         "/srv/tdarr/logs:/app/logs:rw"
+        "/tmp/tdarr:/tmp/tdarr:rw"
         "/mnt/storage/movies:/media/movies:rw"
         "/mnt/storage/tv:/media/tv:rw"
       ];
