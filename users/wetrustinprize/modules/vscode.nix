@@ -74,6 +74,7 @@ in
         # javascript/typescript
         dbaeumer.vscode-eslint
         styled-components.vscode-styled-components
+        vue.volar
 
         # rust
         rust-lang.rust-analyzer
