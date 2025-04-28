@@ -9,15 +9,6 @@
   nixpkgs = {
     overlays = [
       inputs.blender-bin.overlays.default
-      (self: super: {
-        tidal-hifi = super.tidal-hifi.overrideAttrs (attrs: {
-          version = "5.18.2";
-          src = self.fetchurl {
-            url = "https://github.com/Mastermindzh/tidal-hifi/releases/download/5.18.2/tidal-hifi_5.18.2_amd64.deb";
-            sha256 = "sha256-jo3vnq7ul7e+UsaBswil8EctUxVJMcTxo77YyQ2ncIM=";
-          };
-        });
-      })
     ];
   };
 
@@ -30,8 +21,8 @@
     lutris
     prismlauncher
     steam
-    tidal-hifi
     bitwarden
+    spotify
     gitkraken
     waybar
     cliphist
