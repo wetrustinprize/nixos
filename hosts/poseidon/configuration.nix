@@ -14,6 +14,11 @@
   networking.hostName = "poseidon";
   time.timeZone = "America/Sao_Paulo";
 
+  hardware.opentabletdriver = {
+    enable = true;
+    daemon.enable = true;
+  };
+
   services.ollama.acceleration = "cuda";
 
   system.stateVersion = "24.05";
