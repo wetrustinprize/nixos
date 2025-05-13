@@ -45,6 +45,7 @@
     hyprshot
     hyprpaper
     gamemode
+    gamescope
     protonup
     qbittorrent
     obsidian
