@@ -34,6 +34,7 @@
     bat
     zoxide
     lsof
+    dysk
   ];
 
   nix.settings.trusted-users = [
