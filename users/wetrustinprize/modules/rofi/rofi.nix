@@ -10,9 +10,11 @@ let
   color = config.colorScheme.palette;
 in
 {
-  nixpkgs.overlays = [(final: prev: {
-    rofimoji = prev.rofi-calc.override { rofi = prev.rofi-wayland; };
-  })];
+  nixpkgs.overlays = [
+    (final: prev: {
+      rofimoji = prev.rofi-calc.override { rofi = prev.rofi-wayland; };
+    })
+  ];
 
   home.packages = with pkgs; [
     bemoji

@@ -83,6 +83,7 @@
     ./modules/hypr/hyprpaper.nix
     ./modules/hypr/hypridle.nix
     ./modules/hypr/hyprpolkit.nix
+    ./modules/kando.nix
     ./modules/kitty.nix
     ./modules/rofi/rofi.nix
     ./modules/swaync/swaync.nix

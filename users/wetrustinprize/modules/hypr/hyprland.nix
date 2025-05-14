@@ -40,9 +40,6 @@
         [
           # launch apps
           "$mod, RETURN, exec, [float; center; size 730 470] $terminal"
-          "$mod, F1, exec, $browser"
-          "$mod, F2, exec, $visual"
-          "$mod, F3, exec, $terminal yazi"
 
           "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
           "$mod, O, exec, pgrep -f obsidian && hyprctl dispatch togglespecialworkspace obsidian || obsidian &"
