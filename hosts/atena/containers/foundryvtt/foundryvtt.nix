@@ -28,6 +28,11 @@
         volumes = [
             "/mnt/storage/foundryvtt:/data"
         ];
+        environment = {
+            "TZ" = "America/Sao_Paulo";
+            "PUID" = "1000";
+            "PGID" = "1000";
+        };
         environmentFiles = [
             config.sops.secrets.foundryvtt.path
         ];
