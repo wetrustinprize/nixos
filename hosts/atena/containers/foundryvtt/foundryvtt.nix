@@ -36,5 +36,8 @@
         environmentFiles = [
             config.sops.secrets.foundryvtt.path
         ];
+        extraOptions = [
+            "--dns=1.1.1.1"
+        ];
     };
 }
