@@ -18,7 +18,7 @@
       "homepage.name" = "Actual";
       "homepage.icon" = "actual-budget.png";
       "homepage.description" = "Finacnes organizer.";
-      "homepage.href" = "https://actual.home.wetrustinprize.com";
+      "homepage.href" = "https://actual.wetrustinprize.com";
     };
     volumes = [
       "/srv/actual:/data"
