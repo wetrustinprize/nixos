@@ -26,7 +26,7 @@
             "homepage.href" = "https://foundryvtt.wetrustinprize.com";
         };
         volumes = [
-            "/mnt/storage/foundryvtt:/data"
+            "/mnt/storage/foundryvtt:/data:rw"
         ];
         environment = {
             "TZ" = "America/Sao_Paulo";
