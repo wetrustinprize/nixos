@@ -53,6 +53,9 @@
     obs-studio
     mucommander
     gnome-keyring
+    dbeaver-bin
+    bruno
+    bruno-cli
     fm
   ];
 
