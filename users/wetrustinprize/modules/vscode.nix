@@ -73,7 +73,12 @@ in
 
         # javascript/typescript
         dbaeumer.vscode-eslint
+        bradlc.vscode-tailwindcss
+
+        # react
         styled-components.vscode-styled-components
+
+        # vue
         vue.volar
 
         # rust
