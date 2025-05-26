@@ -14,6 +14,7 @@
     ./containers/cloudflared/cloudflared.nix
     ./containers/pihole/pihole.nix
     ./containers/traefik/traefik.nix
+    ./containers/foundryvtt/foundryvtt.nix
     ./containers/filebrowser/filebrowser.nix
     ./containers/homepage/homepage.nix
     ./containers/actual.nix
