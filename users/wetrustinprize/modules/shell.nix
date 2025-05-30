@@ -5,6 +5,10 @@
     enableBashIntegration = true;
   };
 
+  programs.yazi = {
+    enable = true;
+  };
+
   programs.fish = {
     enable = true;
     shellInit = ''
