@@ -1,7 +1,34 @@
 {
   config,
+  lib,
+  hostname,
   ...
 }:
+let
+  hostsDir = ../../../hosts;
+
+  hosts = lib.filter (host: host != hostname) (
+    builtins.attrNames (
+      lib.filterAttrs (_: type: type == "directory") (builtins.readDir hostsDir)
+    )
+  );
+
+  publicKeyPaths = lib.concatMap (
+    host:
+    let
+      hostPath = "${hostsDir}/${host}";
+      files = builtins.attrNames (
+        lib.filterAttrs (_: type: type == "regular") (builtins.readDir hostPath)
+      );
+      pubFiles = lib.filter (f: lib.hasSuffix ".pub" f) files;
+    in
+    map (pub: "${hostPath}/${pub}") pubFiles
+  ) hosts;
+
+  authorizedKeys = builtins.concatStringsSep "\n" (
+    map (path: builtins.readFile path) publicKeyPaths
+  );
+in
 {
   programs.ssh = {
     enable = true;
@@ -25,6 +52,9 @@
     };
     ".ssh/ssh_host_ed25519_key.pub" = {
       source = config.lib.file.mkOutOfStoreSymlink "/etc/ssh/ssh_host_ed25519_key.pub";
+    };
+    ".ssh/authorized_keys" = {
+      text = authorizedKeys;
     };
   };
 }
