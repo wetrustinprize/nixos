@@ -9,10 +9,6 @@
     inputs.nix-vscode-extensions.overlays.default
   ];
 
-  home.packages = with pkgs; [
-    vscode
-  ];
-
   # FIXME: Look after why code is so bad at wayland
   # this wasn't an issue in the past
   xdg.desktopEntries."cursor" = {
