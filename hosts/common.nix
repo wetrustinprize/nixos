@@ -47,7 +47,6 @@
     "flakes"
   ];
 
-  programs.nushell.enable = true;
   programs.fish.enable = true;
 
   users = {
@@ -73,6 +72,10 @@
     # of the user
     age.keyFile = "/home/wetrustinprize/.age.key";
     defaultSopsFile = ../../secrets.yaml;
+  };
+
+  environment.variables = {
+    # TODO: Export sops file here
   };
 
   services.openssh = {
