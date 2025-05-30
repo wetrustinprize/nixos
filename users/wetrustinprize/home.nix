@@ -37,26 +37,16 @@
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
-  };
 
-  # this is to fix ssh config check on git functions inside vscode or other ssh clients
-  # https://github.com/nix-community/home-manager/issues/322#issuecomment-1178614454
-  home.file.".ssh/config" = {
-    text = ''
-      Include ~/.ssh/other_config
-
-      Host *
-        ForwardAgent no
-        AddKeysToAgent yes
-        Compression no
-        ServerAliveInterval 0
-        ServerAliveCountMax 3
-        HashKnownHosts no
-        UserKnownHostsFile ~/.ssh/known_hosts
-        ControlMaster no
-        ControlPath ~/.ssh/master-%r@%n:%p
-        ControlPersist no
-    '';
+    # this is to fix ssh config check on git functions inside vscode or other ssh clients
+    # https://github.com/nix-community/home-manager/issues/322#issuecomment-1178614454
+    matchBlocks = {
+      github = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519";
+      };
+    };
   };
 
   programs.git = {
