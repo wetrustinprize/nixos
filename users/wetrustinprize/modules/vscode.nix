@@ -18,7 +18,7 @@
   xdg.desktopEntries."cursor" = {
     name = "Cursor";
     genericName = "Text Editor";
-    exec = "env SSH_AUTH_zone-platform=x11";
+    exec = "cursor --ozone-platform=x11";
   };
 
   programs.vscode = {
