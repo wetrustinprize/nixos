@@ -3,7 +3,6 @@
   home.shell = {
     enableFishIntegration = true;
     enableBashIntegration = true;
-    enableNushellIntegration = true;
   };
 
   programs.fish = {
@@ -13,10 +12,6 @@
             nix-your-shell fish | source
         end
     '';
-  };
-  programs.nushell = {
-    enable = true;
-    extraConfig = "source nix-your-shell.nu";
   };
   programs.bash.enable = true;
 
