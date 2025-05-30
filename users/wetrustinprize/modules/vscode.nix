@@ -1,4 +1,4 @@
-{ pkgs, system, ... }:
+{ pkgs, system, inputs, ... }:
 let
   # this is to fix remote-ssh extension
   forkedNixpkgs =
@@ -14,11 +14,7 @@ let
 in
 {
   nixpkgs.overlays = [
-    (self: super: {
-      vscode-extensions = super.vscode-extensions // {
-        ms-vscode-remote.remote-ssh = forkedNixpkgs.vscode-extensions.ms-vscode-remote.remote-ssh;
-      };
-    })
+    inputs.nix-vscode-extensions.overlays.default
   ];
 
   home.packages = with pkgs; [
@@ -27,65 +23,73 @@ in
 
   # FIXME: Look after why code is so bad at wayland
   # this wasn't an issue in the past
-  xdg.desktopEntries."code" = {
-    name = "Visual Studio Code";
+  xdg.desktopEntries."cursor" = {
+    name = "Cursor";
     genericName = "Text Editor";
-    exec = "code %F --ozone-platform=x11";
+    exec = "cursor %F --ozone-platform=x11";
   };
 
   programs.vscode = {
     enable = true;
 
+    package = pkgs.code-cursor;
+
     profiles.default = {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
+      userSettings = {
+        "window.newWindowProfile" = "wetrustinprize";
+      };
     };
 
     profiles.wetrustinprize = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.nix-vscode-extensions; [
         # theme
-        arcticicestudio.nord-visual-studio-code
-        pkief.material-icon-theme
-        pkief.material-product-icons
+        vscode-marketplace.arcticicestudio.nord-visual-studio-code
+        vscode-marketplace.pkief.material-icon-theme
+        vscode-marketplace.pkief.material-product-icons
 
         # behaviour
-        vscodevim.vim
-        fill-labs.dependi
-        eamodio.gitlens
-        wakatime.vscode-wakatime
-        naumovs.color-highlight
-        gruntfuggly.todo-tree
-        jgclark.vscode-todo-highlight
-        oderwat.indent-rainbow
-        ms-vsliveshare.vsliveshare
-        aaron-bond.better-comments
-        ms-vscode-remote.remote-ssh
-        editorconfig.editorconfig
+        vscode-marketplace.vscodevim.vim
+        vscode-marketplace.fill-labs.dependi
+        vscode-marketplace.eamodio.gitlens
+        vscode-marketplace.wakatime.vscode-wakatime
+        vscode-marketplace.naumovs.color-highlight
+        vscode-marketplace.gruntfuggly.todo-tree
+        vscode-marketplace.jgclark.vscode-todo-highlight
+        vscode-marketplace.oderwat.indent-rainbow
+        vscode-marketplace.ms-vsliveshare.vsliveshare
+        vscode-marketplace.aaron-bond.better-comments
+        open-vsx.jeanp413.open-remote-ssh
+        vscode-marketplace.editorconfig.editorconfig
 
         # toml
-        tamasfe.even-better-toml
+        vscode-marketplace.tamasfe.even-better-toml
 
         # dotenv
-        mikestead.dotenv
+        vscode-marketplace.mikestead.dotenv
 
         # nix
-        bbenoist.nix
+        vscode-marketplace.bbenoist.nix
+
+        # html/css
+        vscode-marketplace.moalamri.inline-fold
 
         # javascript/typescript
-        dbaeumer.vscode-eslint
-        bradlc.vscode-tailwindcss
+        vscode-marketplace.dbaeumer.vscode-eslint
+        vscode-marketplace.bradlc.vscode-tailwindcss
 
         # react
-        styled-components.vscode-styled-components
+        vscode-marketplace.styled-components.vscode-styled-components
 
         # vue
-        vue.volar
+        vscode-marketplace.vue.volar
 
         # rust
-        rust-lang.rust-analyzer
+        vscode-marketplace.rust-lang.rust-analyzer
 
         # gdscript
-        geequlim.godot-tools
+        vscode-marketplace.geequlim.godot-tools
       ];
 
       userSettings = {
