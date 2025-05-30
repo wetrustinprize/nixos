@@ -47,12 +47,15 @@
     "flakes"
   ];
 
+  programs.nushell.enable = true;
+  programs.fish.enable = true;
+
   users = {
-    defaultUserShell = pkgs.nushell;
+    defaultUserShell = pkgs.fish;
     users = lib.listToAttrs (
       lib.map (username: {
         name = username;
-        shell = pkgs.nushell;
+        shell = pkgs.fish;
         value = {
           isNormalUser = true;
           extraGroups = [

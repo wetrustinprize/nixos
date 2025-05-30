@@ -29,11 +29,6 @@
     gh
   ];
 
-  programs.zoxide = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
@@ -51,9 +46,8 @@
   };
 
   require = [
-    ./modules/nushell.nix
+    ./modules/shell.nix
     ./modules/yazi.nix
-    ./modules/starship.nix
   ];
 
   home.stateVersion = "24.05";

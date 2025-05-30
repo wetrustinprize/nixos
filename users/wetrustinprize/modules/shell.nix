@@ -1,11 +1,30 @@
 { config, ... }:
 {
+  home.shell = {
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+  };
+
+  programs.fish = {
+    enable = true;
+    shellInit = ''
+        if command -q nix-your-shell
+            nix-your-shell fish | source
+        end
+    '';
+  };
+  programs.nushell = {
+    enable = true;
+    extraConfig = "source nix-your-shell.nu";
+  };
   programs.bash.enable = true;
+
+  programs.zoxide.enable = true;
+  programs.fzf.enable = true;
 
   programs.starship = {
     enable = true;
-    enableBashIntegration = true;
-    enableNushellIntegration = true;
 
     settings = {
       palette = "nix-colors";
