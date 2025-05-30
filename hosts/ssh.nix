@@ -1,10 +1,33 @@
-{ hostname, username, ... }:
+{ hostname, username, lib, ... }:
+let
+  hostsDir = ./.;
+
+  hosts = lib.filter (host: host != hostname) (
+    builtins.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir hostsDir))
+  );
+
+  publicKeys = lib.concatMap (
+    host:
+    let
+      hostPath = "${hostsDir}/${host}";
+      files = builtins.attrNames (
+        lib.filterAttrs (_: type: type == "regular") (builtins.readDir hostPath)
+      );
+      pubFiles = lib.filter (f: lib.hasSuffix ".pub" f) files;
+    in
+    map (pub: {
+      name = "ssh/authorized_keys.d/${host}_${pub}";
+      value = {
+        source = "${hostPath}/${pub}";
+      };
+    }) pubFiles
+  ) hosts;
+in
 {
   programs.ssh.startAgent = true;
 
   services.openssh = {
     enable = true;
-    authorizedKeysInHomedir = true;
     settings = {
       PasswordAuthentication = false;
     };
@@ -33,4 +56,6 @@
       echo "! Skipping SSH public key copy - directory /home/${username}/nixos does not exist"
     fi
   '';
+
+  environment.etc = lib.listToAttrs publicKeys;
 }
