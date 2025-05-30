@@ -1,14 +1,18 @@
-{ config, lib, hostname, ... }: 
+{
+  config,
+  lib,
+  hostname,
+  ...
+}:
 let
   hostsDir = ../../../hosts;
 
   hosts = lib.filter (host: host != hostname) (
-    builtins.attrNames (
-        lib.filterAttrs (_: type: type == "directory") (builtins.readDir hostsDir)
-    )
+    builtins.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir hostsDir))
   );
 
-  homeFiles = lib.concatMap (host:
+  homeFiles = lib.concatMap (
+    host:
     let
       hostPath = "${hostsDir}/${host}";
       files = builtins.attrNames (
@@ -16,18 +20,23 @@ let
       );
       pubFiles = lib.filter (f: lib.hasSuffix ".pub" f) files;
     in
-      map (pub: {
-        name = ".ssh/authorized_keys.d/${pub}";
-        value = {
-          source = "${hostPath}/${pub}";
-        };
-      }) pubFiles
+    map (pub: {
+      name = ".ssh/authorized_keys.d/${pub}";
+      value = {
+        source = "${hostPath}/${pub}";
+      };
+    }) pubFiles
   ) hosts;
 in
 {
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
+    matchBlocks = {
+      "*" = {
+        identityFile = "~/.ssh/ssh_host_ed25519_key";
+      };
+    };
     includes = [
       "~/.ssh/other_config"
     ];
@@ -38,10 +47,10 @@ in
   # The system will be single-user, so this is not a problem
   home.file = {
     ".ssh/ssh_host_ed25519_key" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/etc/ssh/ssh_host_ed25519_key";
+      source = config.lib.file.mkOutOfStoreSymlink "/etc/ssh/ssh_host_ed25519_key";
     };
     ".ssh/ssh_host_ed25519_key.pub" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/etc/ssh/ssh_host_ed25519_key.pub";
+      source = config.lib.file.mkOutOfStoreSymlink "/etc/ssh/ssh_host_ed25519_key.pub";
     };
   } // lib.listToAttrs homeFiles;
 }
