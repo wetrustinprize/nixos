@@ -1,4 +1,25 @@
-{ hostname, username, pkgs, ... }:
+{ hostname, username, pkgs, lib, ... }:
+let
+  hostsDir = ./.;
+
+  hosts = lib.filter (host: host != hostname) (
+    builtins.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir hostsDir))
+  );
+
+  publicKeyPaths = lib.concatMap (
+    host:
+    let
+      hostPath = "${hostsDir}/${host}";
+      files = builtins.attrNames (
+        lib.filterAttrs (_: type: type == "regular") (builtins.readDir hostPath)
+      );
+      pubFiles = lib.filter (f: lib.hasPrefix "ssh_client_" f) files;
+    in
+    map (pub: "${hostPath}/${pub}") pubFiles
+  ) hosts;
+
+  authorizedKeys = map (path: builtins.readFile path) publicKeyPaths;
+in
 {
   programs.ssh.startAgent = true;
 
@@ -12,6 +33,8 @@
       }
     ];
   };
+
+  users.users.${username}.openssh.authorizedKeys.keys = authorizedKeys;
 
   system.activationScripts.ssh-client-key.text = ''
     # Create .ssh directory if it doesn't exist
