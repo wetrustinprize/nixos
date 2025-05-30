@@ -32,6 +32,9 @@
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
+    includes = [
+      "~/.ssh/other_config"
+    ];
   };
 
   programs.git = {
