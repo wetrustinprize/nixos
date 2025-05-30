@@ -12,9 +12,9 @@
   programs.fish = {
     enable = true;
     shellInit = ''
-        if command -q nix-your-shell
-            nix-your-shell fish | source
-        end
+      if command -q nix-your-shell
+          nix-your-shell fish | source
+      end
     '';
   };
   programs.bash.enable = true;
