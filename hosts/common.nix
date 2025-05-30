@@ -76,11 +76,20 @@
     SOPS_AGE_KEY_FILE = "/home/wetrustinprize/.age.key";
   };
 
+  programs.ssh.startAgent = true;
+
   services.openssh = {
     enable = true;
-    ports = [ 22 ];
-    openFirewall = true;
+    hostKeys = [{
+     path = "/etc/ssh/ssh_host_ed25519_key";
+     type = "ed25519";
+   }];
   };
+
+  system.activationScripts.ssh-public-keys.text = ''
+    echo "Updating SSH public keys..."
+    cp /etc/ssh/ssh_host_*.pub /etc/nixos/hosts/.ssh/
+  '';
 
   programs.nix-ld.enable = true;
   programs.dconf.enable = true;
