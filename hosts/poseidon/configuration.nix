@@ -3,9 +3,9 @@
 {
   imports = [
     ../common.nix
-    ../essentials/desktop.nix
-    ../essentials/audio.nix
-    ../essentials/virtualization.nix
+    ../desktop.nix
+    ../audio.nix
+    ../virtualization.nix
     ./hardware-configuration.nix
   ];
 

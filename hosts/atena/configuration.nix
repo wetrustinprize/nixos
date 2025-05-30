@@ -8,8 +8,8 @@
 {
   imports = [
     ../common.nix
-    ../essentials/virtualization.nix
-    ../essentials/ai.nix
+    ../virtualization.nix
+    ../ai.nix
 
     ./containers/cloudflared/cloudflared.nix
     ./containers/pihole/pihole.nix

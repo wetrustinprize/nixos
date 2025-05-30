@@ -8,8 +8,8 @@
 {
   imports = [
     ../common.nix
-    ../essentials/audio.nix
-    ../essentials/desktop.nix
+    ../audio.nix
+    ../desktop.nix
     ./hardware-configuration.nix
   ];
 
