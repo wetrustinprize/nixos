@@ -2,6 +2,7 @@
   pkgs,
   system,
   inputs,
+  username,
   ...
 }:
 {
@@ -26,11 +27,11 @@
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       userSettings = {
-        "window.newWindowProfile" = "wetrustinprize";
+        "window.newWindowProfile" = "${username}";
       };
     };
 
-    profiles.wetrustinprize = {
+    profiles.${username} = {
       extensions = with pkgs.nix-vscode-extensions; [
         # theme
         vscode-marketplace.arcticicestudio.nord-visual-studio-code

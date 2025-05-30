@@ -31,8 +31,8 @@
 
   programs.git = {
     enable = true;
-    userEmail = "me@wetrustinprize.com";
-    userName = "wetrustinprize";
+    userEmail = "git@${username}.com";
+    userName = username;
   };
 
   sops = {

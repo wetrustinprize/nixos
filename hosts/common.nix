@@ -1,10 +1,10 @@
 {
   pkgs,
   nixpkgs,
-  usernames,
   lib,
   inputs,
   hostname,
+  username,
   ...
 }:
 {
@@ -52,29 +52,24 @@
 
   users = {
     defaultUserShell = pkgs.fish;
-    users = lib.listToAttrs (
-      lib.map (username: {
-        name = username;
-        shell = pkgs.fish;
-        value = {
-          isNormalUser = true;
-          extraGroups = [
-            "networkmanager"
-            "wheel"
-            "docker"
-          ];
-        };
-      }) usernames
-    );
+    users.${username} = {
+      useDefaultShell = true;
+      isNormalUser = true;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+      ];
+    };
   };
 
   sops = {
-    age.keyFile = "/home/wetrustinprize/.age.key";
+    age.keyFile = "/home/${username}/.age.key";
     defaultSopsFile = ../../secrets.yaml;
   };
 
   environment.variables = {
-    SOPS_AGE_KEY_FILE = "/home/wetrustinprize/.age.key";
+    SOPS_AGE_KEY_FILE = "/home/${username}/.age.key";
   };
 
   programs.nix-ld.enable = true;

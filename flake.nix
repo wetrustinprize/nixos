@@ -29,11 +29,11 @@
     }@inputs:
     let
       system = "x86_64-linux";
+      username = "wetrustinprize";
       lib = nixpkgs.lib;
       mkConfig =
         {
           hostname,
-          usernames ? [ ],
           system,
         }:
         lib.nixosSystem {
@@ -42,15 +42,13 @@
             inherit inputs;
             inherit system;
             inherit hostname;
-            inherit usernames;
+            inherit username;
             inherit self;
           };
-          modules =
-            [
-              ./hosts/${hostname}/configuration.nix
-              inputs.sops-nix.nixosModules.sops
-            ]
-            ++ (lib.map (username: {
+          modules = [
+            ./hosts/${hostname}/configuration.nix
+            inputs.sops-nix.nixosModules.sops
+            {
               imports = [
                 home-manager.nixosModules.home-manager
                 {
@@ -81,7 +79,8 @@
                   };
                 }
               ];
-            }) usernames);
+            }
+          ];
         };
     in
     {
@@ -94,17 +93,14 @@
         poseidon = mkConfig {
           inherit system;
           hostname = "poseidon";
-          usernames = [ "wetrustinprize" ];
         };
         dionysus = mkConfig {
           inherit system;
           hostname = "dionysus";
-          usernames = [ "wetrustinprize" ];
         };
         atena = mkConfig {
           inherit system;
           hostname = "atena";
-          usernames = [ "wetrustinprize" ];
         };
       };
     };
