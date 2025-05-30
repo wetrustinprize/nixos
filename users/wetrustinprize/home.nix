@@ -37,16 +37,6 @@
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
-
-    # this is to fix ssh config check on git functions inside vscode or other ssh clients
-    # https://github.com/nix-community/home-manager/issues/322#issuecomment-1178614454
-    matchBlocks = {
-      github = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519";
-      };
-    };
   };
 
   programs.git = {
