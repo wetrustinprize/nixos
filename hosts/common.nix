@@ -68,14 +68,12 @@
   };
 
   sops = {
-    # FIXME: This should be more related to the system instead
-    # of the user
     age.keyFile = "/home/wetrustinprize/.age.key";
     defaultSopsFile = ../../secrets.yaml;
   };
 
   environment.variables = {
-    # TODO: Export sops file here
+    SOPS_AGE_KEY_FILE = "/home/wetrustinprize/.age.key";
   };
 
   services.openssh = {
