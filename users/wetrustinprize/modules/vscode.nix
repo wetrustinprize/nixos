@@ -1,17 +1,9 @@
-{ pkgs, system, inputs, ... }:
-let
-  # this is to fix remote-ssh extension
-  forkedNixpkgs =
-    import
-      (fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/577417344339acac020744052a86f4d112c83e2f.tar.gz";
-        sha256 = "11qdhd0dg1kz7v730rqy21fgra8babg2ljds6zmr6wz0ih3d47x0";
-      })
-      {
-        inherit system;
-        config.allowUnfree = true;
-      };
-in
+{
+  pkgs,
+  system,
+  inputs,
+  ...
+}:
 {
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
@@ -26,7 +18,7 @@ in
   xdg.desktopEntries."cursor" = {
     name = "Cursor";
     genericName = "Text Editor";
-    exec = "cursor %F --ozone-platform=x11";
+    exec = "env SSH_AUTH_zone-platform=x11";
   };
 
   programs.vscode = {
