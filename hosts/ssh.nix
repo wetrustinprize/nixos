@@ -1,4 +1,10 @@
-{ hostname, username, pkgs, lib, ... }:
+{
+  hostname,
+  username,
+  pkgs,
+  lib,
+  ...
+}:
 let
   hostsDir = ./.;
 
