@@ -39,10 +39,8 @@ in
 
   programs.vscode = {
     enable = true;
-
+    
     profiles.default = {
-      enableExtensionUpdateCheck = false;
-      enableUpdateCheck = false;
       userSettings = {
         "window.newWindowProfile" = "${username}";
       };
@@ -74,6 +72,9 @@ in
           vscode-marketplace.rhalaly.scope-to-this
           vscode-marketplace.christian-kohler.path-intellisense
           vscode-marketplace.usernamehw.errorlens
+
+          # ai
+          vscode-marketplace.github.copilot
 
           # spell checking
           vscode-marketplace.streetsidesoftware.code-spell-checker
