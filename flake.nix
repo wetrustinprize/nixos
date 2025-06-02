@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/master";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    blender-bin.url = "github:edolstra/nix-warez?dir=blender";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     sops-nix = {

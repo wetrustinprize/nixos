@@ -5,6 +5,11 @@
   ...
 }:
 {
+  home.packages = with pkgs; [
+    hyprpaper
+    hyprshot
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [ ];

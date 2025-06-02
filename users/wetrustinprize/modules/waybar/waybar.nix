@@ -9,6 +9,10 @@ let
   modules = import ./modules.nix { inherit lib; };
 in
 {
+  home.packages = with pkgs; [
+    waybar
+  ];
+
   programs.waybar = {
     enable = true;
     style = self.lib.nixColorsToGtkCss config.colorScheme + lib.readFile ./style.css;

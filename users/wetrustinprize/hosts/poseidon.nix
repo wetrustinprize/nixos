@@ -25,6 +25,31 @@ in
 {
   require = [ ../desktop.nix ];
 
+  home.packages = with pkgs; [
+    # gaming
+    lutris
+    steam
+    prismlauncher
+    steam-run
+    gamemode
+    gamescope
+    protonup
+
+    # development
+    gitkraken
+    bruno
+    bruno-cli
+    filezilla
+    dbeaver-bin
+
+    # game development
+    godot_4
+    blender
+
+    # painting
+    krita
+  ];
+
   programs.waybar.settings.statusBar = lib.recursiveUpdate {
     layer = "bottom";
     position = "top";

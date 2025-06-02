@@ -6,57 +6,43 @@
   ...
 }:
 {
-  nixpkgs = {
-    overlays = [
-      inputs.blender-bin.overlays.default
-    ];
-  };
-
   home.packages = with pkgs; [
+    # browsers
     inputs.zen-browser.packages."${system}".default
     chromium
+
+    # productivity
     libreoffice
+    obsidian
+
+    # chat
     discord
-    jdk17
-    lutris
-    prismlauncher
-    steam
+
+    # password manager
     bitwarden
+
+    # media
     spotify
-    gitkraken
-    waybar
+    playerctl # cli for media players
+    stremio
+    qbittorrent
+    obs-studio
+    kooha
+
+    # desktop
     cliphist
     blueman
-    gimp
-    krita
-    blender_4_4
-    godot_4
-    pinta
-    filezilla
-    stremio
+    fm # simple file manager
+    mucommander # split file manager
     xarchiver
-    obsidian
     pavucontrol
-    egl-wayland
     gparted
     wl-clipboard
-    playerctl
-    steam-run
-    hyprshot
-    hyprpaper
-    gamemode
-    gamescope
-    protonup
-    qbittorrent
-    obsidian
-    kooha
-    obs-studio
-    mucommander
+    egl-wayland
     gnome-keyring
-    dbeaver-bin
-    bruno
-    bruno-cli
-    fm
+
+    # image editing
+    gimp
   ];
 
   gtk.theme.package = nix-colors.gtk-theme config.colorScheme;
