@@ -37,7 +37,7 @@
 
   programs.jujutsu = {
     enable = true;
-    config = {
+    settings = {
       email = "git@${username}.com";
       name = username;
     };
