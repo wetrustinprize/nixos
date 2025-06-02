@@ -41,6 +41,8 @@ in
     enable = true;
     
     profiles.default = {
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
       userSettings = {
         "window.newWindowProfile" = "${username}";
       };
