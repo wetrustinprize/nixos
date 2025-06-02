@@ -5,23 +5,40 @@
   username,
   ...
 }:
+let
+
+  # this is to fix remote-ssh extension
+  forkedNixpkgs =
+    import
+      (fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/577417344339acac020744052a86f4d112c83e2f.tar.gz";
+        sha256 = "11qdhd0dg1kz7v730rqy21fgra8babg2ljds6zmr6wz0ih3d47x0";
+      })
+      {
+        inherit system;
+        config.allowUnfree = true;
+      };
+in
 {
+  home.packages = with pkgs; [
+    nixd
+    nixfmt-rfc-style
+  ];
+
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
   ];
 
   # FIXME: Look after why code is so bad at wayland
   # this wasn't an issue in the past
-  xdg.desktopEntries."cursor" = {
-    name = "Cursor";
+  xdg.desktopEntries."code" = {
+    name = "Visual Studio Code";
     genericName = "Text Editor";
-    exec = "cursor --ozone-platform=x11";
+    exec = "code --ozone-platform=x11";
   };
 
   programs.vscode = {
     enable = true;
-
-    package = pkgs.code-cursor;
 
     profiles.default = {
       enableExtensionUpdateCheck = false;
@@ -32,81 +49,132 @@
     };
 
     profiles.${username} = {
-      extensions = with pkgs.nix-vscode-extensions; [
-        # theme
-        vscode-marketplace.arcticicestudio.nord-visual-studio-code
-        vscode-marketplace.pkief.material-icon-theme
-        vscode-marketplace.pkief.material-product-icons
+      extensions =
+        (with pkgs.nix-vscode-extensions; [
+          # theme
+          vscode-marketplace.arcticicestudio.nord-visual-studio-code
+          vscode-marketplace.pkief.material-icon-theme
+          vscode-marketplace.pkief.material-product-icons
 
-        # behaviour
-        vscode-marketplace.vscodevim.vim
-        vscode-marketplace.fill-labs.dependi
-        vscode-marketplace.eamodio.gitlens
-        vscode-marketplace.wakatime.vscode-wakatime
-        vscode-marketplace.naumovs.color-highlight
-        vscode-marketplace.gruntfuggly.todo-tree
-        vscode-marketplace.jgclark.vscode-todo-highlight
-        vscode-marketplace.oderwat.indent-rainbow
-        vscode-marketplace.ms-vsliveshare.vsliveshare
-        vscode-marketplace.aaron-bond.better-comments
-        open-vsx.jeanp413.open-remote-ssh
-        vscode-marketplace.editorconfig.editorconfig
+          # cosmetics
+          vscode-marketplace.icrawl.discord-vscode
 
-        # toml
-        vscode-marketplace.tamasfe.even-better-toml
+          # behaviour
+          vscode-marketplace.vscodevim.vim
+          vscode-marketplace.eamodio.gitlens
+          vscode-marketplace.wakatime.vscode-wakatime
+          vscode-marketplace.naumovs.color-highlight
+          vscode-marketplace.gruntfuggly.todo-tree
+          vscode-marketplace.jgclark.vscode-todo-highlight
+          vscode-marketplace.oderwat.indent-rainbow
+          vscode-marketplace.ms-vsliveshare.vsliveshare
+          vscode-marketplace.aaron-bond.better-comments
+          vscode-marketplace.editorconfig.editorconfig
+          vscode-marketplace.praveencrony.total-lines
+          vscode-marketplace.rhalaly.scope-to-this
+          vscode-marketplace.christian-kohler.path-intellisense
+          vscode-marketplace.usernamehw.errorlens
 
-        # dotenv
-        vscode-marketplace.mikestead.dotenv
+          # spell checking
+          vscode-marketplace.streetsidesoftware.code-spell-checker
+          vscode-marketplace.streetsidesoftware.code-spell-checker-portuguese-brazilian
 
-        # nix
-        vscode-marketplace.bbenoist.nix
+          # toml
+          vscode-marketplace.tamasfe.even-better-toml
 
-        # html/css
-        vscode-marketplace.moalamri.inline-fold
+          # dotenv
+          vscode-marketplace.mikestead.dotenv
 
-        # javascript/typescript
-        vscode-marketplace.dbaeumer.vscode-eslint
-        vscode-marketplace.bradlc.vscode-tailwindcss
+          # nix
+          vscode-marketplace.bbenoist.nix
 
-        # react
-        vscode-marketplace.styled-components.vscode-styled-components
+          # html/css
+          vscode-marketplace.moalamri.inline-fold
+          vscode-marketplace.formulahendry.auto-rename-tag
 
-        # vue
-        vscode-marketplace.vue.volar
+          # javascript/typescript
+          vscode-marketplace.dbaeumer.vscode-eslint
+          vscode-marketplace.bradlc.vscode-tailwindcss
+          vscode-marketplace.quicktype.quicktype
 
-        # rust
-        vscode-marketplace.rust-lang.rust-analyzer
+          # react
+          vscode-marketplace.styled-components.vscode-styled-components
 
-        # gdscript
-        vscode-marketplace.geequlim.godot-tools
-      ];
+          # vue
+          vscode-marketplace.vue.volar
+
+          # rust
+          vscode-marketplace.rust-lang.rust-analyzer
+
+          # gdscript
+          vscode-marketplace.geequlim.godot-tools
+
+          # nix
+          vscode-marketplace.jnoortheen.nix-ide
+        ])
+        ++ [ forkedNixpkgs.vscode-extensions.ms-vscode-remote.remote-ssh ];
 
       userSettings = {
-        "workbench.colorTheme" = "Nord";
-        "workbench.productIconTheme" = "material-product-icons";
-        "workbench.iconTheme" = "material-icon-theme";
+        "workbench.startupEditor" = "none";
         "workbench.sideBar.location" = "right";
+        "workbench.productIconTheme" = "material-product-icons";
         "workbench.navigationControl.enabled" = false;
         "workbench.layoutControl.enabled" = false;
+        "workbench.iconTheme" = "material-icon-theme";
+        "workbench.colorTheme" = "Nord";
         "window.customTitleBarVisibility" = "never";
         "window.commandCenter" = false;
-        "editor.minimap.enabled" = false;
-        "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
-        "editor.formatOnSave" = true;
-        "editor.formatOnSaveMode" = "modifications";
-        "editor.fontLigatures" = true;
-        "editor.wordWrap" = "on";
-        "chat.commandCenter.enabled" = false;
-        "workbench.startupEditor" = "none";
-        "files.autoSave" = "onWindowChange";
+        "update.mode" = "none";
+        "terminal.integrated.fontLigatures.enabled" = true;
+        "git.followTagsWhenSync" = true;
         "git.confirmSync" = false;
         "git.autoStash" = true;
         "git.autofetch" = "all";
-        "git.followTagsWhenSync" = true;
-        "terminal.integrated.fontLigatures.enabled" = true;
-        "dependi.extras.silenceUpdateMessages" = true;
+        "files.autoSave" = "onWindowChange";
         "extensions.autoCheckUpdates" = false;
-        "update.mode" = "none";
+        "editor.wordWrap" = "on";
+        "editor.suggest.showWords" = false;
+        "editor.minimap.enabled" = false;
+        "editor.formatOnSaveMode" = "modifications";
+        "editor.formatOnSave" = true;
+        "editor.fontLigatures" = true;
+        "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
+        "chat.commandCenter.enabled" = false;
+
+        # Spelling
+        "cSpell.language" = "en,pt,pt_BR";
+
+        # Dicsord
+        "discord.suppressNotifications" = true;
+        "discord.removeRemoteRepository" = true;
+        "discord.lowerDetailsNoWorkspaceFound" = "{file_size}, {total_lines} lines";
+        "discord.lowerDetailsEditing" = "{file_size}, {total_lines} lines";
+        "discord.lowerDetailsDebugging" = "{file_size}, {total_lines} lines";
+        "discord.detailsIdling" = "Farming WakaTime.";
+        "discord.detailsEditing" = "Editing a file.";
+        "discord.detailsDebugging" = "Debugging some bugs.";
+
+        # Nix
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nixd";
+        "nix.formatterPath" = "nixfmt";
+        "nix.serverSettings" = {
+          "nixd" = {
+            "formatting" = {
+              "command" = [ "nixfmt" ];
+            };
+            "options" = {
+              "nixos" = {
+                "expr" =
+                  "(builtins.getFlake \"/home/${username}/nixos/flake.nix\").nixosConfigurations.<name>.options";
+              };
+              "home-manager" = {
+                "expr" =
+                  "(builtins.getFlake \"/home/${username}/nixos/flake.nix\").nixosConfigurations.<name>.options.home-manager.users.type.getSubOptions []";
+              };
+            };
+          };
+        };
 
         # Vim
         "vim.leader" = "<space>";
