@@ -20,6 +20,8 @@
   environment.systemPackages = with pkgs; [
     nix-your-shell
     vim
+    git
+    jujutsu
     wget
     curl
     lm_sensors

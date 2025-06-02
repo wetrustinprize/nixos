@@ -35,6 +35,14 @@
     userName = username;
   };
 
+  programs.jujutsu = {
+    enable = true;
+    config = {
+      email = "git@${username}.com";
+      name = username;
+    };
+  };
+
   sops = {
     age.keyFile = "${config.home.homeDirectory}/.age.key";
     defaultSopsFile = ../../secrets.yaml;
