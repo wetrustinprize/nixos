@@ -1,22 +1,14 @@
-<div align="center">
-    <img src="https://wakatime.com/badge/user/62406d74-62af-473b-beac-7c728aadb90d/project/e89757e4-b98b-400d-a463-c2a5f3d3a2c3.svg?style=flat-square"/>
-</div>
+![wakatime](https://wakatime.com/badge/user/62406d74-62af-473b-beac-7c728aadb90d/project/e89757e4-b98b-400d-a463-c2a5f3d3a2c3.svg?style=flat-square)
 
 ---
 
-
-<table border="0">
-    <tr>
-        <td>
-            <img src="nyx.webp"/>
-        </td>
-        <td width="200px">
-            <p style="font-size: 24px;">Prize's <strong>NixOS</strong></p>
-            <hr/>
-            <p>welcome to my gigantic NixOS configuration repo.</p>
-        </td>
-    </tr>
-</table>
+<div align="center">
+    <img width="40%" src="nyx.webp"/>
+    <div width="40%">
+        <h1>Prize's <strong>NixOS</strong></h1>
+        <p>Welcome to my gigantic NixOS configuration repo.</p>
+    </div>
+</div>
 
 ---
 
