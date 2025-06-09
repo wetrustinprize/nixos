@@ -39,6 +39,7 @@ in
 
   programs.vscode = {
     enable = true;
+    mutableExtensionsDir = true;
     
     profiles.default = {
       enableExtensionUpdateCheck = false;
@@ -75,9 +76,6 @@ in
           vscode-marketplace.christian-kohler.path-intellisense
           vscode-marketplace.usernamehw.errorlens
 
-          # ai
-          vscode-marketplace.github.copilot
-
           # spell checking
           vscode-marketplace.streetsidesoftware.code-spell-checker
           vscode-marketplace.streetsidesoftware.code-spell-checker-portuguese-brazilian
@@ -92,7 +90,6 @@ in
           vscode-marketplace.bbenoist.nix
 
           # html/css
-          vscode-marketplace.moalamri.inline-fold
           vscode-marketplace.formulahendry.auto-rename-tag
 
           # javascript/typescript
