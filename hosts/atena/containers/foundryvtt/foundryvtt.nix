@@ -21,8 +21,8 @@
       # Homepage
       "homepage.group" = "Tools";
       "homepage.name" = "foundryvtt";
-      "homepage.icon" = "foundryvtt-budget.png";
-      "homepage.description" = "Finacnes organizer.";
+      "homepage.icon" = "foundry-virtual-tabletop.png";
+      "homepage.description" = "Virtual tabletop.";
       "homepage.href" = "https://foundryvtt.wetrustinprize.com";
     };
     volumes = [
