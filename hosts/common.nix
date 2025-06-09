@@ -38,6 +38,7 @@
     zoxide
     lsof
     dysk
+    usbutils
   ];
 
   nix.settings.trusted-users = [
