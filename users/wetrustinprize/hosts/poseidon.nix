@@ -41,6 +41,7 @@ in
     bruno-cli
     filezilla
     dbeaver-bin
+    aseprite
 
     # game development
     godot_4
