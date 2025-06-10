@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -17,7 +16,6 @@
     ./containers/foundryvtt/foundryvtt.nix
     ./containers/filebrowser/filebrowser.nix
     ./containers/homepage/homepage.nix
-    ./containers/actual.nix
     ./containers/softwarr.nix
     ./containers/qbittorrent.nix
     ./containers/glances.nix
