@@ -6,7 +6,7 @@
   };
 
   virtualisation.oci-containers.containers."foundryvtt" = {
-    image = "felddy/foundryvtt:latest";
+    image = "felddy/foundryvtt:13.345";
     autoStart = true;
     labels = {
       # Traefik
