@@ -54,8 +54,8 @@ in
         (with pkgs.nix-vscode-extensions; [
           # theme
           vscode-marketplace.arcticicestudio.nord-visual-studio-code
-          vscode-marketplace.pkief.material-icon-theme
-          vscode-marketplace.pkief.material-product-icons
+          vscode-marketplace.miguelsolorio.fluent-icons
+          vscode-marketplace.miguelsolorio.symbols
 
           # cosmetics
           vscode-marketplace.icrawl.discord-vscode
@@ -96,6 +96,7 @@ in
           vscode-marketplace.dbaeumer.vscode-eslint
           vscode-marketplace.bradlc.vscode-tailwindcss
           vscode-marketplace.quicktype.quicktype
+          vscode-marketplace.yoavbls.pretty-ts-errors
 
           # react
           vscode-marketplace.styled-components.vscode-styled-components
@@ -115,12 +116,12 @@ in
         ++ [ forkedNixpkgs.vscode-extensions.ms-vscode-remote.remote-ssh ];
 
       userSettings = {
+        "workbench.iconTheme" = "symbols";
+        "workbench.productIconTheme" = "fluent-icons";
         "workbench.startupEditor" = "none";
         "workbench.sideBar.location" = "right";
-        "workbench.productIconTheme" = "material-product-icons";
         "workbench.navigationControl.enabled" = false;
         "workbench.layoutControl.enabled" = false;
-        "workbench.iconTheme" = "material-icon-theme";
         "workbench.colorTheme" = "Nord";
         "window.customTitleBarVisibility" = "never";
         "window.commandCenter" = false;
