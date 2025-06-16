@@ -75,6 +75,7 @@ in
           vscode-marketplace.rhalaly.scope-to-this
           vscode-marketplace.christian-kohler.path-intellisense
           vscode-marketplace.usernamehw.errorlens
+          vscode-marketplace.hbenl.vscode-test-explorer
 
           # spell checking
           vscode-marketplace.streetsidesoftware.code-spell-checker
@@ -97,6 +98,7 @@ in
           vscode-marketplace.bradlc.vscode-tailwindcss
           vscode-marketplace.quicktype.quicktype
           vscode-marketplace.yoavbls.pretty-ts-errors
+          vscode-marketplace.wallabyjs.console-ninja
 
           # react
           vscode-marketplace.styled-components.vscode-styled-components
