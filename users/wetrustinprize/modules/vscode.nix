@@ -76,6 +76,7 @@ in
           vscode-marketplace.christian-kohler.path-intellisense
           vscode-marketplace.usernamehw.errorlens
           vscode-marketplace.hbenl.vscode-test-explorer
+          vscode-marketplace.ms-vscode.test-adapter-converter
 
           # spell checking
           vscode-marketplace.streetsidesoftware.code-spell-checker
@@ -142,12 +143,13 @@ in
         "editor.formatOnSave" = true;
         "editor.fontLigatures" = true;
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
+        "terminal.integrated.env.linux" = {};
         "chat.commandCenter.enabled" = false;
 
         # Spelling
         "cSpell.language" = "en,pt,pt_BR";
 
-        # Dicsord
+        # Discord
         "discord.suppressNotifications" = true;
         "discord.removeRemoteRepository" = true;
         "discord.lowerDetailsNoWorkspaceFound" = "{file_size}, {total_lines} lines";
