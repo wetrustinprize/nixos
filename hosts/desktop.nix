@@ -37,6 +37,11 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
+  # Added this to be able to use controllers in games
+  # https://www.perplexity.ai/search/help-me-figure-it-out-why-my-p-nxYYKmjsT.WenPQTKxc.LA
+  services.udev.packages = with pkgs; [ game-devices-udev-rules ];
+  hardware.uinput.enable = true;
+
   environment.systemPackages = with pkgs; [
     kitty
     headsetcontrol
