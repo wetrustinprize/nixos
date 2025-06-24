@@ -42,13 +42,15 @@ in
     filezilla
     dbeaver-bin
     aseprite
+    android-studio
 
     # game development
     godot_4
     blender
 
-    # painting
+    # painting, ui/ux
     krita
+    inkscape
   ];
 
   programs.waybar.settings.statusBar = lib.recursiveUpdate {
