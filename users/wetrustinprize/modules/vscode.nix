@@ -149,6 +149,9 @@ in
         # Spelling
         "cSpell.language" = "en,pt,pt_BR";
 
+        # Ninja
+        "console-ninja.featureSet" = "Community";
+
         # Discord
         "discord.suppressNotifications" = true;
         "discord.removeRemoteRepository" = true;
