@@ -152,6 +152,9 @@ in
         # Ninja
         "console-ninja.featureSet" = "Community";
 
+        # Typescript
+        "typescript.updateImportsOnFileMove.enabled" = "always";
+
         # Discord
         "discord.suppressNotifications" = true;
         "discord.removeRemoteRepository" = true;
