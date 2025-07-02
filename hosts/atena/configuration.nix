@@ -16,7 +16,7 @@
     ./containers/foundryvtt/foundryvtt.nix
     ./containers/filebrowser/filebrowser.nix
     ./containers/homepage/homepage.nix
-    ./containers/softwarr.nix
+    ./containers/actual.nix
     ./containers/qbittorrent.nix
     ./containers/glances.nix
 
