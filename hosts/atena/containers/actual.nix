@@ -1,7 +1,7 @@
 { ... }:
 {
   virtualisation.oci-containers.containers."actual" = {
-    image = "actualbudget/actual-server:latest";
+    image = "actualbudget/actual-server:25.7.0";
     autoStart = true;
     labels = {
       # Traefik
