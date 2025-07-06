@@ -14,6 +14,7 @@
     # productivity
     libreoffice
     obsidian
+    qalculate-qt
 
     # chat
     discord
