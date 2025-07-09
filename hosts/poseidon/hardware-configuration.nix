@@ -53,7 +53,4 @@
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
   ];
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 }
