@@ -7,8 +7,7 @@
 {
   imports = [
     ../common.nix
-    ../virtualization.nix
-    ../ai.nix
+    ../docker.nix
 
     ./containers/cloudflared/cloudflared.nix
     ./containers/pihole/pihole.nix
