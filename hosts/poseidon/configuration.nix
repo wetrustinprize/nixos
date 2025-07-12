@@ -5,7 +5,8 @@
     ../common.nix
     ../desktop.nix
     ../audio.nix
-    ../virtualization.nix
+    ../docker.nix
+    ../virt-manager.nix
     ./hardware-configuration.nix
   ];
 

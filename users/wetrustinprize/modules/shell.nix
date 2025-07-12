@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   home.shell = {
     enableFishIntegration = true;
@@ -16,6 +16,20 @@
           nix-your-shell fish | source
       end
     '';
+    plugins = [
+      {
+        name = "plugin-git";
+        src = pkgs.fishPlugins.plugin-git.src;
+      }
+      {
+        name = "fish-you-should-use";
+        src = pkgs.fishPlugins.fish-you-should-use;
+      }
+      {
+        name = "pisces";
+        src = pkgs.fishPlugins.pisces;
+      }
+    ];
   };
   programs.bash.enable = true;
 

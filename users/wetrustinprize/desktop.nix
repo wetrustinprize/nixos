@@ -15,6 +15,7 @@
     libreoffice
     obsidian
     qalculate-qt
+    mission-center
 
     # chat
     discord
