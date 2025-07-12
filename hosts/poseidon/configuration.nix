@@ -25,6 +25,11 @@
     daemon.enable = true;
   };
 
+  services.xserver = {
+    xkb.layout = "us";
+    xkbVariant = "altgr-intl";
+  };
+
   services.ollama.acceleration = "cuda";
 
   system.stateVersion = "24.05";
