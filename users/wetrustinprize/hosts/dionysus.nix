@@ -36,4 +36,19 @@ in
     preload = [ "${mainWallpaper}" ];
     wallpaper = [ "eDP-1, ${mainWallpaper}" ];
   };
+
+  wayland.windowManager.hyprland.settings.input = {
+    kb_layout = "br";
+  };
+
+  home.packages = with pkgs; [
+    # gaming
+    steam
+
+    # game development
+    godot_4
+
+    # painting, ui/ux
+    krita
+  ];
 }
