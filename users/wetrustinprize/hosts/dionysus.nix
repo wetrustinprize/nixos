@@ -21,7 +21,7 @@ in
 
   programs.waybar.settings.mainBar.output = [ "eDP-1" ];
 
-  programs.waybar.settings.modules-right = [
+  programs.waybar.settings.mainBar.modules-right = [
     "tray"
     "pulseaudio"
     "battery"
