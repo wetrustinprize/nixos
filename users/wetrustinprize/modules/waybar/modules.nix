@@ -19,6 +19,17 @@
     escape = true;
   };
 
+  battery = {
+    bat = "BAT1";
+    interval = 60;
+    state = {
+      warning = 30;
+      critical = 15;
+    };
+    format = "{capacity}% {icon}";
+    format-icons = ["" "" "" "" ""];
+  };
+
   clock = {
     format = "{:%I:%M:%S %p}";
     interval = 1;

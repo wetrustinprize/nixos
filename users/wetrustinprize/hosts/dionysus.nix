@@ -21,6 +21,13 @@ in
 
   programs.waybar.settings.mainBar.output = [ "eDP-1" ];
 
+  programs.waybar.settings.modules-right = [
+    "tray"
+    "pulseaudio"
+    "battery"
+    "custom/notification"
+  ];
+
   wayland.windowManager.hyprland.settings.monitor = [
     "eDP-1, highres@highrr, 0x0, 1"
     ", preferred, auto, 1, mirror, eDP-1"
