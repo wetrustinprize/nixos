@@ -21,7 +21,7 @@ in
 
   programs.waybar.settings.mainBar.output = [ "eDP-1" ];
 
-  programs.waybar.settings.mainBar.modules-right = lib.mkAfter [
+  programs.waybar.settings.mainBar.modules-left = lib.mkAfter [
     "battery"
   ];
 
