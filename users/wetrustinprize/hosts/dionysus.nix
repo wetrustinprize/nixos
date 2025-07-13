@@ -21,11 +21,8 @@ in
 
   programs.waybar.settings.mainBar.output = [ "eDP-1" ];
 
-  programs.waybar.settings.mainBar.modules-right = [
-    "tray"
-    "pulseaudio"
+  programs.waybar.settings.mainBar.modules-right = lib.mkAfter [
     "battery"
-    "custom/notification"
   ];
 
   wayland.windowManager.hyprland.settings.monitor = [
