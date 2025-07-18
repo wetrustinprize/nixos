@@ -23,6 +23,12 @@
       "homepage.description" = "Time tracking.";
       "homepage.href" = "https://kimai.wetrustinprize.com";
     };
+    environment = {
+      "TZ" = "America/Sao_Paulo";
+      "PUID" = "1000";
+      "PGID" = "1000";
+      "DATABASE_URL" = "postgresql://kimai:kimai@127.0.0.1:5432/kimai";
+    };
     volumes = [
       "/srv/kimai:/data"
     ];
