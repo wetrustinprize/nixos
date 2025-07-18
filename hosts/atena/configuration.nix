@@ -45,5 +45,18 @@
     fsType = "ext4";
   };
 
+  systemd.services.atena-network = {
+    description = "Create Docker network for Atena containers";
+    after = [ "docker.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      Environment = "PATH=/run/current-system/sw/bin";
+    };
+    script = ''
+      docker network inspect atena >/dev/null 2>&1 || docker network create atena
+    '';
+  };
+
   system.stateVersion = "24.11";
 }
