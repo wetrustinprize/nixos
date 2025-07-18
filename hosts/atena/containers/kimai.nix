@@ -1,5 +1,7 @@
 { ... }:
 {
+  require = [ ./postgres.nix ];
+
   virtualisation.oci-containers.containers."kimai" = {
     image = "kimai/kimai2:apache";
     autoStart = true;
