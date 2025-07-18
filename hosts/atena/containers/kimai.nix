@@ -27,10 +27,11 @@
       "TZ" = "America/Sao_Paulo";
       "PUID" = "1000";
       "PGID" = "1000";
-      "DATABASE_URL" = "postgresql://kimai:kimai@127.17.0.1:5432/kimai";
+      "DATABASE_URL" = "postgresql://kimai:kimai@host.docker.internal:5432/kimai";
     };
     volumes = [
       "/srv/kimai:/data"
     ];
+    extraOptions = [ "--add-host=host.docker.internal:host-gateway" ];
   };
 }
