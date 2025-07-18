@@ -7,5 +7,8 @@
       "POSTGRES_USER" = "wetrustinprize";
       "POSTGRES_PASSWORD" = "wetrustinprize";
     };
+    ports = [
+      "5432:5432"
+    ];
   };
 }
