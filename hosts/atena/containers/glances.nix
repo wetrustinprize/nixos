@@ -1,5 +1,7 @@
 { ... }:
 {
+  includes = [ ./postgres.nix ];
+
   virtualisation.oci-containers.containers."glances" = {
     image = "nicolargo/glances:latest";
     autoStart = true;

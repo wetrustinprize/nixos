@@ -18,6 +18,8 @@
     ./containers/actual.nix
     ./containers/qbittorrent.nix
     ./containers/glances.nix
+    ./containers/postgres.nix
+    ./containers/kimai.nix
 
     ./hardware-configuration.nix
   ];
