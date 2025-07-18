@@ -1,4 +1,9 @@
-{ pkgs, username, lib, ... }:
+{
+  pkgs,
+  username,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -19,7 +24,7 @@
     android-tools
   ];
   programs.adb.enable = true;
-  users.users.${username}.extraGroups = lib.mkAfter ["adbusers"];
+  users.users.${username}.extraGroups = lib.mkAfter [ "adbusers" ];
 
   hardware.opentabletdriver = {
     enable = true;

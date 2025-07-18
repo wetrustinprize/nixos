@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   virtualisation.oci-containers.containers."postgres" = {
     image = "postgres:latest";
     autoStart = true;

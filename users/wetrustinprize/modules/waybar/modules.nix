@@ -27,7 +27,13 @@
       critical = 15;
     };
     format = "{icon} {capacity}%";
-    format-icons = ["" "" "" "" ""];
+    format-icons = [
+      ""
+      ""
+      ""
+      ""
+      ""
+    ];
   };
 
   clock = {

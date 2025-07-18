@@ -40,7 +40,7 @@ in
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
-    
+
     profiles.default = {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
@@ -143,7 +143,7 @@ in
         "editor.formatOnSave" = true;
         "editor.fontLigatures" = true;
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
-        "terminal.integrated.env.linux" = {};
+        "terminal.integrated.env.linux" = { };
         "chat.commandCenter.enabled" = false;
 
         # Spelling
