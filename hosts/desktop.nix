@@ -48,6 +48,7 @@
   environment.systemPackages = with pkgs; [
     kitty
     headsetcontrol
+    appimage-run
   ];
 
   services.blueman.enable = true;
