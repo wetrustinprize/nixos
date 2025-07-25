@@ -30,6 +30,10 @@
     qbittorrent
     obs-studio
     kooha
+    vlc
+
+    # windows
+    bottles
 
     # desktop
     cliphist
