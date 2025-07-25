@@ -34,9 +34,15 @@ in
     gamemode
     gamescope
     protonup
+    osu-lazer
+
+    # work
+    slack
+    clickup
 
     # development
     gitkraken
+    github-desktop
     bruno
     bruno-cli
     filezilla
