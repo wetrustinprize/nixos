@@ -13,7 +13,7 @@
     ./containers/pihole/pihole.nix
     ./containers/traefik/traefik.nix
     ./containers/foundryvtt/foundryvtt.nix
-    ./containers/filebrowser/filebrowser.nix
+    ./containers/copyparty/copyparty.nix
     ./containers/homepage/homepage.nix
     ./containers/actual.nix
     ./containers/qbittorrent.nix
