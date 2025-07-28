@@ -3,7 +3,7 @@
     image = "copyparty/ac";
     autoStart = true;
     volumes = [
-      "${builtins.toPath ./configs/}:/cfg:ro"
+      "${builtins.toPath ./configs}:/cfg:ro"
       "/mnt/storage:/w:rw"
     ];
     labels = {
