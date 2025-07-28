@@ -78,6 +78,7 @@
     ./modules/hypr/hyprpaper.nix
     ./modules/hypr/hypridle.nix
     ./modules/hypr/hyprpolkit.nix
+    ./modules/hypr/hyprsunset.nix
     ./modules/kando.nix
     ./modules/kitty.nix
     ./modules/rofi/rofi.nix
