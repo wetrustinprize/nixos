@@ -57,6 +57,7 @@ in
     # painting, ui/ux
     krita
     inkscape
+    pureref
   ];
 
   programs.waybar.settings.statusBar = lib.recursiveUpdate {
