@@ -1,4 +1,9 @@
-{ lib, username, pkgs, ... }:
+{
+  lib,
+  username,
+  pkgs,
+  ...
+}:
 {
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;

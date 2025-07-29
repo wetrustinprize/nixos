@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   virtualisation.oci-containers.containers."copyparty" = {
     image = "copyparty/ac";
     autoStart = true;
