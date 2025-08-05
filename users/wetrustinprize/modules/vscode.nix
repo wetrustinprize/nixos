@@ -77,6 +77,7 @@ in
           vscode-marketplace.usernamehw.errorlens
           vscode-marketplace.hbenl.vscode-test-explorer
           vscode-marketplace.ms-vscode.test-adapter-converter
+          vscode-marketplace.rubberduck.rubberduck-vscode
 
           # spell checking
           vscode-marketplace.streetsidesoftware.code-spell-checker
