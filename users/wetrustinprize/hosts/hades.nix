@@ -6,15 +6,9 @@
   ...
 }:
 let
-  waybarModules = import ../modules/waybar/modules.nix { inherit lib; };
   mkWallpaper = import ../../../utils/mkWallpaper.nix {
     inherit lib;
     inherit pkgs;
-  };
-  sideWallpaper = mkWallpaper {
-    width = 1080;
-    height = 1920;
-    scheme = config.colorScheme;
   };
   mainWallpaper = mkWallpaper {
     width = 1920;
@@ -55,12 +49,10 @@ in
 
   services.hyprpaper.settings = {
     preload = [
-      "${sideWallpaper}"
       "${mainWallpaper}"
     ];
     wallpaper = [
-      "DP-1, ${mainWallpaper}"
-      "HDMI-A-1, ${sideWallpaper}"
+      "eDP-1, ${mainWallpaper}"
     ];
   };
 }
