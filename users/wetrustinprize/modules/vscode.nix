@@ -78,6 +78,7 @@ in
           vscode-marketplace.hbenl.vscode-test-explorer
           vscode-marketplace.ms-vscode.test-adapter-converter
           vscode-marketplace.rubberduck.rubberduck-vscode
+          vscode-marketplace.ccimage.jsonviewer
 
           # spell checking
           vscode-marketplace.streetsidesoftware.code-spell-checker

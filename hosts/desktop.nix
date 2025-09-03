@@ -11,6 +11,8 @@
 
   services.xserver.enable = true;
 
+  services.flatpak.enable = true;
+
   boot.plymouth = {
     enable = true;
     theme = "nixos-bgrt";

@@ -39,6 +39,8 @@
     lsof
     dysk
     usbutils
+    unrar-free
+    caligula
   ];
 
   nix.settings.trusted-users = [

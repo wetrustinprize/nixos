@@ -49,6 +49,7 @@ in
     dbeaver-bin
     aseprite
     android-studio
+    ngrok
 
     # game development
     godot_4
