@@ -34,30 +34,11 @@ in
     gitkraken
   ];
 
-  programs.waybar.settings.statusBar = lib.recursiveUpdate {
-    layer = "bottom";
-    position = "top";
-    reload_style_on_change = true;
-    output = [
-      "HDMI-A-1"
-    ];
-    modules-left = [
-      "bluetooth"
-      "cpu"
-      "memory"
-    ];
-    modules-center = [ "clock" ];
-    modules-right = [
-      "network"
-    ];
-  } waybarModules;
-
-  programs.waybar.settings.mainBar.output = [ "DP-1" ];
+  programs.waybar.settings.mainBar.output = [ "eDP-1" ];
 
   wayland.windowManager.hyprland.settings.monitor = [
-    "DP-1, highres@highrr, 1080x0, 1"
-    "HDMI-A-1, highres@highrr, 0x-540, 1, transform, 1"
-    ", preferred, auto, 1, mirror, DP-1"
+    "eDP-1, highres@highrr, 0x0, 1"
+    ", preferred, auto, 1, mirror, eDP-1"
   ];
 
   wayland.windowManager.hyprland.settings.input = {
