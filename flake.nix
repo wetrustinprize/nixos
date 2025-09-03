@@ -101,6 +101,10 @@
           inherit system;
           hostname = "atena";
         };
+        hades = mkConfig {
+          inherit system;
+          hostname = "hades";
+        };
       };
     };
 }
