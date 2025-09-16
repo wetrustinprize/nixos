@@ -39,7 +39,8 @@
     lsof
     dysk
     usbutils
-    unrar-free
+    unrar
+    unzip
     caligula
   ];
 
