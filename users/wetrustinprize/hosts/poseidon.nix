@@ -35,6 +35,7 @@ in
     gamescope
     protonup
     osu-lazer
+    parsec-bin
 
     # work
     slack
