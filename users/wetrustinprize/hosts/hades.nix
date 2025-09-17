@@ -36,8 +36,8 @@ in
   ];
 
   wayland.windowManager.hyprland.settings.input = {
-    kb_layout = "us";
-    kb_variant = "altgr-intl";
+    kb_layout = "br";
+    kb_variant = "thinkpad";
   };
 
   wayland.windowManager.hyprland.settings.workspace = [

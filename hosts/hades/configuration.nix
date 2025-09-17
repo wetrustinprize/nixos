@@ -28,8 +28,9 @@
   powerManagement.enable = true;
   services.thermald.enable = true;
 
-  services.xserver = {
-    xkb.layout = "br";
+  services.xserver.xkb = {
+    layout = "br";
+    variant = "thinkpad";
   };
 
   system.stateVersion = "25.05";

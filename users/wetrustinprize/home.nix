@@ -13,6 +13,12 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
+      # FIXME: Remove this when possible
+      # isn't a good idea to allow insecure
+      # packages
+      permittedInsecurePackages = [
+        "qtwebengine-5.15.19"
+      ];
     };
     overlays = [
       inputs.nix-your-shell.overlays.default

@@ -1,15 +1,12 @@
 {
-  config,
-  lib,
-  hostname,
   ...
 }:
 {
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
     matchBlocks = {
       "*" = {
+        addKeysToAgent = "yes";
         identityFile = "~/.ssh/ssh_client_ed25519_key";
       };
     };

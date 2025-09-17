@@ -50,6 +50,7 @@ in
     aseprite
     android-studio
     ngrok
+    gemini-cli
 
     # game development
     godot_4

@@ -4,6 +4,7 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,8 +35,9 @@
         {
           hostname,
           system,
+          merge ? {},
         }:
-        lib.nixosSystem {
+        lib.nixosSystem lib.mkMerge {
           inherit system;
           specialArgs = {
             inherit inputs;
@@ -80,7 +82,7 @@
               ];
             }
           ];
-        };
+        } merge;
     in
     {
       lib = {
@@ -104,6 +106,9 @@
         hades = mkConfig {
           inherit system;
           hostname = "hades";
+          merge = {
+            imports = lib.mkAfter [ inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd ];
+          };
         };
       };
     };

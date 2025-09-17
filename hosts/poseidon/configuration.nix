@@ -33,7 +33,7 @@
 
   services.xserver = {
     xkb.layout = "us";
-    xkbVariant = "altgr-intl";
+    xkb.variant = "altgr-intl";
   };
 
   services.ollama.acceleration = "cuda";

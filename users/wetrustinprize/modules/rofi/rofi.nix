@@ -29,7 +29,6 @@ in
 
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
     plugins = with pkgs; [ rofi-calc ];
     font = "CodeNewRoman Nerd Font Propo 10";
     theme = ./theme.rasi;
