@@ -35,9 +35,8 @@
         {
           hostname,
           system,
-          merge ? {},
         }:
-        lib.nixosSystem (lib.mkMerge {
+        lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs;
@@ -82,7 +81,7 @@
               ];
             }
           ];
-        } merge);
+        };
     in
     {
       lib = {
@@ -106,9 +105,6 @@
         hades = mkConfig {
           inherit system;
           hostname = "hades";
-          merge = {
-            imports = lib.mkAfter [ inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd ];
-          };
         };
       };
     };

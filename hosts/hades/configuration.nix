@@ -1,7 +1,5 @@
 {
-  pkgs,
-  lib,
-  config,
+  inputs,
   ...
 }:
 
@@ -11,6 +9,7 @@
     ../audio.nix
     ../desktop.nix
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd 
   ];
 
   boot.loader.systemd-boot.enable = true;
