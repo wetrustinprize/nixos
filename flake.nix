@@ -37,7 +37,7 @@
           system,
           merge ? {},
         }:
-        lib.nixosSystem lib.mkMerge {
+        lib.nixosSystem (lib.mkMerge {
           inherit system;
           specialArgs = {
             inherit inputs;
@@ -82,7 +82,7 @@
               ];
             }
           ];
-        } merge;
+        } merge);
     in
     {
       lib = {
