@@ -33,6 +33,9 @@ in
     modules-left = lib.mkAfter [
       "battery"
     ];
+    battery = {
+      bat = "BAT0";
+    };
   };
 
   wayland.windowManager.hyprland.settings = {
