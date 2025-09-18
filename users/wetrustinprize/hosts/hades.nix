@@ -28,24 +28,30 @@ in
     gitkraken
   ];
 
-  programs.waybar.settings.mainBar.output = [ "eDP-1" ];
-
-  wayland.windowManager.hyprland.settings.monitor = [
-    "eDP-1, highres@highrr, 0x0, 1"
-    ", preferred, auto, 1, mirror, eDP-1"
-  ];
-
-  wayland.windowManager.hyprland.settings.input = {
-    kb_layout = "br";
-    kb_variant = "thinkpad";
+  programs.waybar.settings.mainBar = {
+    output = [ "eDP-1" ];
+    modules-left = lib.mkAfter [
+      "battery"
+    ];
   };
 
-  wayland.windowManager.hyprland.settings.workspace = [
-    "name:side-monitor, monitor:HDMI-A-1"
-    "special:calculator, monitor:DP-1"
-    "special:obsidian, monitor:DP-1"
-    "special:password, monitor:DP-1"
-  ] ++ lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
+  wayland.windowManager.hyprland.settings = {
+    monitor = [
+      "eDP-1, highres@highrr, 0x0, 1"
+      ", preferred, auto, 1, mirror, eDP-1"
+    ];
+    input = {
+      kb_layout = "br";
+      kb_variant = "thinkpad";
+    };
+    workspace = [
+      "name:side-monitor, monitor:HDMI-A-1"
+      "special:calculator, monitor:DP-1"
+      "special:obsidian, monitor:DP-1"
+      "special:password, monitor:DP-1"
+    ] ++ lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
+  };
+
 
   services.hyprpaper.settings = {
     preload = [
