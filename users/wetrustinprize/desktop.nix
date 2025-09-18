@@ -26,7 +26,6 @@
     # media
     spotify
     playerctl # cli for media players
-    stremio
     qbittorrent
     obs-studio
     kooha
