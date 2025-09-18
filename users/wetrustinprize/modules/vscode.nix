@@ -149,6 +149,7 @@ in
         "chat.commandCenter.enabled" = false;
         "chat.disableAIFeatures" = true;
         "gitlens.ai.enabled" = true;
+        "gitlens.ai.model" = "gitkraken";
 
         # Spelling
         "cSpell.language" = "en,pt,pt_BR";
