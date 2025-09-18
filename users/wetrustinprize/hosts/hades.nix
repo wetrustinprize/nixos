@@ -34,7 +34,7 @@ in
       "battery"
     ];
     battery = {
-      bat = "BAT0";
+      bat = lib.mkForce "BAT0";
     };
   };
 
