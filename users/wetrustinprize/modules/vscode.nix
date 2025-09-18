@@ -77,7 +77,6 @@ in
           vscode-marketplace.usernamehw.errorlens
           vscode-marketplace.hbenl.vscode-test-explorer
           vscode-marketplace.ms-vscode.test-adapter-converter
-          vscode-marketplace.rubberduck.rubberduck-vscode
           vscode-marketplace.ccimage.jsonviewer
 
           # spell checking
@@ -101,7 +100,6 @@ in
           vscode-marketplace.bradlc.vscode-tailwindcss
           vscode-marketplace.quicktype.quicktype
           vscode-marketplace.yoavbls.pretty-ts-errors
-          vscode-marketplace.wallabyjs.console-ninja
 
           # react
           vscode-marketplace.styled-components.vscode-styled-components
@@ -146,7 +144,11 @@ in
         "editor.fontLigatures" = true;
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
         "terminal.integrated.env.linux" = { };
+
+        # AI
         "chat.commandCenter.enabled" = false;
+        "chat.disableAIFeatures" = true;
+        "gitlens.ai.enabled" = true;
 
         # Spelling
         "cSpell.language" = "en,pt,pt_BR";
