@@ -21,7 +21,6 @@
         "wl-paste --type image --watch cliphist store"
         "hyprctl setcursor phinger-cursors-light 32"
         "[worksapce special:password] bitwarden"
-        "[workspace name:side-monitor] discord"
         "[workspace special:obsidian] obsidian"
       ];
       "$mod" = "SUPER";
@@ -108,7 +107,6 @@
         "float,title:Open Files"
         "workspace special:password,class:(Bitwarden)"
         "workspace special:obsidian,class:(obsidian)"
-        "workspace name:side-monitor,class:(discord)"
       ];
     };
     extraConfig = ''
