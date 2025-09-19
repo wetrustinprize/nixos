@@ -26,6 +26,18 @@ in
 
     # development
     gitkraken
+    gemini-cli
+
+    # game development
+    godot_4
+    blender
+
+    # painting, ui/ux
+    inkscape
+    gimp
+
+    # gaming
+    steam
   ];
 
   programs.waybar.settings.mainBar = {
@@ -40,7 +52,7 @@ in
 
   wayland.windowManager.hyprland.settings = {
     monitor = [
-      "eDP-1, highres@highrr, 0x0, 1"
+      "eDP-1, highres@highrr, 0x0, 1.25"
       ", preferred, auto, 1, mirror, eDP-1"
     ];
     input = {
