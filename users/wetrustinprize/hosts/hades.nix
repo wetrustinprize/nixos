@@ -43,6 +43,8 @@ in
   programs.waybar.settings.mainBar = {
     output = [ "eDP-1" ];
     modules-left = lib.mkAfter [
+      "cpu"
+      "memory"
       "battery"
     ];
     battery = {
