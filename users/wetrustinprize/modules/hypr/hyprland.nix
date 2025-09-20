@@ -40,6 +40,9 @@
           "col.active" = "rgb(${config.colorScheme.palette.base0F})";
         };
       };
+      gesture = [
+        "3, horizontal, workspace"
+      ];
       bind = [
         # launch apps
         "$mod, RETURN, exec, [float; center; size 730 470] $terminal"
