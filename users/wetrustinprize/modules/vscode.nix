@@ -148,8 +148,9 @@ in
         # AI
         "chat.commandCenter.enabled" = false;
         "chat.disableAIFeatures" = true;
-        "gitlens.ai.enabled" = true;
+        "gitlens.ai.enabled" = false;
         "gitlens.ai.model" = "gitkraken";
+        "gitlens.ai.gitkraken.model" = "gemini:gemini-2.0-flash";
 
         # Spelling
         "cSpell.language" = "en,pt,pt_BR";
