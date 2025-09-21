@@ -26,11 +26,25 @@ in
 
     # development
     gitkraken
+    gemini-cli
+
+    # game development
+    godot_4
+    blender
+
+    # painting, ui/ux
+    inkscape
+    gimp
+
+    # gaming
+    steam
   ];
 
   programs.waybar.settings.mainBar = {
     output = [ "eDP-1" ];
     modules-left = lib.mkAfter [
+      "cpu"
+      "memory"
       "battery"
     ];
     battery = {
@@ -40,7 +54,7 @@ in
 
   wayland.windowManager.hyprland.settings = {
     monitor = [
-      "eDP-1, highres@highrr, 0x0, 1"
+      "eDP-1, highres@highrr, 0x0, 1.25"
       ", preferred, auto, 1, mirror, eDP-1"
     ];
     input = {

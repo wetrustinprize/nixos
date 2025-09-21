@@ -40,48 +40,50 @@
           "col.active" = "rgb(${config.colorScheme.palette.base0F})";
         };
       };
-      bind =
-        [
-          # launch apps
-          "$mod, RETURN, exec, [float; center; size 730 470] $terminal"
+      gesture = [
+        "3, horizontal, workspace"
+      ];
+      bind = [
+        # launch apps
+        "$mod, RETURN, exec, [float; center; size 730 470] $terminal"
 
-          "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
-          "$mod, O, exec, pgrep -f obsidian && hyprctl dispatch togglespecialworkspace obsidian || obsidian &"
+        "$mod, B, exec, pgrep -f bitwarden-desktop && hyprctl dispatch togglespecialworkspace password || bitwarden &"
+        "$mod, O, exec, pgrep -f obsidian && hyprctl dispatch togglespecialworkspace obsidian || obsidian &"
 
-          # window management
-          "$mod SHIFT, SPACE, togglefloating,"
-          "$mod SHIFT, C, killactive,"
-          "$mod SHIFT, TAB, pin"
+        # window management
+        "$mod SHIFT, SPACE, togglefloating,"
+        "$mod SHIFT, C, killactive,"
+        "$mod SHIFT, TAB, pin"
 
-          # layout
-          "$mod, f, fullscreen,"
-          "$mod, t, togglegroup,"
-          "$mod shift, t, moveoutofgroup"
+        # layout
+        "$mod, f, fullscreen,"
+        "$mod, t, togglegroup,"
+        "$mod shift, t, moveoutofgroup"
 
-          "$mod, r, exec, reload"
-          "$mod SHIFT, Q, exec, exit"
+        "$mod, r, exec, reload"
+        "$mod SHIFT, Q, exec, exit"
 
-          "$mod, mouse_down, workspace, e+1"
-          "$mod, mouse_up, workspace, e-1"
+        "$mod, mouse_down, workspace, e+1"
+        "$mod, mouse_up, workspace, e-1"
 
-          # movement
-          "$mod, h, movefocus, l"
-          "$mod, l, movefocus, r"
-          "$mod, k, movefocus, u"
-          "$mod, j, movefocus, d"
-          "$mod, tab, changegroupactive, f"
+        # movement
+        "$mod, h, movefocus, l"
+        "$mod, l, movefocus, r"
+        "$mod, k, movefocus, u"
+        "$mod, j, movefocus, d"
+        "$mod, tab, changegroupactive, f"
 
-          # move window
-          "$mod shift, h, movewindow, l"
-          "$mod shift, l, movewindow, r"
-          "$mod shift, k, movewindow, u"
-          "$mod shift, j, movewindow, d"
+        # move window
+        "$mod shift, h, movewindow, l"
+        "$mod shift, l, movewindow, r"
+        "$mod shift, k, movewindow, u"
+        "$mod shift, j, movewindow, d"
 
-          # screenshot
-          ", Print, exec, hyprshot -m region --clipboard-only"
-        ]
-        ++ lib.map (i: "$mod, ${toString i}, workspace, ${toString i}") (lib.range 1 9)
-        ++ lib.map (i: "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}") (lib.range 1 9);
+        # screenshot
+        ", Print, exec, hyprshot -m region --clipboard-only"
+      ]
+      ++ lib.map (i: "$mod, ${toString i}, workspace, ${toString i}") (lib.range 1 9)
+      ++ lib.map (i: "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}") (lib.range 1 9);
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
@@ -110,13 +112,16 @@
       ];
     };
     extraConfig = ''
-            env = LIBVA_DRIVER_NAME,nvidia
-            env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-            env = NVD_BACKEND,direct
-            env = ELECTRON_OZONE_PLATFORM_HINT,auto
-            env = EDITOR,vim
-      	  env = NIXOS_OZONE_WL,1
-            debug:disable_logs = false
+      env = LIBVA_DRIVER_NAME,nvidia
+      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+      env = NVD_BACKEND,direct
+      env = ELECTRON_OZONE_PLATFORM_HINT,auto
+      env = EDITOR,vim
+      env = NIXOS_OZONE_WL,1
+      debug:disable_logs = false
+      xwayland {
+        force_zero_scaling = true
+      }
     '';
   };
 }
