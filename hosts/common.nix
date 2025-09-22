@@ -42,6 +42,8 @@
     unrar
     unzip
     caligula
+    parted
+    gptfdisk
   ];
 
   nix.settings.trusted-users = [
