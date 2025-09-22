@@ -41,9 +41,12 @@
   };
 
   fileSystems."/mnt/storage" = {
-    device = "/dev/md0";
+    device = "/dev/disk/by-label/storage";
     fsType = "ext4";
+    options = [ "nofail" ];
   };
+
+  systemd.enableEmergencyMode = false;
 
   systemd.services.atena-network = {
     description = "Create Docker network for Atena containers";
