@@ -57,6 +57,7 @@
   ];
 
   programs.fish.enable = true;
+  programs.npm.enable = true;
 
   users = {
     defaultUserShell = pkgs.fish;
