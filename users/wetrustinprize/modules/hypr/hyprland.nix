@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }:
 {
@@ -12,7 +13,13 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [ ];
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    plugins = [ 
+      inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+      inputs.hyprland-easymotion.packages.${pkgs.system}.hyprland-easymotion
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+    ];
     settings = {
       exec-once = [
         "hyprpaper"
@@ -28,12 +35,46 @@
       "$browser" = "zen";
       "$editor" = "vim";
       "$visual" = "cursor";
+      "plugin:dynamic-cursors" = {
+        "shaperule" = [
+          "text, none"
+          "vertical_text, none"
+          "crosshair, none"
+        ];
+        "tilt" = {
+          "limit" = 10000;
+        };
+        "shake" = {
+          "enabled" = false;
+        };
+      };
+      "plugin:easymotion" = {
+        "bgcolor" = "rgb(${config.colorScheme.palette.base01})";
+        "bordercolor" = "rgb(${config.colorScheme.palette.base06})";
+        "bordersize" = "1";
+        "textcolor" = "rgb(${config.colorScheme.palette.base06})";
+        "textpadding" = "20 20 20 20";
+      };
+      "plugin:hyprexpo" = {
+        "workspace_method" = "first 1";
+        "skip_empty" = true;
+      };
       general = {
         "allow_tearing" = true;
         "gaps_out" = 10;
         "col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
         "col.active_border" = "rgb(${config.colorScheme.palette.base06})";
       };
+      bezier = [
+        "easeOutQuart, 0.25, 1, 0.5, 1"
+        "linear, 0, 0, 1, 1"
+      ];
+      animation = [
+        "workspaces, 1, 2, easeOutQuart"
+        "windowsIn, 1, 2, easeOutQuart"
+        "windowsMove, 1, 1, easeOutQuart"
+        "windowsOut, 1, 1, linear, gnomed"
+      ];
       group = {
         groupbar = {
           "col.inactive" = "rgb(${config.colorScheme.palette.base01})";
@@ -54,6 +95,8 @@
         "$mod SHIFT, SPACE, togglefloating,"
         "$mod SHIFT, C, killactive,"
         "$mod SHIFT, TAB, pin"
+        "$mod SHIFT, W, hyprexpo:expo, toggle"
+        "$mod, SPACE, easymotion, action:hyprctl dispatch focuswindow address:{}"
 
         # layout
         "$mod, f, fullscreen,"
