@@ -56,6 +56,7 @@ in
     # game development
     godot_4
     blender
+    reaper
 
     # painting, ui/ux
     krita
