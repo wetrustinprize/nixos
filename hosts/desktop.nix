@@ -38,6 +38,9 @@
 
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+  services.tailscale = {
+    enable = true;
+  };
 
   # Added this to be able to use controllers in games
   # https://www.perplexity.ai/search/help-me-figure-it-out-why-my-p-nxYYKmjsT.WenPQTKxc.LA
