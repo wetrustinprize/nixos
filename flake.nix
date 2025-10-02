@@ -7,8 +7,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url = "github:hyprwm/Hyprland";
     hypr-dynamic-cursors = {
-        url = "github:VirtCode/hypr-dynamic-cursors";
-        inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
+      url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
     };
     hyprland-easymotion = {
       url = "github:zakk4223/hyprland-easymotion";

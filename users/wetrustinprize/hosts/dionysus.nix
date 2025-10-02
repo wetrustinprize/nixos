@@ -34,7 +34,8 @@ in
     "special:calculator, monitor:eDP-1"
     "special:obsidian, monitor:eDP-1"
     "special:password, monitor:eDP-1"
-  ] ++ lib.map (i: "${toString i}, monitor:eDP-1") (lib.range 1 9);
+  ]
+  ++ lib.map (i: "${toString i}, monitor:eDP-1") (lib.range 1 9);
 
   services.hyprpaper.settings = {
     preload = [ "${mainWallpaper}" ];
