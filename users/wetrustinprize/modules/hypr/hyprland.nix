@@ -60,6 +60,13 @@
         "workspace_method" = "first 1";
         "skip_empty" = true;
       };
+      misc = {
+        disable_hyprland_logo = true;
+      };
+      ecosystem = {
+        no_donation_nag = true;
+        no_update_news = true;
+      };
       general = {
         "allow_tearing" = true;
         "gaps_out" = 10;
