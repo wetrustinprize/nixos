@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   nix-colors,
   config,
   ...
@@ -8,7 +7,6 @@
 {
   home.packages = with pkgs; [
     # browsers
-    inputs.zen-browser.packages."${system}".default
     chromium
 
     # productivity
@@ -85,5 +83,6 @@
     ./modules/mangohud.nix
     ./modules/sticky-notes.nix
     ./modules/vscode.nix
+    ./modules/zen.nix
   ];
 }
