@@ -71,7 +71,7 @@
         "allow_tearing" = true;
         "gaps_out" = 10;
         "col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
-        "col.active_border" = "rgb(${config.colorScheme.palette.base06})";
+        "col.active_border" = "rgb(${config.colorScheme.palette.base0F})";
 
         snap = {
           enabled = true;
@@ -103,6 +103,9 @@
         "fadeOut, 1, 1, easeOutQuart"
       ];
       group = {
+        "col.border_inactive" = "rgb(${config.colorScheme.palette.base01})";
+        "col.border_active" = "rgb(${config.colorScheme.palette.base0F})";
+
         groupbar = {
           "col.inactive" = "rgb(${config.colorScheme.palette.base01})";
           "col.active" = "rgb(${config.colorScheme.palette.base0F})";
