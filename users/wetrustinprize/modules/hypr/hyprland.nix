@@ -66,6 +66,20 @@
         "col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
         "col.active_border" = "rgb(${config.colorScheme.palette.base06})";
       };
+      decoration = {
+        rounding = 5;
+        inactive_opacity = 0.95;
+        active_opacity = 1.00;
+
+        blur = {
+          enabled = true;
+          size = 10;
+          passes = 2;
+          new_optimizations = true;
+          ignore_opacity = true;
+          brightness = 0.90;
+        };
+      };
       bezier = [
         "easeOutQuart, 0.25, 1, 0.5, 1"
         "linear, 0, 0, 1, 1"
@@ -74,7 +88,8 @@
         "workspaces, 1, 2, easeOutQuart"
         "windowsIn, 1, 2, easeOutQuart"
         "windowsMove, 1, 1, easeOutQuart"
-        "windowsOut, 1, 1, linear, gnomed"
+        "windowsOut, 1, 2, linear, gnomed"
+        "fadeOut, 1, 1, easeOutQuart"
       ];
       group = {
         groupbar = {
