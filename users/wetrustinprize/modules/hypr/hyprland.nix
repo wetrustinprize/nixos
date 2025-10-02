@@ -65,6 +65,10 @@
         "gaps_out" = 10;
         "col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
         "col.active_border" = "rgb(${config.colorScheme.palette.base06})";
+
+        snap = {
+          enabled = true;
+        };
       };
       decoration = {
         rounding = 5;
