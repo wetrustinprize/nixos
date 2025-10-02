@@ -62,6 +62,7 @@
       };
       misc = {
         disable_hyprland_logo = true;
+        font_family = "CodeNewRoman Nerd Font Propo";
       };
       ecosystem = {
         no_donation_nag = true;
@@ -109,6 +110,9 @@
         groupbar = {
           "col.inactive" = "rgb(${config.colorScheme.palette.base01})";
           "col.active" = "rgb(${config.colorScheme.palette.base0F})";
+          "text_color_inactive" = "rgb(${config.colorScheme.palette.base03})";
+          "text_color" = "rgb(${config.colorScheme.palette.base06})";
+          font_size = 10;
         };
       };
       gesture = [
