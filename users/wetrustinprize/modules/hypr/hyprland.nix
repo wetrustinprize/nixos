@@ -184,6 +184,7 @@
         "float,class:(org.pulseaudio.pavucontrol)"
         "float,title:Picture-in-Picture"
         "float,title:Open Files"
+        "float,title:Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser"
         "workspace special:password,class:(Bitwarden)"
         "workspace special:obsidian,class:(obsidian)"
       ];
