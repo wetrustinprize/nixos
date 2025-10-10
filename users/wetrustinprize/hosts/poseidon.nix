@@ -55,16 +55,20 @@ in
 
     # game development
     godot_4
+    unityhub
+
+    # modeling
     blender
+    material-maker
 
     # audio
     audacity
     reaper
 
     # video
-    davinci-resolve-studio
+    davinci-resolve
 
-    # painting, ui/ux
+    # graphics
     krita
     inkscape
     pureref
