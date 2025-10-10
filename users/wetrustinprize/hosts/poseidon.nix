@@ -56,7 +56,13 @@ in
     # game development
     godot_4
     blender
+
+    # audio
+    audacity
     reaper
+
+    # video
+    davinci-resolve-studio
 
     # painting, ui/ux
     krita
