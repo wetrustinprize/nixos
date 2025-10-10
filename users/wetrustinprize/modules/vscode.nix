@@ -40,6 +40,7 @@ in
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
+    package = pkgs.vscode;
 
     profiles.default = {
       enableExtensionUpdateCheck = false;
@@ -51,7 +52,7 @@ in
 
     profiles.${username} = {
       extensions =
-        (with pkgs.nix-vscode-extensions; [
+        (with pkgs.nix-vscode-extensions.forVSCodeVersion pkgs.vscode.version; [
           # theme
           vscode-marketplace.arcticicestudio.nord-visual-studio-code
           vscode-marketplace.miguelsolorio.fluent-icons
@@ -62,7 +63,6 @@ in
 
           # behaviour
           vscode-marketplace.vscodevim.vim
-          vscode-marketplace.eamodio.gitlens
           vscode-marketplace.wakatime.vscode-wakatime
           vscode-marketplace.naumovs.color-highlight
           vscode-marketplace.gruntfuggly.todo-tree
@@ -115,6 +115,10 @@ in
 
           # nix
           vscode-marketplace.jnoortheen.nix-ide
+
+          # ai
+          vscode-marketplace.github.copilot
+          vscode-marketplace.github.copilot-chat
         ])
         ++ [ forkedNixpkgs.vscode-extensions.ms-vscode-remote.remote-ssh ];
 
@@ -144,13 +148,6 @@ in
         "editor.fontLigatures" = true;
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
         "terminal.integrated.env.linux" = { };
-
-        # AI
-        "chat.commandCenter.enabled" = false;
-        "chat.disableAIFeatures" = true;
-        "gitlens.ai.enabled" = false;
-        "gitlens.ai.model" = "gitkraken";
-        "gitlens.ai.gitkraken.model" = "gemini:gemini-2.0-flash";
 
         # Spelling
         "cSpell.language" = "en,pt,pt_BR";
