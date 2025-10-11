@@ -15,12 +15,15 @@
   nixpkgs.config.allowUnfree = true;
   networking.networkmanager.enable = true;
 
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     nix-your-shell
     vim
     git
+    gh
     jujutsu
     wget
     curl

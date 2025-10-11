@@ -43,7 +43,6 @@ in
 
     # development
     gitkraken
-    github-desktop
     bruno
     bruno-cli
     filezilla
@@ -81,7 +80,7 @@ in
       position = "top";
       reload_style_on_change = true;
       output = [
-        "HDMI-A-1"
+        "DP-2"
       ];
       modules-left = [
         "bluetooth"
@@ -101,7 +100,7 @@ in
     ];
     monitor = [
       "DP-1, highres@highrr, 1080x0, 1"
-      "HDMI-A-1, highres@highrr, 0x-540, 1, transform, 1"
+      "DP-2, highres@highrr, 0x-540, 1, transform, 1"
       ", preferred, auto, 1, mirror, DP-1"
     ];
     input = {
@@ -109,7 +108,7 @@ in
       kb_variant = "altgr-intl";
     };
     workspace = [
-      "name:side-monitor, monitor:HDMI-A-1"
+      "name:side-monitor, monitor:DP-2"
       "special:calculator, monitor:DP-1"
       "special:obsidian, monitor:DP-1"
       "special:password, monitor:DP-1"
@@ -127,7 +126,7 @@ in
     ];
     wallpaper = [
       "DP-1, ${mainWallpaper}"
-      "HDMI-A-1, ${sideWallpaper}"
+      "DP-2, ${sideWallpaper}"
     ];
   };
 }

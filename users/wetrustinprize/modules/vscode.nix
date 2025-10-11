@@ -52,7 +52,7 @@ in
 
     profiles.${username} = {
       extensions =
-        (with pkgs.nix-vscode-extensions.forVSCodeVersion pkgs.vscode.version; [
+        (with pkgs.nix-vscode-extensions.forVSCodeVersion "1.104.0"; [
           # theme
           vscode-marketplace.arcticicestudio.nord-visual-studio-code
           vscode-marketplace.miguelsolorio.fluent-icons
@@ -117,8 +117,8 @@ in
           vscode-marketplace.jnoortheen.nix-ide
 
           # ai
-          vscode-marketplace.github.copilot
-          vscode-marketplace.github.copilot-chat
+          # vscode-marketplace.github.copilot
+          # vscode-marketplace.github.copilot-chat
         ])
         ++ [ forkedNixpkgs.vscode-extensions.ms-vscode-remote.remote-ssh ];
 
