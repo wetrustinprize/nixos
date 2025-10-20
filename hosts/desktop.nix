@@ -54,6 +54,8 @@
     kitty
     headsetcontrol
     appimage-run
+    xdg-desktop-portal
+    xdg-desktop-portal-hyprland
   ];
 
   services.blueman.enable = true;

@@ -68,12 +68,13 @@
         no_donation_nag = true;
         no_update_news = true;
       };
+      workspace = lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
       general = {
         "allow_tearing" = true;
         "gaps_out" = 10;
         "col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
         "col.active_border" = "rgb(${config.colorScheme.palette.base0F})";
-
+        "layout" = "master";
         snap = {
           enabled = true;
         };

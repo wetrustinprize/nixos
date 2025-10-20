@@ -61,13 +61,6 @@ in
       kb_layout = "br";
       kb_variant = "thinkpad";
     };
-    workspace = [
-      "name:side-monitor, monitor:HDMI-A-1"
-      "special:calculator, monitor:DP-1"
-      "special:obsidian, monitor:DP-1"
-      "special:password, monitor:DP-1"
-    ]
-    ++ lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
   };
 
   services.hyprpaper.settings = {

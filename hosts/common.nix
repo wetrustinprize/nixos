@@ -47,6 +47,7 @@
     caligula
     parted
     gptfdisk
+    codex
   ];
 
   nix.settings.trusted-users = [

@@ -22,6 +22,10 @@
 
   environment.systemPackages = with pkgs; [
     android-tools
+
+    # vr
+    mesa
+    wlx-overlay-s
   ];
   programs.adb.enable = true;
   users.users.${username}.extraGroups = lib.mkAfter [ "adbusers" ];

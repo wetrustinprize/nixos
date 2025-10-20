@@ -117,8 +117,7 @@ in
           vscode-marketplace.jnoortheen.nix-ide
 
           # ai
-          # vscode-marketplace.github.copilot
-          # vscode-marketplace.github.copilot-chat
+          vscode-marketplace.openai.chatgpt
         ])
         ++ [ forkedNixpkgs.vscode-extensions.ms-vscode-remote.remote-ssh ];
 
@@ -148,6 +147,12 @@ in
         "editor.fontLigatures" = true;
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
         "terminal.integrated.env.linux" = { };
+
+        # AI
+        "chat.commandCenter.enabled" = false;
+        "chat.disableAIFeatures" = true;
+        "gitlens.ai.enabled" = false;
+        "editor.aiStats.enabled" = true;
 
         # Spelling
         "cSpell.language" = "en,pt,pt_BR";

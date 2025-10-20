@@ -107,13 +107,6 @@ in
       kb_layout = "us";
       kb_variant = "altgr-intl";
     };
-    workspace = [
-      "name:side-monitor, monitor:DP-2"
-      "special:calculator, monitor:DP-1"
-      "special:obsidian, monitor:DP-1"
-      "special:password, monitor:DP-1"
-    ]
-    ++ lib.map (i: "${toString i}, monitor:DP-1") (lib.range 1 9);
     windowrulev2 = lib.mkAfter [
       "workspace name:side-monitor,class:(discord)"
     ];
