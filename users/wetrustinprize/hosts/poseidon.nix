@@ -107,6 +107,9 @@ in
       kb_layout = "us";
       kb_variant = "altgr-intl";
     };
+    workspaces = lib.mkAfter [
+      "name:side-monitor, monitor:DP-2"
+    ];
     windowrulev2 = lib.mkAfter [
       "workspace name:side-monitor,class:(discord)"
     ];
