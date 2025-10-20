@@ -107,7 +107,7 @@ in
       kb_layout = "us";
       kb_variant = "altgr-intl";
     };
-    workspaces = lib.mkAfter [
+    workspace = lib.mkAfter [
       "name:side-monitor, monitor:DP-2"
     ];
     windowrulev2 = lib.mkAfter [
