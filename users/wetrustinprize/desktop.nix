@@ -17,6 +17,7 @@
 
     # chat
     discord
+    beeper
 
     # password manager
     bitwarden
