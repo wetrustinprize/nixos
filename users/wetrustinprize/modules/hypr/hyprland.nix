@@ -74,7 +74,6 @@
         "gaps_out" = 10;
         "col.inactive_border" = "rgb(${config.colorScheme.palette.base01})";
         "col.active_border" = "rgb(${config.colorScheme.palette.base0F})";
-        "layout" = "master";
         snap = {
           enabled = true;
         };
