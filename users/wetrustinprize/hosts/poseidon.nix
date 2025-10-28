@@ -51,6 +51,7 @@ in
     android-studio
     ngrok
     gemini-cli
+    lmstudio
 
     # game development
     godot_4

@@ -48,6 +48,8 @@
     parted
     gptfdisk
     codex
+    croc
+    grex
   ];
 
   nix.settings.trusted-users = [

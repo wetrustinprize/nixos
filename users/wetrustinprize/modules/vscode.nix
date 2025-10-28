@@ -1,24 +1,9 @@
 {
   pkgs,
-  system,
   inputs,
   username,
   ...
 }:
-let
-
-  # this is to fix remote-ssh extension
-  forkedNixpkgs =
-    import
-      (fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/577417344339acac020744052a86f4d112c83e2f.tar.gz";
-        sha256 = "11qdhd0dg1kz7v730rqy21fgra8babg2ljds6zmr6wz0ih3d47x0";
-      })
-      {
-        inherit system;
-        config.allowUnfree = true;
-      };
-in
 {
   home.packages = with pkgs; [
     nixd
@@ -29,18 +14,10 @@ in
     inputs.nix-vscode-extensions.overlays.default
   ];
 
-  # FIXME: Look after why code is so bad at wayland
-  # this wasn't an issue in the past
-  xdg.desktopEntries."code" = {
-    name = "Visual Studio Code";
-    genericName = "Text Editor";
-    exec = "code --ozone-platform=x11";
-  };
-
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
-    package = pkgs.vscode;
+    package = pkgs.code-cursor;
 
     profiles.default = {
       enableExtensionUpdateCheck = false;
@@ -52,7 +29,7 @@ in
 
     profiles.${username} = {
       extensions =
-        (with pkgs.nix-vscode-extensions.forVSCodeVersion "1.104.0"; [
+        (with pkgs.nix-vscode-extensions.forVSCodeVersion pkgs.code-cursor.vscodeVersion; [
           # theme
           vscode-marketplace.arcticicestudio.nord-visual-studio-code
           vscode-marketplace.miguelsolorio.fluent-icons
@@ -100,6 +77,11 @@ in
           vscode-marketplace.bradlc.vscode-tailwindcss
           vscode-marketplace.quicktype.quicktype
           vscode-marketplace.yoavbls.pretty-ts-errors
+          vscode-marketplace.vercel.turbo-vsc
+
+          # markdown
+          vscode-marketplace.davidanson.vscode-markdownlint
+          vscode-marketplace.yzhang.markdown-all-in-one
 
           # react
           vscode-marketplace.styled-components.vscode-styled-components
@@ -118,8 +100,7 @@ in
 
           # ai
           vscode-marketplace.openai.chatgpt
-        ])
-        ++ [ forkedNixpkgs.vscode-extensions.ms-vscode-remote.remote-ssh ];
+        ]);
 
       userSettings = {
         "workbench.iconTheme" = "symbols";
@@ -147,6 +128,9 @@ in
         "editor.fontLigatures" = true;
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
         "terminal.integrated.env.linux" = { };
+
+        # Cursor
+        "cursor.composer.shouldChimeAfterChatFinishes" = true;
 
         # AI
         "chat.commandCenter.enabled" = false;
