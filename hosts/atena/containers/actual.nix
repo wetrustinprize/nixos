@@ -17,7 +17,7 @@
       "homepage.group" = "Tools";
       "homepage.name" = "Actual";
       "homepage.icon" = "actual-budget.png";
-      "homepage.description" = "Finacnes organizer.";
+      "homepage.description" = "Finances organizer.";
       "homepage.href" = "https://actual.wetrustinprize.com";
     };
     volumes = [
