@@ -58,6 +58,15 @@
     xdg-desktop-portal-hyprland
   ];
 
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-tuna
+      obs-move-transition
+    ];
+  };
+
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
