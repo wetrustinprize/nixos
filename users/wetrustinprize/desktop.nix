@@ -26,7 +26,6 @@
     spotify
     playerctl # cli for media players
     qbittorrent
-    obs-studio
     kooha
     vlc
 
@@ -48,6 +47,7 @@
     # image editing
     gimp
   ];
+
 
   gtk.theme.package = nix-colors.gtk-theme config.colorScheme;
 
