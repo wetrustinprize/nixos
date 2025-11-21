@@ -127,6 +127,7 @@
         "editor.formatOnSave" = true;
         "editor.fontLigatures" = true;
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
+        "editor.rulers" = [ 80 120 ];
         "terminal.integrated.env.linux" = { };
 
         # Cursor
