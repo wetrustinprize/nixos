@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     hyprshot
@@ -9,6 +9,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     settings = {
       exec-once = [
         "waybar"
@@ -125,9 +127,6 @@
         "float,class:(Bitwarden)"
         "float,class:(.blueman-manager-wrapped)"
         "float,class:(org.pulseaudio.pavucontrol)"
-        "float,title:Picture-in-Picture"
-        "float,title:Open Files"
-        "float,title:Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser"
         "workspace special:password,class:(Bitwarden)"
         "workspace special:obsidian,class:(obsidian)"
       ];

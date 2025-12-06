@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   nix.settings = {
     # add the hyprland cache so that we dont build hyprland from source
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
   # these extra portals allow for things like screen sharing
@@ -18,13 +17,6 @@
       ];
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    hyprland            # the actual package
-    uwsm                # wayland session manager
-    hyprland-qtutils    # needed by hyprland
-    hyprpolkitagent     # polkit agent
-  ];
 
   # we use uwsm to manage launching hyprland
   # uswm will add hyprland to the login sessions with tuigreet.
@@ -39,8 +31,10 @@
     };
 
     hyprland = {
-      withUWSM  = true;
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      withUWSM  = true;
       xwayland.enable = true;
     };
   };
