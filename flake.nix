@@ -1,0 +1,77 @@
+{
+  description = "Prize's NixOS configuration";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/master";
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  outputs = {
+    nixpkgs,
+    home-manager,
+    sops-nix,
+    stylix,
+    ...
+  }@inputs:
+    let
+      user = import ./user.nix;
+      lib = nixpkgs.lib;
+      hosts = [
+        "poseidon"
+      ];
+      pkgs = import nixpkgs {
+        inherit (user) system;
+        config.allowUnfree = true;
+      };
+    in
+  {
+    nixosConfigurations = builtins.listToAttrs (
+      builtins.map (host: {
+        name = host;
+        value = lib.nixosSystem {
+          modules = [
+            ./hosts/${host}/configuration.nix
+            sops-nix.nixosModules.sops
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager {
+              home-manager.backupFileExtension = "backup";
+
+              home-manager.extraSpecialArgs = {
+                inherit user;
+                inherit inputs;
+              };
+
+              home-manager.users.${user.username} = {
+                imports =  [
+                  ./hosts/${host}/home.nix
+                ];
+              };
+            }
+          ];
+          specialArgs = {
+            hostname = host;
+            inherit inputs;
+            inherit user;
+          };
+        };
+      }) hosts
+    );
+    devShells.${user.system}.default = pkgs.mkShell {
+      buildInputs = with pkgs; [
+        sops # used to edit secrets
+        croc # good cli to transfer files
+      ];
+    };
+  };
+}
