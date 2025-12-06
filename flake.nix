@@ -31,9 +31,7 @@
     let
       user = import ./user.nix;
       lib = nixpkgs.lib;
-      hosts = [
-        "poseidon"
-      ];
+      hosts = import ./hosts;
       pkgs = import nixpkgs {
         inherit (user) system;
         config.allowUnfree = true;
