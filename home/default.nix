@@ -29,6 +29,7 @@
     libreoffice # office suite
     inkscape # vector graphics editor
     bottles # easier wine
+    beeper # better way to use many communication apps
   ];
 
   home.username = "${user.username}";
