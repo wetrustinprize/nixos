@@ -15,4 +15,9 @@
     mode = "644";
     path = "/home/${user.username}/.ssh/id_ed25519.pub";
   };
+
+  services.xserver.xkb = {
+    xkb.layout = "us";
+    xkb.variant = "altgr-intl";
+  };
 }
