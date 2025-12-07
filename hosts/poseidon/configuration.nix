@@ -17,7 +17,7 @@
   };
 
   services.xserver.xkb = {
-    xkb.layout = "us";
-    xkb.variant = "altgr-intl";
+    layout = "us";
+    variant = "altgr-intl";
   };
 }
