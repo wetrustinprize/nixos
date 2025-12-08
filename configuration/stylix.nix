@@ -7,6 +7,11 @@
       name = "phinger-cursors-light";
       size = 32;
     };
+    icons = {
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
+      package = pkgs.papirus-icon-theme;
+    };
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;
