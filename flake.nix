@@ -49,6 +49,10 @@
             home-manager.nixosModules.home-manager {
               home-manager.backupFileExtension = "backup";
 
+              home-manager.sharedModules = [
+                inputs.sops-nix.homeManagerModules.sops
+              ];
+
               home-manager.extraSpecialArgs = {
                 inherit user;
                 inherit inputs;
