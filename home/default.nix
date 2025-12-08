@@ -17,6 +17,7 @@
     obsidian # markdown notes app
     discord # gaming communication app
     slack # work communication app
+    clickup # work task management app
     prismlauncher # minecraft launcher
     gitkraken # better git control
     spotify # music player
