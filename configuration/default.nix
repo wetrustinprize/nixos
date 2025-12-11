@@ -12,7 +12,6 @@
     ./steam.nix
     ./sops.nix
     ./stylix.nix
-    ./hyprland.nix
     ./niri.nix
   ];
 

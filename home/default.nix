@@ -4,7 +4,6 @@
     ./zed.nix
     ./rofi.nix
     ./waybar
-    ./hyprland.nix
     ./browser.nix
     ./sticky-notes.nix
     ./mail.nix
