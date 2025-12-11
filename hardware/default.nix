@@ -17,7 +17,14 @@
         vulkan-validation-layers # helps catch and debug vulkan crashes
       ];
     };
+
+    # enabled this so wacom tablet works
+    opentabletdriver = {
+      enable = true;
+      daemon.enable = true;
+    };
   };
+
 
   hardware.enableAllFirmware = true; # enable all firmware regardless of license
 }

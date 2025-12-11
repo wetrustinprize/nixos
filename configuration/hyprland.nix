@@ -1,21 +1,12 @@
 { pkgs, inputs, ... }:
 {
+  imports = [ ./desktop.nix ];
+
   nix.settings = {
     # add the hyprland cache so that we dont build hyprland from source
     substituters = ["https://hyprland.cachix.org"];
     trusted-substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-  };
-
-  # these extra portals allow for things like screen sharing
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-wlr
-        pkgs.xdg-desktop-portal-gtk
-      ];
-    };
   };
 
   # we use uwsm to manage launching hyprland
@@ -39,16 +30,6 @@
     };
   };
 
-  # this is mainly for the lock screen
-  # lock.png is provided elsewhere
-  services.xserver = {
-    enable = true;
-
-    desktopManager = {
-      xterm.enable = false;
-    };
-  };
-
   # this is a lot of env vars.
   # and this requires some cleanup
   # but hyprland moves fast and some of these are probably outdated already
@@ -56,11 +37,8 @@
     XDG_SESSION_TYPE="wayland";
     XDG_CURRENT_DESKTOP="Hyprland";
     XDG_SESSION_DESKTOP="Hyprland";
-    NIXOS_OZONE_WL="1";
   };
 
   # allow hyprlock (lockscreen) to lock user session
   security.pam.services.hyprlock = { };
-  security.polkit.enable = true;
-  security.pam.services.gdm.enableGnomeKeyring = true;
 }

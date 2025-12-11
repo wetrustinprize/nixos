@@ -7,6 +7,33 @@ in
     ../../home
   ];
 
+  programs.niri.settings.outputs = {
+    "DP-3" = {
+      mode = {
+        height = 1080;
+        width = 1920;
+        refresh = 144.001;
+      };
+      position = {
+        x = 1920;
+        y = 0;
+      };
+      focus-at-startup = true;
+    };
+
+    "DP-4" = {
+      mode = {
+        height = 1080;
+        width = 1920;
+        refresh = 60.0;
+      };
+      position = {
+        x = 0;
+        y = 0;
+      };
+    };
+  };
+
   programs.waybar.settings = {
     mainBar.output = [ "DP-3" ];
     statusBar = pkgs.lib.recursiveUpdate {

@@ -9,6 +9,8 @@
     ./sticky-notes.nix
     ./mail.nix
     ./sops.nix
+    ./niri.nix
+    ./dunst.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

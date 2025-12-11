@@ -13,6 +13,7 @@
     ./sops.nix
     ./stylix.nix
     ./hyprland.nix
+    ./niri.nix
   ];
 
   sops.secrets."user-password".neededForUsers = true;
@@ -36,6 +37,7 @@
     caligula # disk flashing util
     htop # process monitoring
     croc # file transfering
+    dysk # disk management util
   ];
 
   programs = {

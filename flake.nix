@@ -20,12 +20,17 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     nixpkgs,
     home-manager,
     sops-nix,
     stylix,
+    niri,
     ...
   }@inputs:
     let
@@ -46,6 +51,7 @@
             ./hosts/${host}/configuration.nix
             sops-nix.nixosModules.sops
             stylix.nixosModules.stylix
+            niri.nixosModules.niri
             home-manager.nixosModules.home-manager {
               home-manager.backupFileExtension = "backup";
 
