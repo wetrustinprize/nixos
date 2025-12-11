@@ -57,25 +57,25 @@ in
     } waybarModules;
   };
 
-  wayland.windowManager.hyprland.settings = {
-    exec-once = pkgs.lib.mkAfter [
-      "[workspace name:side-monitor] discord"
-    ];
-    workspace =
-        pkgs.lib.map (i: "${toString i}, monitor:DP-3") (pkgs.lib.range 1 9)
-        ++
-        ["name:side-monitor, monitor:DP-4"];
-    monitor = [
-      "DP-3, highres@highrr, 1080x0, 1"
-      "DP-4, highres@highrr, 0x-540, 1, transform, 1"
-      ", preferred, auto, 1, mirror, DP-3"
-    ];
-    input = {
-      kb_layout = "us";
-      kb_variant = "altgr-intl";
-    };
-    windowrulev2 = pkgs.lib.mkAfter [
-      "workspace name:side-monitor,class:(discord)"
-    ];
-  };
+  # wayland.windowManager.hyprland.settings = {
+  #   exec-once = pkgs.lib.mkAfter [
+  #     "[workspace name:side-monitor] discord"
+  #   ];
+  #   workspace =
+  #       pkgs.lib.map (i: "${toString i}, monitor:DP-3") (pkgs.lib.range 1 9)
+  #       ++
+  #       ["name:side-monitor, monitor:DP-4"];
+  #   monitor = [
+  #     "DP-3, highres@highrr, 1080x0, 1"
+  #     "DP-4, highres@highrr, 0x-540, 1, transform, 1"
+  #     ", preferred, auto, 1, mirror, DP-3"
+  #   ];
+  #   input = {
+  #     kb_layout = "us";
+  #     kb_variant = "altgr-intl";
+  #   };
+  #   windowrulev2 = pkgs.lib.mkAfter [
+  #     "workspace name:side-monitor,class:(discord)"
+  #   ];
+  # };
 }

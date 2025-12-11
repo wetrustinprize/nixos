@@ -30,14 +30,4 @@
       hotkey-overlay.title = "Rofi select emoji";
     };
   };
-
-  wayland.windowManager.hyprland.settings.bind = [
-    "$mod, P, exec, rofi -show drun"
-    "$mod SHIFT, P, exec, rofi -show run"
-
-    "$mod, E, exec, bemoji"
-    "$mod, W, exec, rofi -show window"
-
-    "$mod, C, exec, rofi -show calc"
-  ];
 }

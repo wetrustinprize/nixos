@@ -9,13 +9,16 @@
       prefer-no-csd = true;
 
       spawn-at-startup = [
-        { argv = ["waybar"]; }
         { argv = ["niriusd"]; }
       ];
 
       input = {
         focus-follows-mouse.enable = true;
         workspace-auto-back-and-forth = true;
+      };
+
+      gestures = {
+        hot-corners.enable = false;
       };
 
       screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
@@ -46,7 +49,7 @@
               repeat = false;
             };
             "Mod+Space" = {
-              action.switch-focus-between-floating-and-tiling = [];
+              action.toggle-overview = [];
             };
             "Mod+W" = {
               action.toggle-column-tabbed-display = [];

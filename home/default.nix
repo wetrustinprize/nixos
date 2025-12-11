@@ -3,7 +3,6 @@
     ./terminal.nix
     ./zed.nix
     ./rofi.nix
-    ./waybar
     ./browser.nix
     ./sticky-notes.nix
     ./mail.nix
