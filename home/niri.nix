@@ -4,6 +4,15 @@
     nirius
   ];
 
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+    ];
+  };
+
   programs.niri = {
     settings = {
       prefer-no-csd = true;
@@ -26,6 +35,18 @@
       hotkey-overlay = {
         hide-not-bound = true;
       };
+
+      window-rules = [
+        {
+          matches = [ { app-id = "Bitwarden"; } ];
+          open-floating = true;
+          block-out-from = "screencast";
+        }
+        {
+          matches = [ { app-id = "Alacritty"; } ];
+          open-floating = true;
+        }
+      ];
 
       binds =
         let

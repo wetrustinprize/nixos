@@ -6,6 +6,7 @@
 
   # gnome keyring
   security.pam.services.gdm.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true; # keyring
 
   # privileges
   security.polkit.enable = true;
@@ -16,18 +17,6 @@
 
     desktopManager = {
       xterm.enable = false;
-    };
-  };
-
-  # these extra portals allow for things like screen sharing
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-wlr
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-gnome
-      ];
     };
   };
 }

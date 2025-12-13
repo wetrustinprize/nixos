@@ -37,6 +37,8 @@
     htop # process monitoring
     croc # file transfering
     dysk # disk management util
+    nano # terminal file editing
+    bat # terminal file viewing
   ];
 
   programs = {

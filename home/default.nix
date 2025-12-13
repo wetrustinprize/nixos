@@ -1,4 +1,4 @@
-{ user, pkgs, ... }: {
+{ user, pkgs, inputs, ... }: {
   imports = [
     ./terminal.nix
     ./zed.nix
@@ -9,6 +9,8 @@
     ./sops.nix
     ./niri.nix
     ./dunst.nix
+    ./spicetify.nix
+    ./nixcord.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -17,12 +19,10 @@
     bitwarden-desktop # password control
     bitwarden-cli # password control but cli
     obsidian # markdown notes app
-    discord # gaming communication app
     slack # work communication app
     clickup # work task management app
     prismlauncher # minecraft launcher
     gitkraken # better git control
-    spotify # music player
     gimp # image manipulation
     krita # drawing app
     blender # 3D modelling
@@ -33,6 +33,8 @@
     inkscape # vector graphics editor
     bottles # easier wine
     beeper # better way to use many communication apps
+    gamescope # game x11
+    inputs.affinity-nix.packages.${pkgs.stdenv.hostPlatform.system}.v3 # affinity studio 3
   ];
 
   home.username = "${user.username}";

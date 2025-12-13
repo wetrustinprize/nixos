@@ -20,6 +20,18 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     nixpkgs,
@@ -53,6 +65,8 @@
 
               home-manager.sharedModules = [
                 inputs.sops-nix.homeManagerModules.sops
+                inputs.spicetify-nix.homeManagerModules.spicetify
+                inputs.nixcord.homeModules.nixcord
               ];
 
               home-manager.extraSpecialArgs = {
