@@ -38,12 +38,28 @@
 
       window-rules = [
         {
-          matches = [ { app-id = "Bitwarden"; } ];
-          open-floating = true;
+          matches = [ # matches for blocking in screensharing
+            { app-id = "Bitwarden"; }
+            { app-id = "Thunderbird"; }
+          ];
+
           block-out-from = "screencast";
         }
         {
-          matches = [ { app-id = "Alacritty"; } ];
+          matches = [ # matches for opening floating windows
+            { app-id = "Alacritty"; }
+            { app-id = "Bitwarden"; }
+          ];
+
+          open-floating = true;
+        }
+        {
+          matches = [ # matches for firefox pip window
+            { app-id = "firefox$"; title = "^Picture-in-Picture"; }
+          ];
+
+          default-column-width.fixed = 480;
+          default-window-height.fixed = 270;
           open-floating = true;
         }
       ];
