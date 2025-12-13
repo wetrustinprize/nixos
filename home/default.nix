@@ -34,7 +34,6 @@
     bottles # easier wine
     beeper # better way to use many communication apps
     gamescope # game x11
-    inputs.affinity-nix.packages.${pkgs.stdenv.hostPlatform.system}.v3 # affinity studio 3
   ];
 
   home.username = "${user.username}";

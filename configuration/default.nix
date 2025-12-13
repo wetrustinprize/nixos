@@ -39,6 +39,7 @@
     dysk # disk management util
     nano # terminal file editing
     bat # terminal file viewing
+    brightnessctl # screen brightness control
   ];
 
   programs = {

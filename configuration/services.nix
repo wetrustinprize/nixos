@@ -6,7 +6,7 @@
     fstrim.enable = true; # ssd maintenance service
     thermald.enable = true; # thermal regulation service
     printing.enable = true; # printing services, cups
-
+    upower.enable = true; # power management service
     flatpak.enable = true; # allow installing things from flatpaks
 
     # printer discovery
