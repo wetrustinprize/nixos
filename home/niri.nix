@@ -1,7 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   home.packages = with pkgs; [
     xwayland-satellite
-    swaybg
   ];
 
   xdg.portal = {
@@ -17,13 +16,13 @@
     settings = {
       prefer-no-csd = true;
 
-      spawn-at-startup = [
-        { sh = "swaybg -i ${(builtins.toString ./wallpaper/main.png)}"; }
-      ];
-
       input = {
         focus-follows-mouse.enable = true;
         workspace-auto-back-and-forth = true;
+      };
+
+      overview = {
+        backdrop-color = config.lib.stylix.colors.withHashtag.base00;
       };
 
       gestures = {
@@ -55,11 +54,16 @@
         }
       ];
 
-      overview = {
-        workspace-shadow.enable = false;
-      };
-
       window-rules = [
+        { # global window rules
+          clip-to-geometry = true;
+          geometry-corner-radius = {
+            top-left = 8.0;
+            top-right = 8.0;
+            bottom-left = 8.0;
+            bottom-right = 8.0;
+          };
+        }
         {
           matches = [ # matches for blocking in screensharing
             { app-id = "Bitwarden"; }

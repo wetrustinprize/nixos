@@ -2,16 +2,15 @@
   imports = [
     ./terminal.nix
     ./zed.nix
-    ./rofi.nix
     ./browser.nix
     ./sticky-notes.nix
     ./mail.nix
     ./sops.nix
     ./niri.nix
-    ./dunst.nix
     ./spicetify.nix
     ./nixcord.nix
     ./easyeffects.nix
+    ./noctalia.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -535,6 +535,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1766685190,
+        "narHash": "sha256-hTxb24J4M7jwRrj/V1BJSLPdoAGLWAPIsH3TlljFiYE=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "fdbb93938e3b9eab0f7bc1c517af3f775ac8c088",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -596,6 +616,7 @@
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
+        "noctalia": "noctalia",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix"

@@ -39,6 +39,7 @@
     dysk # disk management util
     nano # terminal file editing
     bat # terminal file viewing
+    dmidecode # hardware info
   ];
 
   programs = {

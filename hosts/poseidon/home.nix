@@ -31,7 +31,20 @@
     };
   };
 
-  programs.niri.settings.spawn-at-startup = pkgs.lib.mkAfter [
-    { sh = "swaybg -o HDMI-A-2 -i ${(builtins.toString ../../home/wallpaper/left.png)}"; }
-  ];
+  home.file.".cache/noctalia/wallpapers.json" = {
+    force = true;
+    text = builtins.toJSON {
+      defaultWallpaper = builtins.toString ../../home/wallpaper/main.png;
+      wallpapers = {
+        "DP-3" = builtins.toString ../../home/wallpaper/main.png;
+        "HDMI-A-2" = builtins.toString ../../home/wallpaper/left.png;
+      };
+    };
+  };
+
+  programs.noctalia-shell.settings = {
+    network = {
+      wifiEnabled = false;
+    };
+  };
 }
