@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+  imports = [
+    ./easyeffects.nix
+  ];
+
   # nixos desktop configuration
   environment.sessionVariables = {
     NIXOS_OZONE_WL="1";
