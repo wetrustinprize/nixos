@@ -54,9 +54,6 @@
               usePrimaryColor = false;
             }
             {
-              id = "SystemMonitor";
-            }
-            {
               id = "ActiveWindow";
             }
             {
@@ -64,6 +61,9 @@
             }
           ];
           right = [
+            {
+              id = "SystemMonitor";
+            }
             {
               id = "Volume";
             }

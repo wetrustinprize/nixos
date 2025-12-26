@@ -46,5 +46,7 @@
     network = {
       wifiEnabled = false;
     };
+
+    notifications.monitors = [ "HDMI-A-2" ];
   };
 }
