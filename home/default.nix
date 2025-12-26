@@ -1,16 +1,16 @@
-{ user, pkgs, inputs, ... }: {
+{ user, pkgs, ... }: {
   imports = [
     ./terminal.nix
     ./zed.nix
-    ./rofi.nix
     ./browser.nix
     ./sticky-notes.nix
     ./mail.nix
     ./sops.nix
     ./niri.nix
-    ./dunst.nix
     ./spicetify.nix
     ./nixcord.nix
+    ./easyeffects.nix
+    ./noctalia.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -20,7 +20,6 @@
     bitwarden-cli # password control but cli
     obsidian # markdown notes app
     slack # work communication app
-    clickup # work task management app
     prismlauncher # minecraft launcher
     gitkraken # better git control
     gimp # image manipulation
@@ -34,6 +33,8 @@
     bottles # easier wine
     beeper # better way to use many communication apps
     gamescope # game x11
+    denaro # finance app
+    pavucontrol # pulse audio control
   ];
 
   home.username = "${user.username}";

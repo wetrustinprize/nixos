@@ -40,6 +40,7 @@
     nano # terminal file editing
     bat # terminal file viewing
     brightnessctl # screen brightness control
+    dmidecode # hardware info
   ];
 
   programs = {

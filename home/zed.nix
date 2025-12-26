@@ -29,6 +29,8 @@
       "scss"
       "csharp"
       "java"
+      "gleam"
+      "toml"
       "git-firefly"
     ];
     userSettings = {

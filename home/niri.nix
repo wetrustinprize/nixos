@@ -1,7 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   home.packages = with pkgs; [
     xwayland-satellite
-    nirius
   ];
 
   xdg.portal = {
@@ -17,30 +16,60 @@
     settings = {
       prefer-no-csd = true;
 
-      spawn-at-startup = [
-        { argv = ["niriusd"]; }
-      ];
-
       input = {
         focus-follows-mouse.enable = true;
         workspace-auto-back-and-forth = true;
+      };
+
+      overview = {
+        backdrop-color = config.lib.stylix.colors.withHashtag.base00;
       };
 
       gestures = {
         hot-corners.enable = false;
       };
 
+      cursor = {
+        hide-when-typing = true;
+      };
+
       screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
       hotkey-overlay = {
         hide-not-bound = true;
+        skip-at-startup = true;
       };
 
+      layout = {
+        background-color = "transparent";
+      };
+
+      layer-rules = [
+        {
+          matches = [ # matches for swaybg
+            { namespace = "^wallpaper$"; }
+          ];
+
+          place-within-backdrop = true;
+        }
+      ];
+
       window-rules = [
+        { # global window rules
+          clip-to-geometry = true;
+          geometry-corner-radius = {
+            top-left = 8.0;
+            top-right = 8.0;
+            bottom-left = 8.0;
+            bottom-right = 8.0;
+          };
+        }
         {
           matches = [ # matches for blocking in screensharing
             { app-id = "Bitwarden"; }
             { app-id = "Thunderbird"; }
+            { app-id = "org.nickvision.money"; }
+            { app-id = "firefox$"; title = ".*Fastmail.*"; }
           ];
 
           block-out-from = "screencast";
@@ -49,6 +78,7 @@
           matches = [ # matches for opening floating windows
             { app-id = "Alacritty"; }
             { app-id = "Bitwarden"; }
+            { app-id = "org.pulseaudio.pavucontrol"; }
           ];
 
           open-floating = true;
@@ -76,10 +106,6 @@
             };
             "Mod+Shift+Slash" = {
               action.show-hotkey-overlay = [];
-            };
-            "Mod+O" = {
-              action.toggle-overview = [];
-              repeat = false;
             };
             "Mod+Q" = {
               action.close-window = [];
@@ -117,6 +143,14 @@
             };
             "Shift+Print" = {
               action.screenshot-window = [];
+            };
+            "XF86AudioRaiseVolume" = {
+              action.spawn = ["pamixer" "-i" "10"];
+              cooldown-ms = 500;
+            };
+            "XF86AudioLowerVolume" = {
+              action.spawn = ["pamixer" "-d" "10"];
+              cooldown-ms = 500;
             };
           }
           (foreachWorkspace (i: {
