@@ -1,29 +1,34 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
+{
   imports = [
     ../../home
   ];
 
-  programs.waybar.settings.mainBar = {
-    output = [ "eDP-1" ];
-    modules-left = pkgs.lib.mkAfter [
-      "cpu"
-      "memory"
-      "battery"
-    ];
-    battery = {
-      bat = pkgs.lib.mkForce "BAT0";
+  home.file.".cache/noctalia/wallpapers.json" = {
+    force = true;
+    text = builtins.toJSON {
+      defaultWallpaper = builtins.toString ../../home/wallpaper/main.png;
     };
   };
 
-  # wayland.windowManager.hyprland.settings = {
-  #   monitor = [
-  #     "eDP-1, highres@highrr, 0x0, 1.25"
-  #     ", preferred, auto, 1, mirror, eDP-1"
-  #   ];
-  #   workspace = pkgs.lib.map (i: "${toString i}, monitor:eDP-1") (pkgs.lib.range 1 9);
-  #   input = {
-  #     kb_layout = "br";
-  #     kb_variant = "thinkpad";
-  #   };
-  # };
+  programs.noctalia-shell.settings = {
+    bar = {
+      widgets = {
+        right = lib.mkAfter [
+          {
+            id = "Battery";
+          }
+          {
+            id = "Brightness";
+          }
+          {
+            id = "WiFi";
+          }
+          {
+            id = "Bluetooth";
+          }
+        ];
+      };
+    };
+  };
 }
