@@ -46,6 +46,27 @@
         name = "Curitiba";
       };
 
+      calendar = {
+        cards = [
+          {
+            enabled = true;
+            id = "calendar-header-card";
+          }
+          {
+            enabled = true;
+            id = "calendar-month-card";
+          }
+          {
+            enabled = false;
+            id = "timer-card";
+          }
+          {
+            enabled = true;
+            id = "weather-card";
+          }
+        ];
+      };
+
       bar = {
         widgets = {
           left = [
