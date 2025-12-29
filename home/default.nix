@@ -33,7 +33,7 @@
     bottles # easier wine
     beeper # better way to use many communication apps
     gamescope # game x11
-    denaro # finance app
+    gnucash # finance app
     pavucontrol # pulse audio control
   ];
 
