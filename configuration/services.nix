@@ -7,7 +7,6 @@
     thermald.enable = true; # thermal regulation service
     printing.enable = true; # printing services, cups
     upower.enable = true; # power management service
-    flatpak.enable = true; # allow installing things from flatpaks
     power-profiles-daemon.enable = true; # power profiles
 
     # printer discovery
