@@ -1,8 +1,12 @@
-{ user, ... }: {
+{ user, pkgs, ... }: {
   imports = [
     ../../configuration
 
     ./hardware-configuration.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.nvidia
   ];
 
   sops.secrets."ssh/poseidon/private" = { # ssh private key
