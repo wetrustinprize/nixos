@@ -1,9 +1,13 @@
-{ inputs, user, ... }: {
+{ inputs, user, pkgs, ... }: {
   imports = [
     ../../configuration
 
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
+  ];
+
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.amd
   ];
 
   sops.secrets."ssh/poseidon/private" = { # ssh private key
