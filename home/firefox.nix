@@ -31,18 +31,14 @@
     };
   };
 
-  programs.chromium = {
-    enable = true;
-  };
-
   xdg.mimeApps.defaultApplications = pkgs.lib.flatten
     (pkgs.lib.map (b: {
-      ${b} = [ "firefox.desktop" "chromium-browser.desktop" ];
-    }) ([
+      ${b} = [ "firefox.desktop" ];
+    }) [
       "text/html"
       "x-scheme-handler/http"
       "x-scheme-handler/https"
       "x-scheme-handler/about"
       "x-scheme-handler/unknown"
-    ]));
+    ]);
 }

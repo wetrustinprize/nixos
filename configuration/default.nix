@@ -17,13 +17,15 @@
 
   sops.secrets."user-password".neededForUsers = true;
 
-  users.mutableUsers = true;
-  users.users.${user.username} = {
-    isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets."user-password".path;
-    extraGroups = [
-      "wheel" # can sudo
-    ];
+  users = {
+    mutableUsers = true;
+    users.${user.username} = {
+      isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets."user-password".path;
+      extraGroups = [
+        "wheel" # can sudo
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [

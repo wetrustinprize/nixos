@@ -1,10 +1,9 @@
 { user, pkgs, ... }: {
   imports = [
-    ./terminal.nix
+    ./alacritty.nix
     ./zed.nix
-    ./browser.nix
+    ./firefox.nix
     ./sticky-notes.nix
-    ./mail.nix
     ./sops.nix
     ./niri.nix
     ./spicetify.nix
