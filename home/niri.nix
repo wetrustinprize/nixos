@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, lib, ... }: {
   home.packages = with pkgs; [
     xwayland-satellite
   ];
@@ -15,6 +15,10 @@
   programs.niri = {
     settings = {
       prefer-no-csd = true;
+
+      spawn-at-startup = lib.mkAfter [{
+        argv = ["tailscale" "systray"];
+      }];
 
       input = {
         focus-follows-mouse.enable = true;

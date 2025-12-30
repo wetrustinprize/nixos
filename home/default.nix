@@ -11,9 +11,15 @@
     ./nixcord.nix
     ./easyeffects.nix
     ./noctalia.nix
+    ./syncthing.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   home.packages = with pkgs; [
     bitwarden-desktop # password control
@@ -35,6 +41,7 @@
     gamescope # game x11
     gnucash # finance app
     pavucontrol # pulse audio control
+    kdePackages.kdenlive # simple video editing
   ];
 
   home.username = "${user.username}";

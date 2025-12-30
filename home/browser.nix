@@ -1,4 +1,4 @@
-{ user, pkgs, ... }: {
+{ user, pkgs, inputs, ... }: {
   stylix.targets.firefox = {
     profileNames = [ user.username ];
     colorTheme.enable = true;
@@ -10,8 +10,19 @@
     profiles.${user.username} = {
       isDefault = true;
 
+      settings = {
+        "extensions.autoDisableScopes" = 0;
+      };
+
       extensions = {
         force = true;
+
+        # extensions from a nice flake
+        # https://gitlab.com/rycee/nur-expressions/-/tree/master/pkgs/firefox-addons
+        packages = with inputs.firefox-addons.packages.${pkgs.stdenv.system}; [
+          ublock-origin
+          bitwarden
+        ];
       };
     };
   };

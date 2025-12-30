@@ -9,11 +9,10 @@
     upower.enable = true; # power management service
     power-profiles-daemon.enable = true; # power profiles
 
-    # printer discovery
-    avahi = {
+    # tailscale vpn
+    tailscale = {
       enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
+      extraSetFlags = [ "--operator=${user.username}" ];
     };
   };
 
