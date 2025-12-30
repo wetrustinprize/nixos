@@ -19,6 +19,8 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    TZ = user.timeZone;
+    LANG = user.locale;
   };
 
   home.packages = with pkgs; [
