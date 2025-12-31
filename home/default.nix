@@ -1,19 +1,26 @@
 { user, pkgs, ... }: {
   imports = [
-    ./terminal.nix
+    ./alacritty.nix
     ./zed.nix
-    ./browser.nix
+    ./firefox.nix
     ./sticky-notes.nix
-    ./mail.nix
     ./sops.nix
     ./niri.nix
     ./spicetify.nix
     ./nixcord.nix
     ./easyeffects.nix
     ./noctalia.nix
+    ./syncthing.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    TZ = user.timeZone;
+    LANG = user.locale;
+  };
 
   home.packages = with pkgs; [
     bitwarden-desktop # password control
@@ -35,6 +42,7 @@
     gamescope # game x11
     gnucash # finance app
     pavucontrol # pulse audio control
+    kdePackages.kdenlive # simple video editing
   ];
 
   home.username = "${user.username}";

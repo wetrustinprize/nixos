@@ -17,17 +17,19 @@
 
   sops.secrets."user-password".neededForUsers = true;
 
-  users.mutableUsers = true;
-  users.users.${user.username} = {
-    isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets."user-password".path;
-    extraGroups = [
-      "wheel" # can sudo
-    ];
+  users = {
+    mutableUsers = true;
+    users.${user.username} = {
+      isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets."user-password".path;
+      extraGroups = [
+        "wheel" # can sudo
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
-    vim # terminal file editing
+    neovim # terminal file editing
     wget # fetch util
     curl # fetch util
     git # version control
@@ -41,6 +43,9 @@
     bat # terminal file viewing
     brightnessctl # screen brightness control
     dmidecode # hardware info
+    pay-respects # command correction
+    lsof # list open files, useful for port debugging
+    nmap # map ports of an address
   ];
 
   programs = {

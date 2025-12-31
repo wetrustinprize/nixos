@@ -1,7 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ../../home
+  ];
+
+  home.packages = [
+    pkgs.davinci-resolve # video editing
+    inputs.affinity-nix.packages.${pkgs.stdenv.system}.v3 # whole image editing suite
   ];
 
   programs.niri.settings.outputs = {

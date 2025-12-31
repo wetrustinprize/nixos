@@ -1,4 +1,4 @@
-{ user, pkgs, ... }: {
+{ pkgs, user, ... }: {
   imports = [
     ../../configuration
 
