@@ -86,6 +86,7 @@
             { app-id = "Alacritty"; }
             { app-id = "Bitwarden"; }
             { app-id = "org.pulseaudio.pavucontrol"; }
+            { app-id = "io.gitlab.idevecore.Pomodoro"; }
           ];
 
           open-floating = true;

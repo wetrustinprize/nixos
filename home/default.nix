@@ -3,7 +3,6 @@
     ./alacritty.nix
     ./zed.nix
     ./firefox.nix
-    ./sticky-notes.nix
     ./sops.nix
     ./niri.nix
     ./spicetify.nix
@@ -41,6 +40,7 @@
     gnucash # finance app
     pavucontrol # pulse audio control
     kdePackages.kdenlive # simple video editing
+    pomodoro-gtk # pomodoro app
   ];
 
   home.username = "${user.username}";
