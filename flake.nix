@@ -55,7 +55,6 @@
       hosts = import ./hosts;
       pkgs = import nixpkgs {
         inherit (user) system;
-        config.allowUnfree = true;
       };
     in
   {
@@ -70,7 +69,8 @@
             niri.nixosModules.niri
             home-manager.nixosModules.home-manager {
               home-manager.backupFileExtension = "backup";
-
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
               home-manager.sharedModules = [
                 inputs.sops-nix.homeManagerModules.sops
                 inputs.spicetify-nix.homeManagerModules.spicetify

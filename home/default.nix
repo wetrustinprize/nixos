@@ -13,8 +13,6 @@
     ./syncthing.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
