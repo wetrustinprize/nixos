@@ -3,7 +3,7 @@
 
   home.packages = with pkgs; [
     nixd # nix language server
-    nil # nix language server
+    alejandra # nix formatting
   ];
 
   home.sessionVariables = {
@@ -51,12 +51,27 @@
       collaboration_panel.dock = "right";
       outline_panel.dock = "right";
       terminal.dock = "bottom";
-      diagnostics.button = false;
       disable_ai = true;
-      lsp = {
-        nil = {
-          settings = {
-            autoArchive = true;
+      diagnostics = {
+        button = true;
+        inline.enabled = true;
+      };
+      inlay_hints = {
+        enabled = true;
+        show_value_hints = true;
+        show_type_hints = false;
+        show_parameter_hints = true;
+        show_other_hints = true;
+        show_background = false;
+      };
+
+      # nix language settings
+      languages = {
+        Nix = {
+          language_servers = ["nixd" "!nil"];
+          formatter.external = {
+            command = "alejandra";
+            arguments = ["--quiet" "--"];
           };
         };
       };
