@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Rebuild and switch",
+    "command": "nh os switch",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true
+  }
+]
