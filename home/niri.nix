@@ -1,6 +1,7 @@
 { pkgs, config, lib, ... }: {
   home.packages = with pkgs; [
     xwayland-satellite
+    nirius
   ];
 
   xdg.portal = {
@@ -18,6 +19,8 @@
 
       spawn-at-startup = lib.mkAfter [{
         argv = ["tailscale" "systray"];
+      } {
+        argv = ["niriusd"];
       }];
 
       input = {
@@ -114,6 +117,14 @@
             "Mod+Q" = {
               action.close-window = [];
               repeat = false;
+            };
+            "Mod+O" = {
+              action.spawn = ["nirius" "focus-or-spawn" "--app-id=obsidian" "obsidian"];
+              hotkey-overlay.title = "Spawn or focus Obsidian";
+            };
+            "Mod+B" = {
+              action.spawn = ["nirius" "focus-or-spawn" "--app-id=bitwarden" "bitwarden"];
+              hotkey-overlay.title = "Spawn or focus Bitwarden";
             };
             "Mod+Space" = {
               action.toggle-overview = [];
