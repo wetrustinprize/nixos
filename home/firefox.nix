@@ -27,10 +27,12 @@
           ublock-origin
           bitwarden
 
+          # development
+          react-devtools
+
           # youtube
-          youtube-shorts-block
-          redirect-shorts-to-youtube
           youtube-high-definition
+          sponsorblock
           dearrow
         ];
       };
