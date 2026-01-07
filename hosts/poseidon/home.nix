@@ -14,7 +14,7 @@
       mode = {
         height = 1080;
         width = 1920;
-        refresh = 144.001;
+        refresh = 100.0; # having issues with the monitor, have to lower the refresh rate
       };
       position = {
         x = 1920;
