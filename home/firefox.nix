@@ -26,6 +26,12 @@
         packages = with inputs.firefox-addons.packages.${pkgs.stdenv.system}; [
           ublock-origin
           bitwarden
+
+          # youtube
+          youtube-shorts-block
+          redirect-shorts-to-youtube
+          youtube-high-definition
+          dearrow
         ];
       };
     };
