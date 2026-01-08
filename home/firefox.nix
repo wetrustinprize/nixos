@@ -33,7 +33,6 @@
           # youtube
           youtube-high-definition
           sponsorblock
-          dearrow
         ];
       };
     };

@@ -37,10 +37,12 @@
     bottles # easier wine
     beeper # better way to use many communication apps
     gamescope # game x11
-    gnucash # finance app
     pavucontrol # pulse audio control
     kdePackages.kdenlive # simple video editing
     pomodoro-gtk # pomodoro app
+    newsflash # rss feed reader
+    qalculate-gtk # calculator
+    homebank # personal finance app
   ];
 
   home.username = "${user.username}";
