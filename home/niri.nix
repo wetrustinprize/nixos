@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     xwayland-satellite
     nirius
+    nautilus # required for xdg-portal-gnome
   ];
 
   xdg.portal = {
@@ -9,6 +10,7 @@
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
       xdg-desktop-portal-wlr
     ];
   };
