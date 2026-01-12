@@ -12,7 +12,7 @@
     ./syncthing.nix
   ];
 
-  home.sessionVariables = {
+  programs.niri.settings.environment = {
     EDITOR = "nvim";
     VISUAL = "nvim";
     TZ = user.timeZone;

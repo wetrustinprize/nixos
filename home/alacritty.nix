@@ -1,5 +1,5 @@
 { ... }: {
-  home.sessionVariables = {
+  programs.niri.settings.environment = {
     TERMINAL = "alacritty";
   };
 

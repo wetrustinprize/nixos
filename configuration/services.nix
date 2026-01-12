@@ -8,6 +8,7 @@
     printing.enable = true; # printing services, cups
     upower.enable = true; # power management service
     power-profiles-daemon.enable = true; # power profiles
+    flatpak.enable = true; # other way to download packages (worst)
 
     # tailscale vpn
     tailscale = {

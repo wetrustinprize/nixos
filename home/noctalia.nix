@@ -3,7 +3,7 @@
     inputs.noctalia.homeModules.default
   ];
 
-  home.sessionVariables = {
+  programs.niri.settings.environment = {
     # required to open the app launcher
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
   };

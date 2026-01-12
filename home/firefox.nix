@@ -4,7 +4,7 @@
     colorTheme.enable = true;
   };
 
-  home.sessionVariables = {
+  programs.niri.settings.environment = {
     BROWSER = "firefox";
   };
 

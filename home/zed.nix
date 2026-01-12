@@ -4,17 +4,18 @@
   home.packages = with pkgs; [
     nixd # nix language server
     alejandra # nix formatting
+
+    omnisharp-roslyn # csharp lsp
+    dotnet-sdk_10 # dotnet sdk
   ];
 
-  home.sessionVariables = {
+  programs.niri.settings.environment = {
     EDITOR = lib.mkForce "zeditor --wait";
+    DOTNET_ROOT = "${pkgs.dotnet-sdk_10}/share/dotnet";
   };
 
   programs.zed-editor = {
     enable = true;
-    extraPackages = with pkgs; [
-      nil
-    ];
     extensions = [
       # behaviour
       "wakatime"
@@ -77,7 +78,15 @@
         show_sign_in = false;
       };
 
-      # nix language settings
+      lsp = {
+        omnisharp = {
+          binary = {
+            path = "${pkgs.omnisharp-roslyn}/bin/OmniSharp";
+            arguments = ["-lsp"];
+          };
+        };
+      };
+
       languages = {
         Nix = {
           language_servers = ["nixd" "!nil"];
