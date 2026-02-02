@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ../../home
   ];
@@ -8,6 +11,12 @@
     pkgs.davinci-resolve # video editing
     inputs.affinity-nix.packages.${pkgs.stdenv.system}.v3 # whole image editing suite
   ];
+
+  programs.obs-studio.package = (
+    pkgs.obs-studio.override {
+      cudaSupport = true; # nvidia hardware accel
+    }
+  );
 
   programs.niri.settings.outputs = {
     "DP-3" = {
@@ -52,6 +61,6 @@
       wifiEnabled = false;
     };
 
-    notifications.monitors = [ "HDMI-A-2" ];
+    notifications.monitors = ["HDMI-A-2"];
   };
 }

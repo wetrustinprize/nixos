@@ -10,6 +10,8 @@
     ./easyeffects.nix
     ./noctalia.nix
     ./syncthing.nix
+    ./obs.nix
+    ./chromium.nix
   ];
 
   programs.niri.settings.environment = {
