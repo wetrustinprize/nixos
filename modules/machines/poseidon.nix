@@ -26,6 +26,7 @@
       # packages
       self.nixosModules.niri
       self.nixosModules.stylix
+      self.nixosModules.zed-editor
 
       # nyx additional configuration
       {

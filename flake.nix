@@ -26,13 +26,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # zed code editor
-    zed = {
-      url = "github:zed-industries/zed";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # nix-index database
+   # nix-index database
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
