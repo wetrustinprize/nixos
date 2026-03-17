@@ -11,6 +11,9 @@
       self.nixosModules.locale
       self.nixosModules.networking
 
+      #shell
+      self.nixosModules.shell-zsh
+
       # gpu
       self.nixosModules.nvidia
 
@@ -84,6 +87,7 @@
         environment.sessionVariables = {
           TERMINAL = "alacritty";
           BROWSER = "firefox";
+          EDITOR = "zeditor --wait";
         };
       }
 
