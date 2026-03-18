@@ -1,6 +1,6 @@
 {...}: {
   flake.nixosModules.zed-editor = {...}: {
-    services.gnome-keyring.enable = true;
+    services.gnome.gnome-keyring.enable = true;
   };
 
   flake.homeModules.zed-editor = {pkgs, ...}: {
@@ -52,7 +52,10 @@
         calls.mute_on_join = true;
         git.inline_blake.show_commit_summary = false;
         show_whitespaces = "selection";
-        edit_predictions.mode = "eager";
+        edit_predictions = {
+          mode = "eager";
+          provider = "zed";
+        };
         git_panel.button = false;
         inlay_hints = {
           enabled = true;
@@ -63,12 +66,8 @@
           show_background = false;
         };
         disable_ai = false;
-        features = {
-          edit_prediction_provider = "zed";
-        };
         agent = {
           play_sound_when_agent_done = true;
-          always_allow_tool_actions = false;
           default_profile = "write";
           dock = "left";
         };

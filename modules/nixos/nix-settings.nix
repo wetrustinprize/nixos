@@ -41,6 +41,8 @@ in {
       };
 
       nix-index.enable = true;
+
+      nix-ld.enable = true;
     };
   };
 

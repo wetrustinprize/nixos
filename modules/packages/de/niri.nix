@@ -27,6 +27,10 @@
     config,
     ...
   }: {
+    nixpkgs.overlays = [
+      inputs.niri.overlays.niri
+    ];
+
     home.packages = with pkgs; [
       xwayland-satellite
       nirius

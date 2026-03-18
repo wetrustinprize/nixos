@@ -27,7 +27,7 @@
             };
 
             wallpaper = {
-              enable = false;
+              enabled = false;
             };
 
             calendar = {
@@ -51,6 +51,14 @@
               ];
             };
 
+            audioVisualizer = {
+              width = 50;
+            };
+
+            dock = {
+              enabled = false;
+            };
+
             bar = {
               widgets = {
                 left = [
@@ -66,6 +74,9 @@
                   }
                 ];
                 right = [
+                  {
+                    id = "AudioVisualizer";
+                  }
                   {
                     id = "SystemMonitor";
                   }
@@ -86,11 +97,6 @@
       }
       (lib.mkIf cfg.enableNiriIntegration {
         programs.niri.settings = {
-          environment = {
-            # required to open the app launcher
-            QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-          };
-
           spawn-at-startup = lib.mkAfter [
             {
               argv = ["noctalia-shell"];
@@ -102,14 +108,6 @@
           };
 
           binds = {
-            "Mod+P" = {
-              action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];
-              hotkey-overlay.title = "Toggle app launcher";
-            };
-            "Mod+Period" = {
-              action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "emoji"];
-              hotkey-overlay.title = "Open emoji picker";
-            };
             "Mod+0" = {
               action.spawn = ["noctalia-shell" "ipc" "call" "sessionMenu" "toggle"];
               hotkey-overlay.title = "Open clipboard manager";

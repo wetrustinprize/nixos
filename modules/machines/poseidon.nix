@@ -1,96 +1,24 @@
-{
-  inputs,
-  self,
-  ...
-}: {
-  flake.nixosConfigurations.poseidon = inputs.nixpkgs.lib.nixosSystem {
+{self, ...}: {
+  flake.nixosConfigurations.poseidon = self.lib.mkSystem {
+    system = "x86_64_linux";
     modules = [
-      self.nixosModules.hardware
-      self.nixosModules.boot
-      self.nixosModules.nix-settings
-      self.nixosModules.locale
-      self.nixosModules.networking
-
-      #shell
-      self.nixosModules.shell-zsh
-
-      # gpu
+      self.nixosModules.home-manager
+      self.nixosModules.stylix
       self.nixosModules.nvidia
-
-      # desktop
       self.nixosModules.login
       self.nixosModules.audio
       self.nixosModules.graphics
-
-      # users
-      self.nixosModules.home-manager
-      self.nixosModules.user-wetrustinprize
-
-      # packages
-      self.nixosModules.niri
-      self.nixosModules.stylix
-      self.nixosModules.zed-editor
       self.nixosModules.steam
 
-      # nyx additional configuration
+      # additional configuration
       {
         networking.hostName = "poseidon";
 
-        users.wetrustinprize.homeManagerModules = [
-          self.homeModules.nix-settings
-          self.homeModules.alacritty
-          self.homeModules.firefox
-          self.homeModules.zed-editor
-          self.homeModules.spicetify
-          self.homeModules.unity
-          self.homeModules.godot
-          self.homeModules.nixcord
-
-          self.homeModules.noctalia
-          {
-            programs.noctalia-shell.enableNiriIntegration = true;
-            programs.noctalia-shell.settings.notifications.monitors = ["HDMI-A-2"];
-          }
-
-          self.homeModules.niri
-          {
-            programs.niri.settings.outputs = {
-              "DP-3" = {
-                mode = {
-                  height = 1080;
-                  width = 1920;
-                  refresh = 119.879; # having issues with the monitor, have to lower the refresh rate
-                };
-                position = {
-                  x = 1920;
-                  y = 0;
-                };
-                focus-at-startup = true;
-              };
-
-              "HDMI-A-2" = {
-                mode = {
-                  height = 1080;
-                  width = 1920;
-                  refresh = 60.0;
-                };
-                position = {
-                  x = 0;
-                  y = 0;
-                };
-              };
-            };
-          }
-
-          # session variables
-          {
-            environment.sessionVariables = {
-              TERMINAL = "alacritty";
-              BROWSER = "firefox";
-              EDITOR = "zeditor --wait";
-            };
-          }
-        ];
+        environment.sessionVariables = {
+          TERMINAL = "alacritty";
+          BROWSER = "firefox";
+          EDITOR = "zeditor --wait";
+        };
       }
 
       # hardware configuration
@@ -124,6 +52,79 @@
 
         swapDevices = [];
       })
+    ];
+    users = [
+      {
+        name = "wetrustinprize";
+        modules = [
+          "alacritty"
+          "firefox"
+          "zed-editor"
+          "spicetify"
+          "unity"
+          "godot"
+          "nixcord"
+          "noctalia"
+          "niri"
+          "bitwarden"
+          "kdeconnect"
+          "vicinae"
+        ];
+        extraModules = [
+          # noctalia configs
+          {
+            programs.noctalia-shell.enableNiriIntegration = true;
+            programs.noctalia-shell.settings.notifications.monitors = ["HDMI-A-2"];
+          }
+
+          # vicinae configs
+          {
+            programs.vicinae.enableNiriIntegration = true;
+            programs.vicinae.enableBitwardenIntegration = true;
+          }
+
+          # niri configs
+          {
+            programs.niri.settings.outputs = {
+              "DP-3" = {
+                mode = {
+                  height = 1080;
+                  width = 1920;
+                  refresh = 119.879; # having issues with the monitor, have to lower the refresh rate
+                };
+                position = {
+                  x = 1920;
+                  y = 0;
+                };
+                focus-at-startup = true;
+              };
+
+              "HDMI-A-2" = {
+                mode = {
+                  height = 1080;
+                  width = 1920;
+                  refresh = 60.0;
+                };
+                position = {
+                  x = 0;
+                  y = 0;
+                };
+              };
+            };
+          }
+
+          # other packages that don't have modules yet
+          ({pkgs, ...}: {
+            home.packages = with pkgs; [
+              slack
+              beeper
+              obsidian
+              homebank
+              gitkraken
+            ];
+          })
+        ];
+      }
     ];
   };
 }

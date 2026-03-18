@@ -43,18 +43,52 @@
               "default.clock.max-quantum" = 8192;
             };
           };
-        };
-        pipewire-pulse."99-quantum" = {
-          context.modules = [
-            {
-              name = "libpipewire-module-protocol-pulse";
-              args = {
-                pulse.min.quantum = "1024/48000";
-                pulse.default.quantum = "1024/48000";
-                pulse.max.quantum = "8192/48000";
-              };
-            }
-          ];
+          pipewire-pulse."99-quantum" = {
+            context.modules = [
+              {
+                name = "libpipewire-module-protocol-pulse";
+                args = {
+                  pulse.min.quantum = "1024/48000";
+                  pulse.default.quantum = "1024/48000";
+                  pulse.max.quantum = "8192/48000";
+                };
+              }
+            ];
+          };
+          # some nice denoising from vimenjoyer
+          "99-input-denoising" = {
+            "context.modules" = [
+              {
+                "name" = "libpipewire-module-filter-chain";
+                "args" = {
+                  "node.description" = "DeepFilter Noise Cancelling Source";
+                  "media.name" = "DeepFilter Noise Cancelling Source";
+                  "filter.graph" = {
+                    "nodes" = [
+                      {
+                        "type" = "ladspa";
+                        "name" = "DeepFilter Mono";
+                        "plugin" = "${pkgs.deepfilternet}/lib/ladspa/libdeep_filter_ladspa.so";
+                        "label" = "deep_filter_mono";
+                        # "control" = {
+                        #   "Attenuation Limit (dB)" = cfg.source.attenuation;
+                        # };
+                      }
+                    ];
+                  };
+                  "audio.rate" = 48000;
+                  "capture.props" = {
+                    "node.name" = "deep_filter_mono_input";
+                    "node.passive" = true;
+                  };
+                  "playback.props" = {
+                    "node.name" = "deep_filter_mono_output";
+                    "media.class" = "Audio/Source";
+                  };
+                };
+              }
+            ];
+          };
         };
       };
     };

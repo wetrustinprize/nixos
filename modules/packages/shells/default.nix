@@ -1,20 +1,16 @@
 {...}: {
-  flake.nixosModules.shell-defaults = {pkgs, ...}: {
+  flake.nixosModules.shell-default = {pkgs, ...}: {
     console.useXkbConfig = true;
 
-    environment.shells = with pkgs; [zsh];
-    users.defaultUserShell = pkgs.zsh;
+    environment.shells = with pkgs; [fish];
+    users.defaultUserShell = pkgs.fish;
 
     programs.starship.enable = true;
+    programs.direnv.enable = true;
+    programs.zoxide.enable = true;
 
-    programs.direnv = {
+    programs.fish = {
       enable = true;
-      enableZshIntegration = true;
-    };
-
-    programs.zoxide = {
-      enable = true;
-      enableZshIntegration = true;
     };
   };
 }

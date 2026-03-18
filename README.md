@@ -15,9 +15,9 @@ guides so I don't ever forget how to use it _lol_.
 
 # First password
 
-Here we are using [sops-nix](https://github.com/Mic92/sops-nix) for secrets handling, this includes the `wetrustinprize`
-user password; it only changes the correct password when the `.age` key is provided, if no key is present the password
-defaults to `change-me`.
+Here we are using [sops-nix](https://github.com/Mic92/sops-nix) for secrets handling, this includes all users
+password; it only changes the correct password when the `.age` key is provided, if no key is present the password
+defaults to `password`.
 
 # flake-file
 
@@ -27,25 +27,3 @@ module this must be run to update the `flake.nix` file with the correct inputs a
 ```shell
 $ nix run .#write-flakes
 ```
-
----
-
-# To Do list
-
-Here is where I write what I still want to implement in my configuration:
-
-**modules**
-
-- [ ] https://github.com/nix-community/impermanence
-- [ ] https://github.com/nix-community/disko
-
-**packages**
-
-- [ ] https://github.com/vicinaehq/vicinae
-
-**noctalia plugins**
-
-- [ ] https://github.com/noctalia-dev/noctalia-plugins/tree/main/tailscale
-- [ ] https://github.com/noctalia-dev/noctalia-plugins/tree/main/model-usage
-- [ ] https://github.com/noctalia-dev/noctalia-plugins/tree/main/privacy-indicator
-- [ ] https://github.com/noctalia-dev/noctalia-plugins/tree/main/kde-connect
