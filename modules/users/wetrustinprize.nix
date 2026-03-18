@@ -6,7 +6,7 @@
     ...
   }: let
     host = config.networking.hostName;
-    cfg = config.nyx.users.wetrustinprize;
+    cfg = config.users.wetrustinprize;
     hasSSH =
       ../../secrets.yaml
       |> (file:
@@ -20,7 +20,7 @@
   in {
     imports = [self.nixosModules.users];
 
-    options.nyx.users.wetrustinprize = {
+    options.users.wetrustinprize = {
       homeManagerModules = lib.mkOption {
         type = lib.types.listOf lib.types.anything;
         default = [];

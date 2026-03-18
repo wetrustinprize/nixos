@@ -34,30 +34,24 @@
 
       # nyx additional configuration
       {
-        nyx.networking.hostname = "poseidon";
+        networking.hostName = "poseidon";
 
-        nyx.users.wetrustinprize.homeManagerModules = [
+        users.wetrustinprize.homeManagerModules = [
           self.homeModules.nix-settings
-          self.homeModules.niri
           self.homeModules.alacritty
           self.homeModules.firefox
-          self.homeModules.noctalia
           self.homeModules.zed-editor
           self.homeModules.spicetify
           self.homeModules.unity
           self.homeModules.godot
 
-          # nyx home additional configuration
+          self.homeModules.noctalia
           {
-            nyx.noctalia.niri.enable = true;
-          }
-
-          # noctalia additional configuration
-          {
+            programs.noctalia-shell.enableNiriIntegration = true;
             programs.noctalia-shell.settings.notifications.monitors = ["HDMI-A-2"];
           }
 
-          # niri additional configuration
+          self.homeModules.niri
           {
             programs.niri.settings.outputs = {
               "DP-3" = {
@@ -86,13 +80,16 @@
               };
             };
           }
-        ];
 
-        environment.sessionVariables = {
-          TERMINAL = "alacritty";
-          BROWSER = "firefox";
-          EDITOR = "zeditor --wait";
-        };
+          # session variables
+          {
+            environment.sessionVariables = {
+              TERMINAL = "alacritty";
+              BROWSER = "firefox";
+              EDITOR = "zeditor --wait";
+            };
+          }
+        ];
       }
 
       # hardware configuration

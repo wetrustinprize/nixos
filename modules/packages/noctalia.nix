@@ -6,13 +6,11 @@
     config,
     ...
   }: let
-    cfg = config.nyx.noctalia;
+    cfg = config.programs.noctalia-shell;
   in {
     imports = [inputs.noctalia.homeModules.default];
 
-    options.nyx.noctalia = {
-      niri.enable = lib.mkEnableOption "enable Niri integration";
-    };
+    options.programs.noctalia-shell.enableNiriIntegration = lib.mkEnableOption "enable Niri integration";
 
     config = lib.mkMerge [
       {
@@ -86,7 +84,7 @@
           };
         };
       }
-      (lib.mkIf cfg.niri.enable {
+      (lib.mkIf cfg.enableNiriIntegration {
         programs.niri.settings = {
           environment = {
             # required to open the app launcher
