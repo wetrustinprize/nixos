@@ -44,6 +44,7 @@
           self.homeModules.spicetify
           self.homeModules.unity
           self.homeModules.godot
+          self.homeModules.nixcord
 
           self.homeModules.noctalia
           {
