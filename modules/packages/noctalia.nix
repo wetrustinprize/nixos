@@ -1,4 +1,6 @@
 {inputs, ...}: {
+  flake-file.inputs.noctalia.url = "github:noctalia-dev/noctalia-shell";
+
   flake.homeModules.noctalia = {
     lib,
     config,

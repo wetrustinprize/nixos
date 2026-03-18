@@ -1,4 +1,6 @@
 {inputs, ...}: {
+  flake-file.inputs.firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+
   flake.homeModules.firefox = {pkgs, ...}: {
     programs.firefox = {
       enable = true;

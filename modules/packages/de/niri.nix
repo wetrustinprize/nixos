@@ -3,6 +3,8 @@
   self,
   ...
 }: {
+  flake-file.inputs.niri.url = "github:sodiboo/niri-flake";
+
   flake.nixosModules.niri = {pkgs, ...}: {
     imports = [
       inputs.niri.nixosModules.niri

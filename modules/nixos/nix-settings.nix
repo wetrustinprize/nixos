@@ -2,6 +2,8 @@
 : let
   stateVersion = "26.05";
 in {
+  flake-file.inputs.nix-index-database.url = "github:nix-community/nix-index-database";
+
   flake.nixosModules.nix-settings = {...}: {
     imports = [inputs.nix-index-database.nixosModules.default];
 

@@ -1,4 +1,6 @@
 {inputs, ...}: {
+  flake-file.inputs.stylix.url = "github:nix-community/stylix";
+
   flake.nixosModules.stylix = {
     pkgs,
     config,
