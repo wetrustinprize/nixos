@@ -6,13 +6,16 @@
   outputs = inputs: import ./outputs.nix inputs;
 
   inputs = {
-    allfollow.url = "github:spikespaz/allfollow";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager.url = "github:nix-community/home-manager/master";
     import-tree.url = "github:vic/import-tree";
     niri.url = "github:sodiboo/niri-flake";
+    nix-auto-follow = {
+      url = "github:fzakaria/nix-auto-follow";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database.url = "github:nix-community/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
