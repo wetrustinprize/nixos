@@ -27,3 +27,13 @@ module this must be run to update the `flake.nix` file with the correct inputs a
 ```shell
 $ nix run .#write-flakes
 ```
+
+---
+
+# To Do list
+
+Here is where I write what I still want to implement in my configuration:
+
+- [ ] https://github.com/nix-community/impermanence
+- [ ] https://github.com/nix-community/disko
+- [ ] https://github.com/vicinaehq/vicinae
