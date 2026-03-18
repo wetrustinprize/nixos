@@ -9,6 +9,7 @@
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    godot-overlays.url = "github:florianvazelle/godot-overlay";
     home-manager.url = "github:nix-community/home-manager/master";
     import-tree.url = "github:vic/import-tree";
     niri.url = "github:sodiboo/niri-flake";

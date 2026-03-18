@@ -30,6 +30,7 @@
       self.nixosModules.niri
       self.nixosModules.stylix
       self.nixosModules.zed-editor
+      self.nixosModules.steam
 
       # nyx additional configuration
       {
@@ -42,6 +43,9 @@
           self.homeModules.firefox
           self.homeModules.noctalia
           self.homeModules.zed-editor
+          self.homeModules.spicetify
+          self.homeModules.unity
+          self.homeModules.godot
 
           # nyx home additional configuration
           {
