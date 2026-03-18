@@ -6,6 +6,7 @@
   outputs = inputs: import ./outputs.nix inputs;
 
   inputs = {
+    allfollow.url = "github:spikespaz/allfollow";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";

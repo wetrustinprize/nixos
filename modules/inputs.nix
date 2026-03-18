@@ -1,6 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.flake-file.flakeModules.default
+    inputs.flake-file.flakeModules.allfollow
   ];
 
   flake-file = {
