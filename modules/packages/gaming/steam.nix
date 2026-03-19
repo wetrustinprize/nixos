@@ -1,12 +1,7 @@
 {...}: {
-  flake.nixosModules.steam = {pkgs, ...}: {
+  flake.nixosModules.steam = {...}: {
     programs.steam = {
       enable = true;
-      extraCompatPackages = with pkgs; [
-        proton-ge-bin
-      ];
-
-      remotePlay.openFirewall = true;
     };
   };
 }

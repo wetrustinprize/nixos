@@ -10,6 +10,7 @@
       jq
       ripgrep
       croc
+      htop-vim
     ];
   };
 }
