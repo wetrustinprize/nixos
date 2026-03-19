@@ -25,5 +25,5 @@ The flake uses [flake-file](https://flake-file.oeiuwq.com/) to organize the inpu
 module this must be run to update the `flake.nix` file with the correct inputs and flatten it:
 
 ```shell
-$ nix run .#write-flakes
+$ nix run .#write-flake
 ```
