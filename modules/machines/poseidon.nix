@@ -9,6 +9,7 @@
       self.nixosModules.audio
       self.nixosModules.graphics
       self.nixosModules.steam
+      self.nixosModules.thunar
 
       # additional configuration
       {
@@ -66,9 +67,11 @@
           "nixcord"
           "noctalia"
           "niri"
-          "bitwarden"
           "kdeconnect"
           "vicinae"
+          "proton-suite"
+          "archive"
+          "helix"
         ];
         extraModules = [
           # noctalia configs
@@ -80,7 +83,7 @@
           # vicinae configs
           {
             programs.vicinae.enableNiriIntegration = true;
-            programs.vicinae.enableBitwardenIntegration = true;
+            programs.vicinae.enableZedIntegration = true;
           }
 
           # niri configs
@@ -121,6 +124,9 @@
               obsidian
               homebank
               gitkraken
+              fastmail-desktop
+              bottles
+              prismlauncher
             ];
           })
         ];

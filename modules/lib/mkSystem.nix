@@ -57,9 +57,11 @@
           self.nixosModules.nixos-default
           self.nixosModules.locale
           self.nixosModules.networking
+          self.nixosModules.tailscale
           self.nixosModules.shell-default
           self.nixosModules.users
-          self.nixosModules.bitwarden
+          self.nixosModules.files
+          self.nixosModules.helix
 
           {_module.args = {inherit inputs self;};}
         ]

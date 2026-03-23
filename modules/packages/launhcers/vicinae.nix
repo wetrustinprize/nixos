@@ -19,7 +19,7 @@
   in {
     options.programs.vicinae = {
       enableNiriIntegration = lib.mkEnableOption "Niri integration (extesion + config)";
-      enableBitwardenIntegration = lib.mkEnableOption "Bitwarden integration (extension)";
+      enableZedIntegration = lib.mkEnableOption "Zed integration (extension)";
     };
 
     config = lib.mkMerge [
@@ -33,9 +33,12 @@
                   name = extesion;
                   src = extensionsRepo + "/extensions/${extesion}";
                 }
-            ) (["wikipedia" "nix" "zed-recents"]
-              ++ lib.optionals cfg.enableNiriIntegration ["niri"]);
+            ) (["wikipedia" "nix"]
+              ++ lib.optionals cfg.enableNiriIntegration ["niri"]
+              ++ lib.optionals cfg.enableZedIntegration ["zed-recents"]);
         };
+
+        home.packages = with pkgs; lib.optionals cfg.enableZedIntegration [sqlite];
       }
       (lib.mkIf
         cfg.enableNiriIntegration
