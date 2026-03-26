@@ -22,6 +22,7 @@
       {
         programs.vicinae = {
           enable = true;
+          systemd.enable = true;
           extensions =
             lib.map (
               extesion:
