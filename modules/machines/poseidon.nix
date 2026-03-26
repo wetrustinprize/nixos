@@ -72,6 +72,7 @@
           "proton-suite"
           "archive"
           "helix"
+          "obs"
         ];
         extraModules = [
           # noctalia configs
