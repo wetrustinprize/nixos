@@ -19,6 +19,14 @@
       package = pkgs.niri;
       enable = true;
     };
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+      ];
+    };
   };
 
   flake.homeModules.niri = {
@@ -30,6 +38,8 @@
     nixpkgs.overlays = [
       inputs.niri.overlays.niri
     ];
+
+    services.gnome-keyring.enable = true;
 
     home.packages = with pkgs; [
       xwayland-satellite
