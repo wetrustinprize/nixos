@@ -13,9 +13,6 @@
       enable = true;
 
       extensions = [
-        # behaviour
-        "wakatime"
-
         # lanaguages
         "editorconfig"
         "dockerfile"
