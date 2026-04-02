@@ -10,6 +10,7 @@
       self.nixosModules.graphics
       self.nixosModules.steam
       self.nixosModules.thunar
+      self.nixosModules.tablet
 
       # additional configuration
       {
@@ -73,6 +74,8 @@
           "archive"
           "helix"
           "obs"
+          "flatpak"
+          "hytale"
         ];
         extraModules = [
           # noctalia configs
@@ -128,6 +131,12 @@
               fastmail-desktop
               bottles
               prismlauncher
+              blender
+              pureref
+              libreoffice
+              material-maker
+              krita
+              texturepacker
             ];
           })
         ];
