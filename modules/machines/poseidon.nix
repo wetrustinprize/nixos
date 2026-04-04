@@ -24,6 +24,14 @@
         };
       }
 
+      # audio-share-server
+      ({lib, ...}: {
+        firewall = {
+          allowedTCPPorts = lib.mkAfter [ 65530 ];
+          allowedUDPPorts = lib.mkAfter [ 65530 ];
+        };
+      })
+
       # hardware configuration
       ({lib, ...}: {
         powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
@@ -77,6 +85,7 @@
           "obs"
           "flatpak"
           "hytale"
+          "audio"
         ];
         extraModules = [
           # noctalia configs
