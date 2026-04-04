@@ -62,6 +62,7 @@
           self.nixosModules.users
           self.nixosModules.files
           self.nixosModules.helix
+          self.nixosModules.git
 
           {_module.args = {inherit inputs self;};}
         ]
