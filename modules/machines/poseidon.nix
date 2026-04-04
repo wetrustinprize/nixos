@@ -11,6 +11,7 @@
       self.nixosModules.steam
       self.nixosModules.thunar
       self.nixosModules.tablet
+      self.nixosModules.glances
 
       # additional configuration
       {
