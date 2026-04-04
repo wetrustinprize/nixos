@@ -256,6 +256,19 @@
         "type": "github"
       }
     },
+    "my-nixpkgs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775338337,
+        "narHash": "sha256-GysGE3eWHaOhhyMQQppyJ2LI0+8SReIVPR6i46KZKcI=",
+        "path": "/home/wetrustinprize/Clones/nixpkgs",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/wetrustinprize/Clones/nixpkgs",
+        "type": "path"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -713,6 +726,7 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
+        "my-nixpkgs": "my-nixpkgs",
         "niri": "niri",
         "nix-auto-follow": "nix-auto-follow",
         "nix-flatpak": "nix-flatpak",

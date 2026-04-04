@@ -11,6 +11,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager.url = "github:nix-community/home-manager/master";
     import-tree.url = "github:vic/import-tree";
+    my-nixpkgs = {
+      url = "path:/home/wetrustinprize/Clones/nixpkgs";
+      flake = false;
+    };
     niri.url = "github:sodiboo/niri-flake";
     nix-auto-follow = {
       url = "github:fzakaria/nix-auto-follow";

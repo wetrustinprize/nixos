@@ -12,6 +12,7 @@
       self.nixosModules.thunar
       self.nixosModules.tablet
       self.nixosModules.glances
+      self.nixosModules.audio-share
 
       # additional configuration
       {
@@ -23,14 +24,6 @@
           EDITOR = "zeditor --wait";
         };
       }
-
-      # audio-share-server
-      ({lib, ...}: {
-        firewall = {
-          allowedTCPPorts = lib.mkAfter [ 65530 ];
-          allowedUDPPorts = lib.mkAfter [ 65530 ];
-        };
-      })
 
       # hardware configuration
       ({lib, ...}: {
