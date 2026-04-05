@@ -11,6 +11,7 @@
       import-tree.url = "github:vic/import-tree";
       flake-parts.url = "github:hercules-ci/flake-parts";
       flake-file.url = "github:vic/flake-file";
+      nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     };
   };
 }
