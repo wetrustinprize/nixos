@@ -93,4 +93,10 @@
       };
     };
   };
+
+  flake.homeModules.audio = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      pavucontrol
+    ];
+  };
 }

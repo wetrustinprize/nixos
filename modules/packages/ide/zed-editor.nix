@@ -13,9 +13,6 @@
       enable = true;
 
       extensions = [
-        # behaviour
-        "wakatime"
-
         # lanaguages
         "editorconfig"
         "dockerfile"
@@ -50,13 +47,9 @@
         use_system_path_prompts = false;
         use_system_prompts = false;
         calls.mute_on_join = true;
-        git.inline_blake.show_commit_summary = false;
         show_whitespaces = "selection";
-        edit_predictions = {
-          mode = "eager";
-          provider = "zed";
-        };
         git_panel.button = false;
+        show_edit_predictions = false;
         inlay_hints = {
           enabled = true;
           show_value_hints = true;

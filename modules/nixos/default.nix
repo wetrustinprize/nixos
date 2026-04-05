@@ -1,7 +1,6 @@
 {...}: {
   flake.nixosModules.nixos-default = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      git # do I need to explain?
       dnsutils # dns utils
       delta # diff tool
       tldr # awesome tool to tldr man pages

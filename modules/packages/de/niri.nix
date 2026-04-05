@@ -19,6 +19,21 @@
       package = pkgs.niri;
       enable = true;
     };
+
+    security.pam.services.gdm.enableGnomeKeyring = true;
+    services.gnome.gnome-keyring.enable = true;
+
+    security.polkit.enable = true;
+
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-wlr
+      ];
+    };
   };
 
   flake.homeModules.niri = {
@@ -31,9 +46,12 @@
       inputs.niri.overlays.niri
     ];
 
+    services.gnome-keyring.enable = true;
+
     home.packages = with pkgs; [
       xwayland-satellite
       nirius
+      nautilus # required for xdg-portal-gnome
     ];
 
     programs.niri = {

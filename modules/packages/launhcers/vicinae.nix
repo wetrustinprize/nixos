@@ -6,10 +6,6 @@
     ...
   }: let
     cfg = config.programs.vicinae;
-    raycastRepo = {
-      rev = "d7f68ce8eb9759f2c3a9c1bdfe5991b14f55c6f7";
-      sha256 = "sha256-YcjrBdqeNgC116LKzfPdz1AmupxwvkmwFBbzBDK7wCI=";
-    };
     extensionsRepo = pkgs.fetchFromGitHub {
       owner = "vicinaehq";
       repo = "extensions";
@@ -26,6 +22,7 @@
       {
         programs.vicinae = {
           enable = true;
+          systemd.enable = true;
           extensions =
             lib.map (
               extesion:
