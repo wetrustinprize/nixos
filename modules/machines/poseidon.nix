@@ -75,8 +75,6 @@
           "archive"
           "helix"
           "obs"
-          "flatpak"
-          "hytale"
           "audio"
         ];
         extraModules = [
