@@ -18,6 +18,7 @@
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
     nixcord.url = "github:kaylorben/nixcord";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     sops-nix.url = "github:Mic92/sops-nix";

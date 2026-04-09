@@ -10,8 +10,6 @@
       self.nixosModules.graphics
       self.nixosModules.steam
       self.nixosModules.thunar
-      self.nixosModules.tablet
-      self.nixosModules.glances
 
       # additional configuration
       {
@@ -131,12 +129,6 @@
               fastmail-desktop
               bottles
               prismlauncher
-              blender
-              pureref
-              libreoffice
-              material-maker
-              krita
-              texturepacker
             ];
           })
         ];
