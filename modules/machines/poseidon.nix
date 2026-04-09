@@ -131,6 +131,12 @@
               fastmail-desktop
               bottles
               prismlauncher
+              blender
+              pureref
+              libreoffice
+              material-maker
+              krita
+              texturepacker
             ];
           })
         ];
