@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repo was moved to [codeberg](https://codeberg.org/wetrustinprize/nixos)
+
 <div align="center">
     <img width="40%" src="nyx.webp"/>
     <div width="40%">
